@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-//creating a struct that takes in name and viewName
+//creating a struct that takes in name and viewName that carries the sidebar information
 struct SidebarItem: Identifiable {
     var id: String { name }
     var name: String
