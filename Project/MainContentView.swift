@@ -242,7 +242,8 @@ struct ContactInformation: View {
                         .cornerRadius(15)
                         .shadow(radius: 5)
                         .padding(.horizontal, 20)
-                    } else {
+                    }
+                    else {
                         //each box will have a 5 space gap in between
                         VStack(spacing: 5) {
                             TextField("Your name", text: $name)
