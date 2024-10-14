@@ -14,9 +14,11 @@ struct SidebarItem: Identifiable {
 }
 
 struct MainContentView: View {
-    // State variable to control the sidebar
+    //state variable to control the sidebar
     @State private var isSidebarOpen = false
-    // Initialize it to Home Page right away
+    //state variable to show the contact form
+    @State private var showContactForm = false
+    //initialize it to Home Page right away
     @State private var currentView: String = "HOME"
 
     //set it into an array of the information
@@ -95,16 +97,21 @@ struct MainContentView: View {
                 .padding(.horizontal)
                 .background(Color.white)
                 .frame(maxHeight: 50, alignment: .top)
-
                 Spacer()
                 //call the function to print out the logos (social media information) and it is horizontal
                 HStack {
                     Spacer()
-                    SocialMediaIcon(imageName: "instagramimage")
-                    SocialMediaIcon(imageName: "youtube")
-                    SocialMediaIcon(imageName: "cart")
-                    SocialMediaIcon(imageName: "tiktok")
-                    SocialMediaIcon(imageName: "envelope")
+                    SocialMediaIcon(imageName: "instagramimage", url: "https://www.instagram.com/yeseniadesigns/")
+                    SocialMediaIcon(imageName: "youtube", url: "https://www.youtube.com/@yeseniadesigns")
+                        //set the currentView a
+                    SocialMediaIcon(imageName: "cart", action: {
+                        currentView = "SHOP"
+                    })
+                    SocialMediaIcon(imageName: "tiktok",url: "https://www.tiktok.com/@yeseniadesigns")
+                    SocialMediaIcon(imageName: "envelope", action: {
+                        //flag it to true
+                        showContactForm = true
+                    })
                     Spacer()
                 }
                 .padding(.bottom, 10)
@@ -144,6 +151,12 @@ struct MainContentView: View {
                     isSidebarOpen.toggle()
                 }
             }
+            //if the show contact is true run this
+            if (showContactForm){
+                //call the function
+                ContactInformation(showForm: $showContactForm)
+                    .transition(.move(edge: .bottom))
+            }
         }
         .animation(.easeInOut, value: isSidebarOpen)
     }
@@ -152,17 +165,107 @@ struct MainContentView: View {
 //struct that creates the same shape for the images icons
 struct SocialMediaIcon: View {
     var imageName: String
+    //optional action
+    var url: String? =  nil
+    //optional  action for non url as well (closure functions)
+    var action: (()->Void)? = nil
+    //lets me open url links
+    @Environment(\.openURL) var openURL
     var body: some View {
-        //pass in the image from your assets
-        Image(imageName)
-            .resizable()
-            .frame(width: 38, height: 22)
-            .padding(10)
-            .background(Color.pink.opacity(0.2))
-            .cornerRadius(5)
+        //will create the button once user clicks on it
+        Button(action: {
+            if let url = url, let validUrl = URL(string: url){
+                openURL(validUrl)
+            }
+            else if let action = action{
+                action()
+            }
+            //debugging purposes to test if url works or the actions
+            else {
+                print("Invalid URL or cannot open URL")
+            }
+        }){
+            //pass in the image from your assets
+            Image(imageName)
+                .resizable()
+                .frame(width: 38, height: 22)
+                .padding(10)
+                .background(Color.pink.opacity(0.2))
+                .cornerRadius(5)
+        }
     }
 }
+struct ContactInformation: View {
+    @Binding var showForm: Bool
+    @State private var name = ""
+    @State private var email = ""
+    @State private var subject = ""
+    @State private var message = ""
 
+    var body: some View {
+        VStack {
+            Spacer()
+            ZStack(alignment: .topTrailing) {
+                VStack(spacing: 5) {
+                    TextField("Your name", text: $name)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(5)
+                        .foregroundColor(.black)
+                        .colorScheme(.light)
+                    TextField("Your email address", text: $email)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(5)
+                        .foregroundColor(.black)
+                        .colorScheme(.light)
+                    TextField("Subject", text: $subject)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(5)
+                        .foregroundColor(.black)
+                        .colorScheme(.light)
+                    TextField("Message...", text: $message)
+                        .frame(height: 100)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(5)
+                        .foregroundColor(.black)
+                        .colorScheme(.light)
+                    Button(action: {
+                        showForm = false
+                    }) {
+                        Text("Send")
+                            .font(.headline)
+                            .foregroundColor(.black) // Ensure button text is visible
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                            .background(Color.pink.opacity(0.2))
+                            .cornerRadius(5)
+                    }
+                }
+                .padding()
+                .background(Color.white) // Keep background white
+                .cornerRadius(15)
+                .shadow(radius: 5)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 50)
+
+                // X Button inside the form's top-right corner
+                Button(action: {
+                    showForm = false
+                }) {
+                    Image(systemName: "xmark.circle")
+                        .foregroundColor(.gray)
+                        .font(.title)
+                        .padding([.top, .trailing], 20)
+                }
+            }
+            Spacer()
+        }
+        .background(Color.black.opacity(0.6).edgesIgnoringSafeArea(.all))
+    }
+}
 
 struct MainContentView_Previews: PreviewProvider {
     static var previews: some View {
