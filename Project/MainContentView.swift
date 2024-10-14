@@ -21,7 +21,7 @@ struct MainContentView: View {
     //initialize it to Home Page right away
     @State private var currentView: String = "HOME"
 
-    //set it into an array of the information
+    //set it into an array of the information (the sidebar view)
     let sidebarItems: [SidebarItem] = [
         SidebarItem(name: "HOME", viewName: "HOME"),
         SidebarItem(name: "BLOG", viewName: "BLOG"),
@@ -167,7 +167,7 @@ struct SocialMediaIcon: View {
     var imageName: String
     //optional action
     var url: String? =  nil
-    //optional  action for non url as well (closure functions)
+    //optional action for non url as well (closure functions)
     var action: (()->Void)? = nil
     //lets me open url links
     @Environment(\.openURL) var openURL
@@ -188,87 +188,144 @@ struct SocialMediaIcon: View {
             //pass in the image from your assets
             Image(imageName)
                 .resizable()
-                .frame(width: 38, height: 22)
+                .frame(width: 35, height: 25)
                 .padding(10)
                 .background(Color.pink.opacity(0.2))
                 .cornerRadius(5)
         }
     }
 }
-//this is for the contact informatin when user needs to contact owner
+//this is for the contact information when user needs to contact owner
 struct ContactInformation: View {
     @Binding var showForm: Bool
-    //privates so only users can access
+    //private variables for only contact information
     @State private var name = ""
     @State private var email = ""
     @State private var subject = ""
     @State private var message = ""
+    @State private var showConfirmationMessage = false
 
     var body: some View {
-        VStack {
-            Spacer()
-            ZStack(alignment: .topTrailing) {
-                //have a 5 space gap between each box
-                VStack(spacing: 5) {
-                    TextField("Your name", text: $name)
+        //need a layered on top of another because it has to be transparent
+        ZStack {
+            //semi-transparent background that covers the entire screen
+            Color.black.opacity(0.6).edgesIgnoringSafeArea(.all)
+            VStack {
+                Spacer()
+                ZStack(alignment: .topTrailing) {
+                    //if they send message ->true then run this
+                    if (showConfirmationMessage) {
+                        //vertical so we can print the message out
+                        VStack {
+                            Text("Thank you for contacting us.")
+                                .font(.headline)
+                                .padding(.top, 20)
+                                .foregroundColor(.black)
+                                .colorScheme(.light)
+                            Text("Your message has been submitted and we will be in touch with you as soon as possible.")
+                                .multilineTextAlignment(.center)
+                                .padding(.vertical, 10)
+                                .foregroundColor(.black)
+                                .colorScheme(.light)
+                            Button(action: {
+                                //flag it back to false -> closed the form
+                                showForm = false
+                            }) {
+                                Image(systemName: "xmark.circle")
+                                    .foregroundColor(.gray)
+                                    .font(.title)
+                                    .padding([.top, .trailing], 20)
+                            }
+                        }
+                        .padding(30)
+                        .background(Color.white)
+                        .cornerRadius(15)
+                        .shadow(radius: 5)
+                        .padding(.horizontal, 20)
+                    } else {
+                        //each box will have a 5 space gap in between
+                        VStack(spacing: 5) {
+                            TextField("Your name", text: $name)
+                                .padding()
+                                .background(Color.white)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.gray, lineWidth: 1)
+                                )
+                                .cornerRadius(5)
+                                .foregroundColor(.black)
+                                .colorScheme(.light)
+                            TextField("Your email address", text: $email)
+                                .padding()
+                                .background(Color.white)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.gray, lineWidth: 1)
+                                )
+                                .cornerRadius(5)
+                                .foregroundColor(.black)
+                                .colorScheme(.light)
+                            TextField("Subject", text: $subject)
+                                .padding()
+                                .background(Color.white)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.gray, lineWidth: 1)
+                                )
+                                .cornerRadius(5)
+                                .foregroundColor(.black)
+                                .colorScheme(.light)
+                            TextField("Message...", text: $message)
+                                .frame(height: 100)
+                                .padding()
+                                .background(Color.white)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.gray, lineWidth: 1)
+                                )
+                                .cornerRadius(5)
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.leading)
+                                .colorScheme(.light)
+                            Button(action: {
+                                //flag it to true -> they send the message to the owner
+                                showConfirmationMessage = true
+                            }) {
+                                Text("Send")
+                                    .font(.headline)
+                                    .foregroundColor(.black)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 20)
+                                    .background(Color.pink.opacity(0.2))
+                                    .cornerRadius(5)
+                            }
+                        }
                         .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(5)
-                        .foregroundColor(.black)
-                        .colorScheme(.light)
-                    TextField("Your email address", text: $email)
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(5)
-                        .foregroundColor(.black)
-                        .colorScheme(.light)
-                    TextField("Subject", text: $subject)
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(5)
-                        .foregroundColor(.black)
-                        .colorScheme(.light)
-                    TextField("Message...", text: $message)
-                        .frame(height: 100)
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(5)
-                        .foregroundColor(.black)
-                        .colorScheme(.light)
-                    Button(action: {
-                        showForm = false
-                    }) {
-                        Text("Send")
-                            .font(.headline)
-                            .foregroundColor(.black)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 20)
-                            .background(Color.pink.opacity(0.2))
-                            .cornerRadius(5)
+                        .background(Color.white)
+                        .cornerRadius(15)
+                        .shadow(radius: 5)
+                        .padding(.horizontal, 10)
+                        .padding(.bottom, 50)
+                    }
+                    //close button (only for form)
+                    if !showConfirmationMessage {
+                        Button(action: {
+                            showForm = false
+                        }) {
+                            Image(systemName: "xmark.circle")
+                                .foregroundColor(.gray)
+                                .font(.title)
+                                .padding([.top, .trailing], 20)
+                        }
                     }
                 }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(15)
-                .shadow(radius: 5)
-                .padding(.horizontal, 10)
-                .padding(.bottom, 50)
 
-                //placing the X button for exit if they don't want to send , create a button
-                Button(action: {
-                    showForm = false
-                }) {
-                    Image(systemName: "xmark.circle")
-                        .foregroundColor(.gray)
-                        .font(.title)
-                        .padding([.top, .trailing], 20)
-                }
+                Spacer()
             }
-            Spacer()
         }
-        .background(Color.black.opacity(0.6).edgesIgnoringSafeArea(.all))
     }
 }
+
 
 struct MainContentView_Previews: PreviewProvider {
     static var previews: some View {

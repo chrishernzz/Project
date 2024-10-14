@@ -27,9 +27,7 @@ struct EtsyShopView: View {
         //top of another layered so the background is white then on top we have our view
         ZStack {
             //even if dark mode we want background to be white
-            Color.white
-                .edgesIgnoringSafeArea(.all)
-            
+            Color.white.edgesIgnoringSafeArea(.all)
             TabView {
                 //loop through the array , index[0] -> etc
                 ForEach(products) { product in
@@ -74,12 +72,10 @@ struct EtsyShopView: View {
                                         Button(action: {
                                             //put the code you want here after user clicks on 'Shop Now'
                                         }) {
-                                            Text("Shop Now")
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.white)
+                                            Text("SHOP NOW")
                                                 .padding(.vertical, 10)
                                                 .padding(.horizontal, 10)
-                                                .background(Color.pink)
+                                                .background(Color.pink.opacity(0.2))
                                                 .cornerRadius(3)
                                         }
                                         //creating space between price and button
@@ -92,7 +88,7 @@ struct EtsyShopView: View {
             }
             //this is for dots, placing it after the content to avoid overlap
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-            .accentColor(Color.pink.opacity(0.2))
+            .accentColor(Color.black.opacity(1.5))
             .frame(height: 400)
             
             //offset will allow me to move the items up without cropping any photos

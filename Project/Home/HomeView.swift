@@ -13,8 +13,7 @@ struct HomeView: View {
         //top of another layered so the background is white then on top we have our view
         ZStack {
             //even if dark mode we want background to be white
-            Color.white
-                .edgesIgnoringSafeArea(.all)
+            Color.white.edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading, spacing: 20) {
                 //this allows user to scroll up and down
                 ScrollView {
@@ -47,7 +46,7 @@ struct HomeView: View {
                             }
                         }
                         
-                        // This has to have a small space and it is vertical display
+                        //this has to have a small space and it is vertical display
                         VStack(spacing: 2) {
                             CategorySectionView(title: "SEWING PATTERN TUTORIAL VIDEOS", textColor: .black, plusColor: .gray)
                             CategorySectionView(title: "EMBROIDERY FILE VIDEOS", textColor: .black, plusColor: .gray)
@@ -81,18 +80,21 @@ struct HomeView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .padding(.vertical, 10)
-                                .padding(.horizontal, 20) // Reduce horizontal padding to make it thinner
+                                .padding(.horizontal, 20)
                                 .background(Color.black)
                                 .cornerRadius(5)
                         }
                     }
                     //make the box taller
-                    .padding(.vertical, 50)
+                    .padding(.vertical, 30)
                     //how thin you want it to be
                     .padding(.horizontal, -5)
                     .background(Color.white)
                     .cornerRadius(15)
                     .shadow(radius: 2)
+                    
+                    //call the function here
+                    KofiSocialMediaIcon()
                 }
                 .padding(.top, 70)
             }
@@ -122,6 +124,43 @@ struct CategorySectionView: View {
             .cornerRadius(10)
             .padding(.horizontal)
 
+        }
+    }
+}
+
+//this struct is for the information of KoFi Media
+struct KofiSocialMediaIcon: View {
+    var body: some View {
+        //button -> once user clicks on it then it goes to the Ko-fi URL
+        Button(action: {
+            // Open the Ko-fi page when the button is clicked
+            if let koFiUrl = URL(string: "https://ko-fi.com/yeseniadesigns") {
+                UIApplication.shared.open(koFiUrl)
+            }
+        }) {
+            //horizontal -> coffee logo first then the 'Support Me on Ko-fi'
+            HStack {
+                //layered top of another -> this is because we are first using a cup then we want the heart to be over the cup
+                ZStack {
+                    Image(systemName: "cup.and.saucer.fill")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(.pink)
+
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .frame(width: 12, height: 12)
+                        .foregroundColor(.white)
+                        .offset(y: -2)  // Slightly adjust heart position inside cup
+                }
+                Text("Support Me on Ko-fi")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            }
+            .padding()
+            .background(Color.pink.opacity(0.2))
+            .cornerRadius(10)
         }
     }
 }
