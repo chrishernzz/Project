@@ -195,8 +195,10 @@ struct SocialMediaIcon: View {
         }
     }
 }
+//this is for the contact informatin when user needs to contact owner
 struct ContactInformation: View {
     @Binding var showForm: Bool
+    //privates so only users can access
     @State private var name = ""
     @State private var email = ""
     @State private var subject = ""
@@ -206,6 +208,7 @@ struct ContactInformation: View {
         VStack {
             Spacer()
             ZStack(alignment: .topTrailing) {
+                //have a 5 space gap between each box
                 VStack(spacing: 5) {
                     TextField("Your name", text: $name)
                         .padding()
@@ -237,7 +240,7 @@ struct ContactInformation: View {
                     }) {
                         Text("Send")
                             .font(.headline)
-                            .foregroundColor(.black) // Ensure button text is visible
+                            .foregroundColor(.black)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 20)
                             .background(Color.pink.opacity(0.2))
@@ -245,13 +248,13 @@ struct ContactInformation: View {
                     }
                 }
                 .padding()
-                .background(Color.white) // Keep background white
+                .background(Color.white)
                 .cornerRadius(15)
                 .shadow(radius: 5)
                 .padding(.horizontal, 10)
                 .padding(.bottom, 50)
 
-                // X Button inside the form's top-right corner
+                //placing the X button for exit if they don't want to send , create a button
                 Button(action: {
                     showForm = false
                 }) {
