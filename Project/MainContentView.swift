@@ -102,13 +102,13 @@ struct MainContentView: View {
                 HStack {
                     Spacer()
                     SocialMediaIcon(imageName: "instagramimage", url: "https://www.instagram.com/yeseniadesigns/")
-                    SocialMediaIcon(imageName: "youtube", url: "https://www.youtube.com/@yeseniadesigns")
+                    SocialMediaIcon(imageName: "youtubeimage", url: "https://www.youtube.com/@yeseniadesigns")
                         //set the currentView a
-                    SocialMediaIcon(imageName: "cart", action: {
+                    SocialMediaIcon(imageName: "shoppingcartimage", action: {
                         currentView = "SHOP"
                     })
                     SocialMediaIcon(imageName: "tiktok",url: "https://www.tiktok.com/@yeseniadesigns")
-                    SocialMediaIcon(imageName: "envelope", action: {
+                    SocialMediaIcon(imageName: "mailimage", action: {
                         //flag it to true
                         showContactForm = true
                     })
@@ -188,11 +188,18 @@ struct SocialMediaIcon: View {
             //pass in the image from your assets
             Image(imageName)
                 .resizable()
+                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                 .frame(width: 35, height: 25)
-                .padding(10)
-                .background(Color.pink.opacity(0.2))
-                .cornerRadius(5)
+                .clipped()
+                //.background(Color.pink.opacity(0.2))
         }
+        .padding(5) // Adjust padding as needed
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.pink.opacity(0.2))
+                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5) // Shadow effect
+        )
+        .cornerRadius(10) // Apply corner radius to the entire view
     }
 }
 //this is for the contact information when user needs to contact owner

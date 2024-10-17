@@ -28,6 +28,7 @@ struct EtsyShopView: View {
         ZStack {
             //even if dark mode we want background to be white
             Color.white.edgesIgnoringSafeArea(.all)
+            //lets me slide the images side to side
             TabView {
                 //loop through the array , index[0] -> etc
                 ForEach(products) { product in
