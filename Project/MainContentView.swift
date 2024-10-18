@@ -8,9 +8,11 @@ import SwiftUI
 
 //creating a struct that takes in name and viewName that carries the sidebar information
 struct SidebarItem: Identifiable {
+    //passing two parameters
     var id: String { name }
     var name: String
-    var viewName: String  // The view it corresponds to
+    //this variable willh old the viewname->changes everytime user clicks on what view they want
+    var viewName: String
 }
 
 struct MainContentView: View {
@@ -117,11 +119,11 @@ struct MainContentView: View {
                 .padding(.bottom, 10)
             }
 
-            //once the sidebar is clicked then it belongs true
+            //once the sidebar is clicked-> becomes true
             if (isSidebarOpen) {
                 HStack {
                     VStack(alignment: .leading, spacing: 10) {
-                        //loop throught the array (index[0]..etc)
+                        //loop through the array (index[0]..etc)
                         ForEach(sidebarItems) { item in
                             Button(action: {
                                 //tell the button what view it is at -> set viewName equal to current view
@@ -153,7 +155,7 @@ struct MainContentView: View {
             //if the show contact is true run this
             if (showContactForm){
                 //call the function
-                ContactInformation(showForm: $showContactForm)
+                ContactInformationForm(showForm: $showContactForm)
                     .transition(.move(edge: .bottom))
             }
         }
@@ -163,19 +165,21 @@ struct MainContentView: View {
 
 //struct that creates the same shape for the images icons
 struct SocialMediaIcon: View {
+    //two parameters which accepts image and the url image->url
     var imageName: String
     //optional action
     var url: String? =  nil
     //optional action for non url as well (closure functions)
     var action: (()->Void)? = nil
     //lets me open url links
-    @Environment(\.openURL) var openURL
+    @Environment(\.openURL) var openurl
     var body: some View {
         //will create the button once user clicks on it
         Button(action: {
             if let url = url, let validUrl = URL(string: url){
-                openURL(validUrl)
+                openurl(validUrl)
             }
+            //if not a url then it will be an action
             else if let action = action{
                 action()
             }
@@ -202,7 +206,7 @@ struct SocialMediaIcon: View {
     }
 }
 //this is for the contact information when user needs to contact owner
-struct ContactInformation: View {
+struct ContactInformationForm: View {
     //passing in one parameter
     @Binding var showForm: Bool
     //private variables for only contact information

@@ -7,8 +7,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var searchText: String = ""
-
+    @State private var userSearchText: String = ""
     var body: some View {
         //top of another layered so the background is white then on top we have our view
         ZStack {
@@ -20,12 +19,12 @@ struct HomeView: View {
                     VStack(spacing: 15) {
                         HStack {
                             ZStack(alignment: .leading) {
-                                if (searchText.isEmpty) {
+                                if (userSearchText.isEmpty) {
                                     Text("Search")
                                         .foregroundColor(.gray) // Customize the placeholder color for dark mode
                                         .padding(.leading, 10)
                                 }
-                                TextField("", text: $searchText)
+                                TextField("", text: $userSearchText)
                                     .padding(.leading, 10)
                                     .padding(.vertical, 10)
                                     .padding(.trailing, 35)
@@ -103,7 +102,7 @@ struct HomeView: View {
                     
                     //missing the slide view function here
                     
-                    //call the promotion function here
+                    //call the promotion function here and pass in the images
                     CustomersImagesUpload(images: [
                         "customerimage1","customerimage2","customerimage3","customerimage4",
                         "customerimage5","customerimage6","customerimage7","customerimage8"
@@ -144,9 +143,9 @@ struct CategorySectionView: View {
 //this struct is for the information of KoFi Media
 struct KofiSocialMediaIcon: View {
     var body: some View {
-        //button -> once user clicks on it then it goes to the Ko-fi URL
+        //button -> once user clicks on it then it goes to the Ko-fi URL so it has action
         Button(action: {
-            // Open the Ko-fi page when the button is clicked
+            //open the Ko-fi page when the button is clicked
             if let koFiUrl = URL(string: "https://ko-fi.com/yeseniadesigns") {
                 UIApplication.shared.open(koFiUrl)
             }
@@ -164,7 +163,7 @@ struct KofiSocialMediaIcon: View {
                         .resizable()
                         .frame(width: 12, height: 12)
                         .foregroundColor(.white)
-                        .offset(y: -2)  // Slightly adjust heart position inside cup
+                        .offset(y: -2)
                 }
                 Text("Support Me on Ko-fi")
                     .font(.headline)

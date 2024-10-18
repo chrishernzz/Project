@@ -8,6 +8,7 @@ import SwiftUI
 
 //struct that contains the product information such as name, price, and the image of the product
 struct Product: Identifiable {
+    //the id-> makes sure each user had its onw id, name,price,image->id
     var id: Int
     var name: String
     var price: Double
@@ -16,7 +17,7 @@ struct Product: Identifiable {
 
 struct EtsyShopView: View {
     //creating an array of Product for testing
-    let products: [Product] = [
+    let productsInformation: [Product] = [
         Product(id: 1, name: "PDF Dinosour Poncho Sewing Pattern Kids Youth Sizes M-XL", price: 14.0, image: "dinosourimage"),
         Product(id: 2, name: "PDF Butterfly Bug Cape Sewing Pattern Kids Sizes 2T-6", price: 16.0, image: "butterflybugimage"),
         Product(id: 3, name: "PDF Adult Spiderweb Poncho Sewing Pattern Sizes XS-XL", price: 10.0, image: "spiderwebimage"),
@@ -31,13 +32,14 @@ struct EtsyShopView: View {
             //lets me slide the images side to side
             TabView {
                 //loop through the array , index[0] -> etc
-                ForEach(products) { product in
+                ForEach(productsInformation) { product in
                     VStack(spacing: 5) {
                         // Add a rounded rectangle to create the box for the product content
                         RoundedRectangle(cornerRadius: 10)
                             .fill(Color.white) // Light background for the box
                             .frame(height: 350) // Adjust height based on content
                             .overlay(
+                                //vertical-> this lets image,Text->'Featured Item', name,price, and button->'Shop Now' (top to bottom)
                                 VStack(spacing: 5) {
                                     //larger product image with size adjusted to fit
                                     Image(product.image)
