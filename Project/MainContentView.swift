@@ -39,7 +39,7 @@ struct MainContentView: View {
             Color.white
                 .edgesIgnoringSafeArea(.all)
 
-            //check which view it is at and then call those functions
+            //check which view it is at and then call the struct
             if (currentView == "HOME") {
                 HomeView()
             }
