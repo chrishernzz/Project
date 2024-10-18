@@ -6,7 +6,8 @@
 //
 import SwiftUI
 
-//creating a struct that takes in name and viewName that carries the sidebar information
+//precondition: NONE
+//postcondition: this struct takes in name and viewName that carries the sidebar information
 struct SidebarItem: Identifiable {
     //passing two parameters
     var id: String { name }
@@ -16,7 +17,7 @@ struct SidebarItem: Identifiable {
 }
 
 struct MainContentView: View {
-    //state variable to control the sidebar
+    //state variable to control the sidebar-> State lets it update/change
     @State private var isSidebarOpen = false
     //state variable to show the contact form
     @State private var showContactForm = false
@@ -147,7 +148,7 @@ struct MainContentView: View {
 
                     Spacer()
                 }
-                .background(Color.black.opacity(0.1))  // Semi-transparent overlay
+                .background(Color.black.opacity(0.1))
                 .onTapGesture {
                     isSidebarOpen.toggle()
                 }
@@ -162,8 +163,8 @@ struct MainContentView: View {
         .animation(.easeInOut, value: isSidebarOpen)
     }
 }
-
-//struct that creates the same shape for the images icons
+//postcondition: NONE
+//postcondition: this struct creates the same shape for the images icons and has the url
 struct SocialMediaIcon: View {
     //two parameters which accepts image and the url image->url
     var imageName: String
@@ -171,7 +172,7 @@ struct SocialMediaIcon: View {
     var url: String? =  nil
     //optional action for non url as well (closure functions)
     var action: (()->Void)? = nil
-    //lets me open url links
+    //can pass this-> won't be refer as a parameter since its Environment
     @Environment(\.openURL) var openurl
     var body: some View {
         //will create the button once user clicks on it
@@ -179,7 +180,7 @@ struct SocialMediaIcon: View {
             if let url = url, let validUrl = URL(string: url){
                 openurl(validUrl)
             }
-            //if not a url then it will be an action
+            //if not a url then it will be an action-> the 'Shop' or 'Contact'
             else if let action = action{
                 action()
             }
@@ -205,7 +206,8 @@ struct SocialMediaIcon: View {
         .cornerRadius(10) // Apply corner radius to the entire view
     }
 }
-//this is for the contact information when user needs to contact owner
+//precondition: NONE
+//postcondition: this struct is for the contact information when user needs to contact owner
 struct ContactInformationForm: View {
     //passing in one parameter
     @Binding var showForm: Bool
@@ -332,14 +334,13 @@ struct ContactInformationForm: View {
                         }
                     }
                 }
-
                 Spacer()
             }
         }
     }
 }
 
-
+//shows the final preview of all the structs combined
 struct MainContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainContentView()

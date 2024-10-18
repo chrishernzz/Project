@@ -17,6 +17,7 @@ struct HomeView: View {
                 //this allows user to scroll up and down
                 ScrollView {
                     VStack(spacing: 15) {
+                        //horizontal -> search goes first then the image of serach button (side to side)
                         HStack {
                             ZStack(alignment: .leading) {
                                 if (userSearchText.isEmpty) {
@@ -48,7 +49,7 @@ struct HomeView: View {
                             .frame(maxWidth: .infinity)
                         }
                         
-                        //this has to have a small space and it is vertical display
+                        //this has to have a small space and it is vertical display (top to bottom)
                         VStack(spacing: 2) {
                             CategorySectionView(title: "SEWING PATTERN TUTORIAL VIDEOS", textColor: .black, plusColor: .gray)
                             CategorySectionView(title: "EMBROIDERY FILE VIDEOS", textColor: .black, plusColor: .gray)
@@ -57,7 +58,7 @@ struct HomeView: View {
                             CategorySectionView(title: "FAQS", textColor: .gray, plusColor: .gray)
                         }
                     }
-                    //employee description about her
+                    //employee description about herself-> vertical which is headshot, name, about herself, and button-> takes you to blog
                     VStack(spacing: 15) {
                         Image("yeseniaheadshot")
                             .resizable()
@@ -107,14 +108,35 @@ struct HomeView: View {
                         "customerimage1","customerimage2","customerimage3","customerimage4",
                         "customerimage5","customerimage6","customerimage7","customerimage8"
                     ])
+                    
+                    //add the instagram link and youtube link-> has to be side to side so use HStack-> horizontal
+                    HStack{
+                        //call the struct-> pass in the two parameters which are image and url
+                        InstagramAndYoutubeLink(socialMediaImage: "instagramimage", url: "https://www.instagram.com/yeseniadesigns/")
+                            .padding(.top, 100)
+                            .padding(.bottom, 20)
+                        InstagramAndYoutubeLink(socialMediaImage: "youtubeimage", url: "https://www.youtube.com/@yeseniadesigns")
+                            .padding(.top, 100)
+                            .padding(.bottom, 20)
+                    }
+                    //lastly just place the information of her company
+                    Text("© 2012-2024 YESENIA DESIGNS. ALL RIGHTS RESERVED.")
+                        .font(.caption)
+                        //.regular doesn't make it as bold
+                        .fontWeight(.regular)
+                        .foregroundColor(.black)
+                        //have to center the text
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 10)
+                        .frame(maxWidth: .infinity)
                 }
                 .padding(.top, 70)
             }
         }
     }
 }
-
-//this struct creates the same size for the category section view (reused)
+//precondition: NONE
+//postcondition: this struct creates the same size for the category section view (reused)
 struct CategorySectionView: View {
     var title: String
     var textColor: Color
@@ -139,8 +161,8 @@ struct CategorySectionView: View {
         }
     }
 }
-
-//this struct is for the information of KoFi Media
+//precondition: NONE
+//postcondition: this struct is for the information of KoFi Media
 struct KofiSocialMediaIcon: View {
     var body: some View {
         //button -> once user clicks on it then it goes to the Ko-fi URL so it has action
@@ -177,7 +199,29 @@ struct KofiSocialMediaIcon: View {
     }
 }
 
-//this struct will let me print the images of customers buying the costumes (reused)
+//precondition: NONE
+//postcondition: this struct will carry the information for the reviews and what product it is
+struct Reviews: Identifiable {
+    //the id-> makes sure each user had its own id, name,rating,descriptin,image->id
+    var id: Int
+    var name: String
+    var rating: String
+    var description: Double
+    var image: String
+}
+//precondition: call the Reviews struct
+//postconiditon: this struct is going to be used to create a slideshow of the reviews customers have left
+struct SlideShowReviews: View {
+    var body: some View {
+        //need to use tabview-> lets user swipe side to side
+        TabView {
+            
+        }
+    }
+}
+
+//precondition: NONE
+//postcondition: this struct will let me preview the images of customers that bought the costumes (reused)
 struct CustomersImagesUpload: View {
     //create an array of images
     let images: [String]
@@ -219,6 +263,34 @@ struct CustomersImagesUpload: View {
                 .background(Color.gray.opacity(0.3))
                 .padding(.top, 5)
         }
+    }
+}
+//precondition: NONE
+//postcondition: this struct will allow the instagram and youtube icon with its url
+struct InstagramAndYoutubeLink: View{
+    //two parameters for the image and url
+    var socialMediaImage: String
+    var url: String
+    //can pass this-> won't be refer as a parameter
+    @Environment (\.openURL) var openurl
+    var body: some View{
+        Button(action: {
+            if let urlValid = URL(string: url){
+                openurl(urlValid)
+            }
+            //debug purposes
+            else{
+                print("Invalid URL")
+            }
+        }){
+            Image(socialMediaImage)
+                .resizable()
+                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                .frame(width: 40, height: 40)
+                .clipped()
+        }
+        .padding(.horizontal, -5)
+        .cornerRadius(10)
     }
 }
 

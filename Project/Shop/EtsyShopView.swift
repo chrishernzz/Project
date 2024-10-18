@@ -6,7 +6,8 @@
 //
 import SwiftUI
 
-//struct that contains the product information such as name, price, and the image of the product
+//precondition: NONE
+//postcondition: this struct that contains the product information such as name, price, and the image of the product
 struct Product: Identifiable {
     //the id-> makes sure each user had its onw id, name,price,image->id
     var id: Int
