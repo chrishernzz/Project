@@ -70,7 +70,7 @@ struct MainContentView: View {
                 //horizontal to create the sidebar, logo, and shopping cart
                 HStack {
                     Button(action: {
-                        //activates the side bar
+                        //activates the side bar ->true
                         isSidebarOpen.toggle()
                     }) {
                         Image(systemName: "line.horizontal.3")
@@ -86,7 +86,7 @@ struct MainContentView: View {
                         .frame(width: 40, height: 40)
                     Spacer()
                     Button(action: {
-                        // Shopping cart action goes here
+                        // Shopping cart action goes here once user clicks on the cart
                     }) {
                         Image(systemName: "cart")
                             .font(.title2)
@@ -109,7 +109,7 @@ struct MainContentView: View {
                     })
                     SocialMediaIcon(imageName: "tiktok",url: "https://www.tiktok.com/@yeseniadesigns")
                     SocialMediaIcon(imageName: "mailimage", action: {
-                        //flag it to true
+                        //flag it to true so now it is true -> you pass in the function that lets user fill in the information
                         showContactForm = true
                     })
                     Spacer()
@@ -124,7 +124,7 @@ struct MainContentView: View {
                         //loop throught the array (index[0]..etc)
                         ForEach(sidebarItems) { item in
                             Button(action: {
-                                //tell the button what view it is at
+                                //tell the button what view it is at -> set viewName equal to current view
                                 currentView = item.viewName
                                 //flag it back to false so we can close it
                                 isSidebarOpen = false
@@ -139,8 +139,7 @@ struct MainContentView: View {
                         Spacer()
                     }
                     .padding()
-                    .frame(width: UIScreen.main.bounds.width * 0.6)  // Sidebar width is 60% of screen
-                    
+                    .frame(width: UIScreen.main.bounds.width * 0.6)
                     .background(Color.white)
                     .transition(.move(edge: .leading))
 
@@ -204,6 +203,7 @@ struct SocialMediaIcon: View {
 }
 //this is for the contact information when user needs to contact owner
 struct ContactInformation: View {
+    //passing in one parameter
     @Binding var showForm: Bool
     //private variables for only contact information
     @State private var name = ""
@@ -253,6 +253,7 @@ struct ContactInformation: View {
                     else {
                         //each box will have a 5 space gap in between
                         VStack(spacing: 5) {
+                            //TextField -> allows input
                             TextField("Your name", text: $name)
                                 .padding()
                                 .background(Color.white)
@@ -296,7 +297,7 @@ struct ContactInformation: View {
                                 .multilineTextAlignment(.leading)
                                 .colorScheme(.light)
                             Button(action: {
-                                //flag it to true -> they send the message to the owner
+                                //flag it to true -> they send the message to the owner so now show the message
                                 showConfirmationMessage = true
                             }) {
                                 Text("Send")
