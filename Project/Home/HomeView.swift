@@ -58,6 +58,7 @@ struct HomeView: View {
                             CategorySectionView(title: "FAQS", textColor: .gray, plusColor: .gray)
                         }
                     }
+                    .padding(.bottom, 15)
                     //employee description about herself-> vertical which is headshot, name, about herself, and button-> takes you to blog
                     VStack(spacing: 15) {
                         Image("yeseniaheadshot")
@@ -96,14 +97,17 @@ struct HomeView: View {
                     .cornerRadius(15)
                     .shadow(radius: 2)
                     
-                    //call the function here
+                    //call the struct here
                     KofiSocialMediaIcon()
                         .padding(.top , 10)
                         .padding(.bottom, 20)
                     
-                    //missing the slide view function here
+                    //call the struct here
+                    SlideShowReviews()
+                        .padding(.top, -10)
+                        .padding(.bottom, 20)
                     
-                    //call the promotion function here and pass in the images
+                    //call the promotion struct here and pass in the images
                     CustomersImagesUpload(images: [
                         "customerimage1","customerimage2","customerimage3","customerimage4",
                         "customerimage5","customerimage6","customerimage7","customerimage8"
@@ -206,17 +210,92 @@ struct Reviews: Identifiable {
     var id: Int
     var name: String
     var rating: String
-    var description: Double
+    var description: String
     var image: String
 }
 //precondition: call the Reviews struct
 //postconiditon: this struct is going to be used to create a slideshow of the reviews customers have left
 struct SlideShowReviews: View {
+    // Array of customer reviews
+    let reviewsInformation: [Reviews] = [
+        Reviews(id: 1, name: "Kristin", rating: "5 star", description: "easy to down load. easy to use", image: "dogimage1"),
+        Reviews(id: 2, name: "Mallory", rating: "5 star", description: "Easy to follow instructions for this newbie sewer. Loved that it included svg files as well!", image: "ghostimage2"),
+        Reviews(id: 3, name: "Kyli", rating: "5 star", description: "First sewing pattern ever and such a great experience!! So easy to follow with wonderful directions🩷 my baby loved it! Our family Mario theme was complete!", image: "princeimage3"),
+        Reviews(id: 4, name: "Barbara", rating: "5 star", description: "This pattern is very simple, and the finished project is great!", image: "dogimage4"),
+        Reviews(id: 5, name: "Jamie", rating: "5 star", description: "So easy to put together! My daughter loves her King Boo costume", image: "princeimage3"),
+        Reviews(id: 6, name: "Marisa", rating: "5 star", description: "So cute! Thank you! !", image: "appleimage5"),
+        Reviews(id: 7, name: "Charmaine", rating: "5 star", description: "Great pattern easy to use - the video is super helpful!", image: "dogimage4"),
+        Reviews(id: 8, name: "Annette", rating: "5 star", description: "A+ Services A+ A+ A+", image: "grinchimage6"),
+        Reviews(id: 9, name: "Lisa", rating: "5 star", description: "This file was easy to open and easy to read. You get a lot for the price. The pattern worked out perfectly for my King Boo costume.", image: "princeimage3")
+    ]
+    //using index to track the current slide
+    @State private var currentIndex = 0
     var body: some View {
-        //need to use tabview-> lets user swipe side to side
-        TabView {
-            
+        //need a vertical-> TabView goes first then the dots-> vertical is top to bottom
+        VStack {
+            //lets the user to swipe through the reviews
+            TabView(selection: $currentIndex) {
+                ForEach(reviewsInformation.indices, id: \.self) { index in
+                    //has to be horizontal-> image then description, need a VStack inside Hstack
+                    HStack {
+                        //will start at index[0]... then increment as the tabview changes
+                        Image(reviewsInformation[index].image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 150)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .padding(.top, 10)
+                        //this will put the name,rating,description-> vertical (top to bottom)
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(reviewsInformation[index].name)
+                                .font(.headline)
+                                .foregroundColor(.black)
+                            Text(reviewsInformation[index].rating)
+                                .font(.subheadline)
+                                .foregroundColor(.pink)
+                            Text(reviewsInformation[index].description)
+                                .font(.body)
+                                .foregroundColor(.gray)
+                                .lineLimit(nil)
+                        }
+                        .padding()
+                    }
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.white)
+                            .shadow(color: Color.black.opacity(0.2),radius: 8, x: 0, y: 5)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.pink.opacity(0.5),lineWidth: 1)
+                    )
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .shadow(radius: 5)
+                }
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .frame(height: 200)
+            //dots have to be side to side-> must be horizontal
+            HStack {
+                //customizing the dots
+                ForEach(reviewsInformation.indices, id: \.self) { index in
+                    Button(action: {
+                        //set the currentIndex to the tapped dot index
+                        currentIndex = index
+                    }) {
+                        Circle()
+                        //if the currentIndex is being used then it is pink else-> other buttons are gray
+                            .fill(currentIndex == index ? Color.pink.opacity(0.2) : Color.gray)
+                            .frame(width: 10, height: 10)
+                            .padding(4)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+            }
+            .padding(.bottom, 5)
         }
+        .padding(.top, 10)
     }
 }
 
