@@ -16,6 +16,7 @@
 		CC102B1D2CAFBF7600FE690C /* ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B1C2CAFBF7600FE690C /* ProjectUITestsLaunchTests.swift */; };
 		CC102B352CAFC48300FE690C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B342CAFC48300FE690C /* HomeView.swift */; };
 		CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */; };
+		CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		CC102B1C2CAFBF7600FE690C /* ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CC102B342CAFC48300FE690C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtsyShopView.swift; sourceTree = "<group>"; };
+		CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		CC102B312CAFC08E00FE690C /* Contact */ = {
 			isa = PBXGroup;
 			children = (
+				CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */,
 			);
 			path = Contact;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC102B352CAFC48300FE690C /* HomeView.swift in Sources */,
+				CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */,
 				CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */,
 				CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */,
 				CC102B002CAFBF7300FE690C /* ProjectApp.swift in Sources */,

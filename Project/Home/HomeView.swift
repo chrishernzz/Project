@@ -22,7 +22,7 @@ struct HomeView: View {
                             ZStack(alignment: .leading) {
                                 if (userSearchText.isEmpty) {
                                     Text("Search")
-                                        .foregroundColor(.gray) // Customize the placeholder color for dark mode
+                                        .foregroundColor(.gray)
                                         .padding(.leading, 10)
                                 }
                                 TextField("", text: $userSearchText)
@@ -42,8 +42,7 @@ struct HomeView: View {
                                             .padding(.trailing, 10),
                                         alignment: .trailing
                                     )
-                                    .foregroundColor(.gray)  // Ensure the text color is visible in dark mode
-                                    .accentColor(.gray)
+                                    .foregroundColor(.black)
                             }
                             .padding(.horizontal)
                             .frame(maxWidth: .infinity)
@@ -342,34 +341,6 @@ struct CustomersImagesUpload: View {
                 .background(Color.gray.opacity(0.3))
                 .padding(.top, 5)
         }
-    }
-}
-//precondition: NONE
-//postcondition: this struct will allow the instagram and youtube icon with its url
-struct InstagramAndYoutubeLink: View{
-    //two parameters for the image and url
-    var socialMediaImage: String
-    var url: String
-    //can pass this-> won't be refer as a parameter
-    @Environment (\.openURL) var openurl
-    var body: some View{
-        Button(action: {
-            if let urlValid = URL(string: url){
-                openurl(urlValid)
-            }
-            //debug purposes
-            else{
-                print("Invalid URL")
-            }
-        }){
-            Image(socialMediaImage)
-                .resizable()
-                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                .frame(width: 40, height: 40)
-                .clipped()
-        }
-        .padding(.horizontal, -5)
-        .cornerRadius(10)
     }
 }
 

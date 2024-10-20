@@ -62,7 +62,7 @@ struct MainContentView: View {
                 // Call tools and supplies view here
             }
             else if (currentView == "CONTACT") {
-                // Call contact view here
+                ContactInformation()
             }
             else if (currentView == "LOG IN | REGISTER") {
                 // Call login/register view here
@@ -337,6 +337,34 @@ struct ContactInformationForm: View {
                 Spacer()
             }
         }
+    }
+}
+//precondition: NONE
+//postcondition: this struct will allow the instagram and youtube icon with its url
+struct InstagramAndYoutubeLink: View{
+    //two parameters for the image and url
+    var socialMediaImage: String
+    var url: String
+    //can pass this-> won't be refer as a parameter
+    @Environment (\.openURL) var openurl
+    var body: some View{
+        Button(action: {
+            if let urlValid = URL(string: url){
+                openurl(urlValid)
+            }
+            //debug purposes
+            else{
+                print("Invalid URL")
+            }
+        }){
+            Image(socialMediaImage)
+                .resizable()
+                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                .frame(width: 40, height: 40)
+                .clipped()
+        }
+        .padding(.horizontal, -5)
+        .cornerRadius(10)
     }
 }
 
