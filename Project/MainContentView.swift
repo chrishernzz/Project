@@ -59,7 +59,7 @@ struct MainContentView: View {
                 // Call portfolio view here
             }
             else if (currentView == "TOOLS & SUPPLIES") {
-                // Call tools and supplies view here
+                ToolsAndSupplies()
             }
             else if (currentView == "CONTACT") {
                 ContactInformation()
@@ -155,7 +155,7 @@ struct MainContentView: View {
             }
             //if the show contact is true run this
             if (showContactForm){
-                //call the function
+                //call the function that shows the contact information
                 ContactInformationForm(showForm: $showContactForm)
                     .transition(.move(edge: .bottom))
             }
@@ -291,6 +291,7 @@ struct ContactInformationForm: View {
                                 .foregroundColor(.black)
                                 .colorScheme(.light)
                             TextField("Message...", text: $message)
+                                .padding(.top, -50)
                                 .frame(height: 100)
                                 .padding()
                                 .background(Color.white)

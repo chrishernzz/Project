@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */; };
 		CC102B002CAFBF7300FE690C /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102AFF2CAFBF7300FE690C /* ProjectApp.swift */; };
 		CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B012CAFBF7300FE690C /* MainContentView.swift */; };
 		CC102B042CAFBF7600FE690C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC102B032CAFBF7600FE690C /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsAndSupplies.swift; sourceTree = "<group>"; };
 		CC102AFC2CAFBF7300FE690C /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC102AFF2CAFBF7300FE690C /* ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectApp.swift; sourceTree = "<group>"; };
 		CC102B012CAFBF7300FE690C /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		CC102B302CAFC05F00FE690C /* ToolsAndSupplies */ = {
 			isa = PBXGroup;
 			children = (
+				CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */,
 			);
 			path = ToolsAndSupplies;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */,
 				CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */,
 				CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */,
+				CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */,
 				CC102B002CAFBF7300FE690C /* ProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
