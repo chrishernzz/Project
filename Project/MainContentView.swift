@@ -6,24 +6,15 @@
 //
 import SwiftUI
 
-//precondition: NONE
-//postcondition: this struct takes in name and viewName that carries the sidebar information
-struct SidebarItem: Identifiable {
-    //passing two parameters
-    var id: String { name }
-    var name: String
-    //this variable willh old the viewname->changes everytime user clicks on what view they want
-    var viewName: String
-}
-
 struct MainContentView: View {
     //state variable to control the sidebar-> State lets it update/change
     @State private var isSidebarOpen = false
+    @State private var subSidebarOpen = false
     //state variable to show the contact form
     @State private var showContactForm = false
     //initialize it to Home Page right away
     @State private var currentView: String = "HOME"
-
+    
     //set it into an array of the information (the sidebar view)
     let sidebarItems: [SidebarItem] = [
         SidebarItem(name: "HOME", viewName: "HOME"),
@@ -35,13 +26,13 @@ struct MainContentView: View {
         SidebarItem(name: "CONTACT", viewName: "CONTACT"),
         SidebarItem(name: "LOG IN | REGISTER", viewName: "LOG IN | REGISTER")
     ]
-
+    
     var body: some View {
         ZStack {
             //even if dark mode we want background to be white
             Color.white
                 .edgesIgnoringSafeArea(.all)
-
+            
             //check which view it is at and then call the struct
             if (currentView == "HOME") {
                 HomeView()
@@ -58,16 +49,13 @@ struct MainContentView: View {
             else if (currentView == "PORTFOLIO") {
                 // Call portfolio view here
             }
-            else if (currentView == "TOOLS & SUPPLIES") {
-                ToolsAndSupplies()
-            }
             else if (currentView == "CONTACT") {
                 ContactInformation()
             }
             else if (currentView == "LOG IN | REGISTER") {
                 // Call login/register view here
             }
-
+            
             //overlay with toolbar (Sidebar and Shopping Cart) so the sidebar, logo,shopping cart go first then the logos (social media) because VStack is top to bottom
             VStack {
                 //horizontal to create the sidebar, logo, and shopping cart
@@ -106,7 +94,7 @@ struct MainContentView: View {
                     Spacer()
                     SocialMediaIcon(imageName: "instagramimage", url: "https://www.instagram.com/yeseniadesigns/")
                     SocialMediaIcon(imageName: "youtubeimage", url: "https://www.youtube.com/@yeseniadesigns")
-                        //set the currentView a
+                    //set the currentView a
                     SocialMediaIcon(imageName: "shoppingcartimage", action: {
                         currentView = "SHOP"
                     })
@@ -119,24 +107,50 @@ struct MainContentView: View {
                 }
                 .padding(.bottom, 10)
             }
-
+            
             //once the sidebar is clicked-> becomes true
             if (isSidebarOpen) {
                 HStack {
                     VStack(alignment: .leading, spacing: 10) {
-                        //loop through the array (index[0]..etc)
-                        ForEach(sidebarItems) { item in
-                            Button(action: {
-                                //tell the button what view it is at -> set viewName equal to current view
-                                currentView = item.viewName
-                                //flag it back to false so we can close it
-                                isSidebarOpen = false
-                            }) {
-                                //text.name is the name we gave it from the array
-                                Text(item.name)
-                                    .font(.headline)
-                                    .foregroundColor(.black)
-                                    .padding(.top, 10)
+                        if (subSidebarOpen){
+                            //call the struct tools and supplies here
+                            ToolsAndSupplies(subSidebarOpen: $subSidebarOpen)
+                        }
+                        else{
+                            //loop through the array (index[0]..etc)
+                            ForEach(sidebarItems) { item in
+                                Button(action: {
+                                    //if user clicks the tools and supplies then go in here since it is a sub sidebar
+                                    if (item.viewName == "TOOLS & SUPPLIES"){
+                                        //flag it to true->this will now go back to the subSidebaropen and open it and in there the struct will be passed
+                                        subSidebarOpen = true
+                                    }
+                                    //else if not that then go here and then close the side bar since it is not a sub sidebar
+                                    else{
+                                        //tell the button what view it is at -> set viewName equal to current view
+                                        currentView = item.viewName
+                                        //flag it back to false so we can close it
+                                        isSidebarOpen = false
+                                    }
+                                }) {
+                                    HStack{
+                                        //text.name is the name we gave it from the array
+                                        Text(item.name)
+                                            .font(.headline)
+                                            .foregroundColor(.black)
+                                            .padding(.top, 10)
+                                            .padding(.leading,15)
+                                        //since tools & supplies is a sub sidebar-> has a '>' to tell it that there is an option
+                                        if (item.name == "TOOLS & SUPPLIES") {
+                                            Spacer()
+                                            Image(systemName: "chevron.right")
+                                                .foregroundColor(.black)
+                                                .font(.headline)
+                                                .padding(.top, 10)
+                                                .padding(.trailing, 10)
+                                        }
+                                    }
+                                }
                             }
                         }
                         Spacer()
@@ -145,7 +159,7 @@ struct MainContentView: View {
                     .frame(width: UIScreen.main.bounds.width * 0.6)
                     .background(Color.white)
                     .transition(.move(edge: .leading))
-
+                    
                     Spacer()
                 }
                 .background(Color.black.opacity(0.1))
@@ -162,6 +176,15 @@ struct MainContentView: View {
         }
         .animation(.easeInOut, value: isSidebarOpen)
     }
+}
+//precondition: NONE
+//postcondition: this struct takes in name and viewName that carries the sidebar information
+struct SidebarItem: Identifiable {
+    //passing two parameters
+    var id: String { name }
+    var name: String
+    //this variable willh old the viewname->changes everytime user clicks on what view they want
+    var viewName: String
 }
 //postcondition: NONE
 //postcondition: this struct creates the same shape for the images icons and has the url
@@ -195,7 +218,7 @@ struct SocialMediaIcon: View {
                 .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                 .frame(width: 35, height: 25)
                 .clipped()
-                //.background(Color.pink.opacity(0.2))
+            //.background(Color.pink.opacity(0.2))
         }
         .padding(5) // Adjust padding as needed
         .background(
@@ -217,7 +240,7 @@ struct ContactInformationForm: View {
     @State private var subject = ""
     @State private var message = ""
     @State private var showConfirmationMessage = false
-
+    
     var body: some View {
         //need a layered on top of another because it has to be transparent
         ZStack {
