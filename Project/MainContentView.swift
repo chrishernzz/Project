@@ -23,6 +23,7 @@ struct MainContentView: View {
         SidebarItem(name: "SHOP", viewName: "SHOP"),
         SidebarItem(name: "PORTFOLIO", viewName: "PORTFOLIO"),
         SidebarItem(name: "TOOLS & SUPPLIES", viewName: "TOOLS & SUPPLIES"),
+        SidebarItem(name: "NEWSLETTER", viewName: "NEWSLETTER"),
         SidebarItem(name: "CONTACT", viewName: "CONTACT"),
         SidebarItem(name: "LOG IN | REGISTER", viewName: "LOG IN | REGISTER")
     ]
@@ -48,6 +49,13 @@ struct MainContentView: View {
             }
             else if (currentView == "PORTFOLIO") {
                 // Call portfolio view here
+            }
+            else if (currentView == "FOR SEWING") {
+                //call the struct from the tools and supplies since we passed in a parameter that takes in the currentView
+                ForSewing()
+            }
+            else if(currentView == "NEWSLETTER"){
+                NewsLetter()
             }
             else if (currentView == "CONTACT") {
                 ContactInformation()
@@ -114,7 +122,7 @@ struct MainContentView: View {
                     VStack(alignment: .leading, spacing: 10) {
                         if (subSidebarOpen){
                             //call the struct tools and supplies here
-                            ToolsAndSupplies(subSidebarOpen: $subSidebarOpen)
+                            ToolsAndSupplies(isSubSidebarOpen: $isSidebarOpen,subSidebarOpen: $subSidebarOpen,selectTheOption: $currentView)
                         }
                         else{
                             //loop through the array (index[0]..etc)
@@ -122,7 +130,7 @@ struct MainContentView: View {
                                 Button(action: {
                                     //if user clicks the tools and supplies then go in here since it is a sub sidebar
                                     if (item.viewName == "TOOLS & SUPPLIES"){
-                                        //flag it to true->this will now go back to the subSidebaropen and open it and in there the struct will be passed
+                                        //flag it to true->this will now go back to the subSidebaropen and open it and in there the struct will be passed but won't close the first sidebar view still is open
                                         subSidebarOpen = true
                                     }
                                     //else if not that then go here and then close the side bar since it is not a sub sidebar
@@ -133,6 +141,7 @@ struct MainContentView: View {
                                         isSidebarOpen = false
                                     }
                                 }) {
+                                    //since some have sub sidebar view then we have to do side to side(hstack)->the name then the '>' if there is a sub sidebar view
                                     HStack{
                                         //text.name is the name we gave it from the array
                                         Text(item.name)
@@ -368,18 +377,12 @@ struct ContactInformationForm: View {
 struct InstagramAndYoutubeLink: View{
     //two parameters for the image and url
     var socialMediaImage: String
-    var url: String
+    var url: URL
     //can pass this-> won't be refer as a parameter
     @Environment (\.openURL) var openurl
     var body: some View{
         Button(action: {
-            if let urlValid = URL(string: url){
-                openurl(urlValid)
-            }
-            //debug purposes
-            else{
-                print("Invalid URL")
-            }
+            openurl(url)
         }){
             Image(socialMediaImage)
                 .resizable()

@@ -115,10 +115,10 @@ struct HomeView: View {
                     //add the instagram link and youtube link-> has to be side to side so use HStack-> horizontal
                     HStack{
                         //call the struct (from the MainContentView)-> pass in the two parameters which are image and url
-                        InstagramAndYoutubeLink(socialMediaImage: "instagramimage", url: "https://www.instagram.com/yeseniadesigns/")
+                        InstagramAndYoutubeLink(socialMediaImage: "instagramimage", url: URL(string: "https://www.instagram.com/yeseniadesigns/")!)
                             .padding(.top, 100)
                             .padding(.bottom, 20)
-                        InstagramAndYoutubeLink(socialMediaImage: "youtubeimage", url: "https://www.youtube.com/@yeseniadesigns")
+                        InstagramAndYoutubeLink(socialMediaImage: "youtubeimage", url: URL(string: "https://www.youtube.com/@yeseniadesigns")!)
                             .padding(.top, 100)
                             .padding(.bottom, 20)
                     }
@@ -297,7 +297,6 @@ struct SlideShowReviews: View {
         .padding(.top, 10)
     }
 }
-
 //precondition: NONE
 //postcondition: this struct will let me preview the images of customers that bought the costumes (reused)
 struct CustomersImagesUpload: View {

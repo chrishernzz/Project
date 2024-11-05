@@ -6,16 +6,6 @@
 //
 import SwiftUI
 
-//precondition: NONE
-//postcondition: this struct that contains the product information such as name, price, and the image of the product
-struct Product: Identifiable {
-    //the id-> makes sure each user had its onw id, name,price,image->id
-    var id: Int
-    var name: String
-    var price: Double
-    var image: String
-}
-
 struct EtsyShopView: View {
     //creating an array of Product for testing
     let productsInformation: [Product] = [
@@ -101,6 +91,16 @@ struct EtsyShopView: View {
         .navigationTitle("Shop")
     }
 }
+//precondition: NONE
+//postcondition: this struct that contains the product information such as name, price, and the image of the product
+struct Product: Identifiable {
+    //the id-> makes sure each user had its onw id, name,price,image->id
+    var id: Int
+    var name: String
+    var price: Double
+    var image: String
+}
+
 
 //lets me see the updates (just a preview of the code you are doing)
 struct ShopView_Previews: PreviewProvider {
