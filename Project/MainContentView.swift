@@ -21,7 +21,6 @@ struct MainContentView: View {
         SidebarItem(name: "BLOG", viewName: "BLOG"),
         SidebarItem(name: "WATCH VIDEOS", viewName: "WATCH VIDEOS"),
         SidebarItem(name: "SHOP", viewName: "SHOP"),
-        SidebarItem(name: "PORTFOLIO", viewName: "PORTFOLIO"),
         SidebarItem(name: "TOOLS & SUPPLIES", viewName: "TOOLS & SUPPLIES"),
         SidebarItem(name: "NEWSLETTER", viewName: "NEWSLETTER"),
         SidebarItem(name: "CONTACT", viewName: "CONTACT"),
@@ -47,12 +46,12 @@ struct MainContentView: View {
             else if (currentView == "SHOP") {
                 EtsyShopView()
             }
-            else if (currentView == "PORTFOLIO") {
-                // Call portfolio view here
-            }
             else if (currentView == "FOR SEWING") {
                 //call the struct from the tools and supplies since we passed in a parameter that takes in the currentView
                 ForSewing()
+            }
+            else if (currentView == "FOR EMBROIDERY"){
+                ForEmbroidery()
             }
             else if(currentView == "NEWSLETTER"){
                 NewsLetter()
