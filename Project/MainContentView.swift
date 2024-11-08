@@ -243,7 +243,7 @@ struct SocialMediaIcon: View {
 //precondition: NONE
 //postcondition: this struct is for the contact information when user needs to contact owner
 struct ContactInformationForm: View {
-    //passing in one parameter
+    //passing in one parameter which is binding-> this is the child and it allows two way data connection
     @Binding var showForm: Bool
     //private variables for only contact information
     @State private var name = ""

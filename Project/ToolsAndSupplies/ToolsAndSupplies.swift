@@ -59,14 +59,14 @@ struct ToolsAndSupplies: View {
         }
     }
 }
-//precondition: NONE
+//precondition: requires a unique identifier for each instance, which allows to distinguish one item from another-> using Identifiable.
 //postcondition: this struct takes in name that carries the sub sidebar information
 struct ToolsAndSuppliesSidebarItem: Identifiable {
     var id: String { name }
     var name: String
 }
 
-//precondition: NONE
+//precondition: requires a unique identifier for each instance, which allows to distinguish one item from another-> using Identifiable.
 //postcondition: this struct will keep track of the image with the url
 struct ItemsOfSupplies: Identifiable {
     //passing two parameters

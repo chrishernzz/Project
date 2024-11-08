@@ -93,7 +93,7 @@ struct EtsyShopView: View {
         .navigationTitle("Shop")
     }
 }
-//precondition: NONE
+//precondition: requires a unique identifier for each instance, which allows to distinguish one item from another-> using Identifiable 
 //postcondition: this struct that contains the product information such as name, price, and the image of the product
 struct Product: Identifiable {
     //the id-> makes sure each user had its onw id, name,price,image->id
