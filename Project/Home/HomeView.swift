@@ -6,8 +6,10 @@
 //
 import SwiftUI
 
+
 struct HomeView: View {
     @State private var userSearchText: String = ""
+    
     var body: some View {
         //top of another layered so the background is white then on top we have our view
         ZStack {
@@ -135,7 +137,8 @@ struct HomeView: View {
                 }
                 .padding(.top, 70)
             }
-        }
+            /* API Request */
+        }.onAppear{ClientServer.shared.testLoad(url: "/", method: "GET")}
     }
 }
 //precondition: NONE

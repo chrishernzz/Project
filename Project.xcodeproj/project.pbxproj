@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114352FE2CDC42AD00194565 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114352FD2CDC42A900194565 /* ViewController.swift */; };
 		CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */; };
 		CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D632CDABF3A00B444AC /* NewsLetter.swift */; };
 		CC102B002CAFBF7300FE690C /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102AFF2CAFBF7300FE690C /* ProjectApp.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		114352FD2CDC42A900194565 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsAndSupplies.swift; sourceTree = "<group>"; };
 		CC050D632CDABF3A00B444AC /* NewsLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLetter.swift; sourceTree = "<group>"; };
 		CC102AFC2CAFBF7300FE690C /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,7 @@
 		CC102AFE2CAFBF7300FE690C /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				114352FD2CDC42A900194565 /* ViewController.swift */,
 				CC050D622CDABF0300B444AC /* NewsLetter */,
 				CC102B332CAFC2FC00FE690C /* Home */,
 				CC102B322CAFC09400FE690C /* LoginOrRegister */,
@@ -350,6 +353,7 @@
 				CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */,
 				CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */,
 				CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */,
+				114352FE2CDC42AD00194565 /* ViewController.swift in Sources */,
 				CC102B002CAFBF7300FE690C /* ProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

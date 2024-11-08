@@ -87,7 +87,9 @@ struct EtsyShopView: View {
             
             //offset will allow me to move the items up without cropping any photos
             .offset(y: -120)
-        }
+            
+            /* API Request */
+        }.onAppear{ClientServer.shared.testLoad(url: "/hello", method: "GET")}
         .navigationTitle("Shop")
     }
 }
