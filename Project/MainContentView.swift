@@ -50,8 +50,11 @@ struct MainContentView: View {
                 //call the struct from the tools and supplies since we passed in a parameter that takes in the currentView
                 ForSewing()
             }
-            else if (currentView == "FOR EMBROIDERY"){
+            else if (currentView == "FOR EMBROIDERY") {
                 ForEmbroidery()
+            }
+            else if(currentView == "FOR CRAFTING") {
+                ForCrafting()
             }
             else if(currentView == "NEWSLETTER"){
                 NewsLetter()

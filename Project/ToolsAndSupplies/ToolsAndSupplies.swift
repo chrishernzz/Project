@@ -212,7 +212,75 @@ struct ForEmbroidery: View {
         }
     }
 }
-
+//precondition:
+//postcondition:
+struct ForCrafting: View {
+    //create an array->will be easier to print the information of the sewing with url
+    let craftingitems: [ItemsOfSupplies] = [
+        ItemsOfSupplies(imageName: "craftingimage1", url: URL(string:"https://www.amazon.com/Stainless-Steel-Applique-Duckbill-Embroidery/dp/B071S7F9LK?crid=1S0P1KLEESXKA&keywords=6+inch+appliqué+duckbill+scissors&qid=1681188545&sprefix=6+inch+appliqué+duckbill+scissors+,aps,166&sr=8-2&linkCode=sl1&tag=yeseniadesign-20&linkId=70f853a3343e3866095354bf08739ad6&language=en_US&ref_=as_li_ss_tl")!),
+        ItemsOfSupplies(imageName: "craftingimage2", url: URL(string:"https://www.amazon.com/Tool-Sidehopper-Stitch-Scissor-Assorted-Colors/dp/B003ILWK8S?crid=1T4ZTQ0WBMXLV&dib=eyJ2IjoiMSJ9.PuquKSOInb9oj5I-BOHjFSiLuMF0zzxjziZldhlqbfKUesaQu3cBWfIr7Z58W_suk9frPMPsIiSlUUvplEmbp5m85CgX-cRLnifjAlaYo6Cnp-yZFmV4gdSCZfA4qjifzOiYU1C-4ZNsym8KXnJgD9qGW0Camd1dRqcGbrPRKWBvZnVv2-LTmku5TJrYCPRwgqwV7mT2etV4ilrDZQ5EoZ0kdB6I494cwW7uDWGDRB_ffbVJHzZi6mPfsqKQqrvCYucPxjLy3x-EIbKOZZGFgYTxA2f771m4HNWtmBjRlfc.dYkDXEmDBahSK0FkSdS0KPXN7I551uYC5Y5qcC3ORBg&dib_tag=se&keywords=jump+stitch+scissors+for+embroidery&qid=1717839345&sprefix=Jump+stitch+,aps,152&sr=8-5&linkCode=sl1&tag=yeseniadesign-20&linkId=3d24216d15d31fed0df4a5e72e68ea0f&language=en_US&ref_=as_li_ss_tl")!),
+        ItemsOfSupplies(imageName: "craftingimage3", url: URL(string:"https://www.amazon.com/Therm-Web-Spray-Basting-Adhesive/dp/B007POWZGG?crid=3U4Q4ZOFTD3XR&dib=eyJ2IjoiMSJ9.SfMMXy-4Gr6RkUHzrBITmr41Len6_FMTw_nHlsWmQBMh9mZ2J4xYnmFvnMfvKJJPpLvIh80dXs-4kLMbLHpaxHOFc6kIPx7q-ppZfGMek7ga_EBz-muK8jQuLaZH3SufrmoXfgEG9OaF4OVjN9UINtDxU2YifOX_juh7Z9ie76Oo8O7wHhLMWCoKj3lEHUqof925Lpel8ouv0QUPVMkdf8Ixs7tdaEfgqHw3KYmVFNlFiPryAFd0tLTbwY5sJHZZraKeGj-lRVBdOaMUO2l0HGglbc4uyk7QnX31q69i3RM.IineSOf93lDyi2hwCO66EO2xApLwyQ5xspe85hbSLck&dib_tag=se&keywords=basting%2Badhesive%2Bspray&qid=1712904901&sprefix=Basting%2Bad,aps,148&sr=8-2&th=1&linkCode=sl1&tag=yeseniadesign-20&linkId=cbf512a051bc6fbda3ec35f54ec3dda9&language=en_US&ref_=as_li_ss_tl")!),
+        ItemsOfSupplies(imageName: "craftingimage4", url: URL(string:"https://www.amazon.com/SUPVOX-Elastic-Barbed-Stretch-Fastener/dp/B07KNS3GMG?crid=NFKI41XXWNXG&dib=eyJ2IjoiMSJ9.gnk_E9ty6FJFaz7zx1Tjrsmm2vu1Z1rOSWh7YTDd_V8UZl3TvpXxs_JQJyJ5wSKG2GIwhkja0fupFzdFw8S_zZ0KCk39sMfnE5UOm4BeXPoM645aUVK1iY1PXgNQVLlRmi94kBp4leHCbxa8CvJ4savhxInwbZxEhhHLZsft1Qv38P5VjeG6oo2vT2wG5TjGCoktVGipiwOK4M3RF16B9hsGEVmSyJKX50Ks2Z-1T0H8agvODryAeZ63zu6hzfm0oQErI7tvbk4fJ_Jx8EFO7tYtOKTVD4uGvmWW5KdPyp4.DHJBCtrd6oD2O_aaX8gEHnB7wyL3oJwN2st-oQ97_To&dib_tag=se&keywords=elastic+bands+for+crafts+mask&qid=1712904973&sprefix=elastic+bands+for+crafts+mask,aps,145&sr=8-12-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1&linkCode=sl1&tag=yeseniadesign-20&linkId=c8f76e4d82f81ade3e13cde342d7229d&language=en_US&ref_=as_li_ss_tl")!),
+        ItemsOfSupplies(imageName: "craftingimage5", url: URL(string:"https://www.amazon.com/Soluble-Machine-Embroidery-Stabilizer-Standing/dp/B079R5B7KF?crid=2VE20RSJC36ZD&dib=eyJ2IjoiMSJ9.92k5BFY4II_ypamKkjp1xXejOIGHCUCXnlidQHn-xujiYrUPAfouvABu6jQtmUqMPgTtx3fo5okmS_AXsH1aBuCgeL2hmblC8kwl__QKU55aDLoDqPKJe6zAJSaXXk1A9DUsDRJzRnvu-BEqxZvRdAOo9vRYuQCAz9KnbNH8sh8trLddBEck5qzgS10snAOhKEOsNo9BAGdvpyCi04v-9Z1CEcyh3Mjfge3q-LW5VG_A3rKsHBBaE3eXH9WWx01N5RZDb73EQcQACQAkw4TIRsCiAhKsnQj5CPrSGjuJ2GI.vE4poqxXujq6plW0twuIfjJp0jZ7Pc_n7H8cciglB5Q&dib_tag=se&keywords=FSL+Non+Woven+Water+Soluble+Wash+Away+Embroidery+Stabilizer:&qid=1717838965&sprefix=fsl+non+woven+water+soluble+wash+away+embroidery+stabilizer+,aps,203&sr=8-1&linkCode=sl1&tag=yeseniadesign-20&linkId=5feb1f2a7da0bbcd4ad2e84a49b04aef&language=en_US&ref_=as_li_ss_tl")!),
+        ItemsOfSupplies(imageName: "craftingimage6", url: URL(string:"https://www.amazon.com/New-brothread-Luminary-Embroidery-Quilting/dp/B09GVKYX7G?&linkCode=sl1&tag=yeseniadesign-20&linkId=32f523b9e63a130b01d94f3fa5e9f6e1&language=en_US&ref_=as_li_ss_tl")!),
+        ItemsOfSupplies(imageName: "craftingimage7", url: URL(string:"https://www.amazon.com/New-brothread-Changing-Embroidery-Quilting/dp/B09GVL1KVW?&linkCode=sl1&tag=yeseniadesign-20&linkId=56ac36ac9ffa4e168b988e50b54bfdd5&language=en_US&ref_=as_li_ss_tl")!)
+        
+    ]
+    var body: some View {
+        ScrollView {
+            //vertical since sewing goes first then we want the images to be top to bottom
+            VStack {
+                Text("CRAFTING")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.pink)
+                    .padding(.top, 35)
+                //loop through the array-> index[0]...index[n]
+                ForEach(craftingitems) { item in
+                    //if user clicks the url then the button will have an action
+                    Button(action: {
+                        UIApplication.shared.open(item.url)
+                    }) {
+                        Image(item.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 150)
+                    }
+                }
+                Text("(affiliate)")
+                    .foregroundColor(.gray)
+                    .padding(.leading, 15)
+                Spacer()
+            }
+            .padding()
+            //another divider for the second line
+            Divider()
+                .frame(height: 6)
+                .background(Color.gray.opacity(0.3))
+                .padding(.top, 5)
+            //add the instagram link and youtube link-> has to be side to side so use HStack-> horizontal
+            HStack{
+                //call the struct (from the MainContentView)-> pass in the two parameters which are image and url
+                InstagramAndYoutubeLink(socialMediaImage: "instagramimage", url: URL(string: "https://www.instagram.com/yeseniadesigns/")!)
+                    .padding(.top, 100)
+                    .padding(.bottom, 20)
+                InstagramAndYoutubeLink(socialMediaImage: "youtubeimage", url: URL(string: "https://www.youtube.com/@yeseniadesigns")!)
+                    .padding(.top, 100)
+                    .padding(.bottom, 20)
+            }
+            //lastly just place the information of her company
+            Text("© 2012-2024 YESENIA DESIGNS. ALL RIGHTS RESERVED.")
+                .font(.caption)
+                //.regular doesn't make it as bold
+                .fontWeight(.regular)
+                .foregroundColor(.black)
+                //have to center the text
+                .multilineTextAlignment(.center)
+                .padding(.vertical, 10)
+                .frame(maxWidth: .infinity)
+        }
+    }
+}
 //preview
 struct ToolsAndSupplies_Previews: PreviewProvider {
     @State static var isSubSidebarOpen = true
