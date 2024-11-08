@@ -26,7 +26,7 @@ struct MainContentView: View {
         SidebarItem(name: "CONTACT", viewName: "CONTACT"),
         SidebarItem(name: "LOG IN | REGISTER", viewName: "LOG IN | REGISTER")
     ]
-    
+    //this conforms to the view protocol-> describes what is displayed and the View means you need a body which means you confrom to view protocol
     var body: some View {
         ZStack {
             //even if dark mode we want background to be white
@@ -188,7 +188,7 @@ struct MainContentView: View {
         .animation(.easeInOut, value: isSidebarOpen)
     }
 }
-//precondition: NONE
+//precondition: requires a unique identifier for each instance, which allows to distinguish one item from another-> using Identifiable and needs an ID(key->value).
 //postcondition: this struct takes in name and viewName that carries the sidebar information
 struct SidebarItem: Identifiable {
     //passing two parameters
