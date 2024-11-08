@@ -58,13 +58,14 @@ struct NewsLetterInformation: View {
     @Binding var emailAddressInfo: String
     @Binding var isFirstNameInfoEmpty: Bool
     @Binding var isEmailAddressInfoEmpty: Bool
-    //going to create a closure function to passed in and we need this for the trigger validation
+    //going to create a closure function to passed in and we need this for the trigger validation (this is a parameter)
     var submitSubscribe: () -> Void
     
     var body: some View {
         ScrollView {
+            //vertical-> top to bottom
             VStack(spacing: 10) {
-                // Header frame with website link text
+                //header goes first then the image, information, then button
                 Text("WWW.YESENIADESIGNS.COM")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
@@ -95,6 +96,7 @@ struct NewsLetterInformation: View {
                     .padding(.bottom, 10)
                 //create a vertical-> this is for the input user information
                 VStack(spacing: 5) {
+                    //need a layer on top of the input->if there is no input the first layer will be the 'First Name' but once user enters information it will go away which is the TextField
                     ZStack(alignment: .leading) {
                         //if the name is empty then it will preview the text hold name with the color
                         if (firstNameInfo.isEmpty) {
@@ -102,6 +104,7 @@ struct NewsLetterInformation: View {
                                 .foregroundColor(.black)
                                 .padding(.leading, 16)
                         }
+                        //allows user to input-> single line
                         TextField("", text: $firstNameInfo)
                             .padding()
                             .cornerRadius(5)
@@ -117,7 +120,6 @@ struct NewsLetterInformation: View {
                         }
                         TextField("",text: $emailAddressInfo)
                             .padding()
-                            .foregroundColor(.black)
                             .cornerRadius(5)
                             .overlay(RoundedRectangle(cornerRadius: 5)
                                 .stroke(isEmailAddressInfoEmpty ? Color.red : Color.black, lineWidth: 1))
