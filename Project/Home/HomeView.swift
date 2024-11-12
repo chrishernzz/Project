@@ -115,7 +115,7 @@ struct HomeView: View {
                     ])
                     
                     //add the instagram link and youtube link-> has to be side to side so use HStack-> horizontal
-                    HStack{
+                    HStack {
                         //call the struct (from the MainContentView)-> pass in the two parameters which are image and url
                         InstagramAndYoutubeLink(socialMediaImage: "instagramimage", url: URL(string: "https://www.instagram.com/yeseniadesigns/")!)
                             .padding(.top, 100)

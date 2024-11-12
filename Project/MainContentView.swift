@@ -100,7 +100,7 @@ struct MainContentView: View {
                 .frame(maxHeight: 50, alignment: .top)
                 Spacer()
                 //call the function to print out the logos (social media information) and it is horizontal
-                HStack {
+                HStack(spacing: 10) {
                     Spacer()
                     SocialMediaIcon(imageName: "instagramimage", url: "https://www.instagram.com/yeseniadesigns/")
                     SocialMediaIcon(imageName: "youtubeimage", url: "https://www.youtube.com/@yeseniadesigns")
@@ -108,14 +108,15 @@ struct MainContentView: View {
                     SocialMediaIcon(imageName: "shoppingcartimage", action: {
                         currentView = "SHOP"
                     })
-                    SocialMediaIcon(imageName: "tiktok",url: "https://www.tiktok.com/@yeseniadesigns")
+                    SocialMediaIcon(imageName: "tiktokimage",url: "https://www.tiktok.com/@yeseniadesigns")
                     SocialMediaIcon(imageName: "mailimage", action: {
                         //flag it to true so now it is true -> you pass in the function that lets user fill in the information
                         showContactForm = true
                     })
                     Spacer()
                 }
-                .padding(.bottom, 10)
+                .padding(.horizontal, 10) // Adjust horizontal padding to fit bar width
+                .frame(maxWidth: .infinity, alignment: .center)
             }
             
             //once the sidebar is clicked-> becomes true
@@ -226,18 +227,18 @@ struct SocialMediaIcon: View {
             //pass in the image from your assets
             Image(imageName)
                 .resizable()
-                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                .frame(width: 35, height: 25)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 30, height: 30)
                 .clipped()
             //.background(Color.pink.opacity(0.2))
         }
         .padding(5) // Adjust padding as needed
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: 8)
                 .fill(Color.pink.opacity(0.2))
-                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5) // Shadow effect
+                .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 3) // Shadow effect
         )
-        .cornerRadius(10) // Apply corner radius to the entire view
+        .cornerRadius(8) // Apply corner radius to the entire view
     }
 }
 //precondition: NONE
@@ -358,7 +359,7 @@ struct ContactInformationForm: View {
                         .padding(.bottom, 50)
                     }
                     //close button (only for form)
-                    if !showConfirmationMessage {
+                    if (!showConfirmationMessage) {
                         Button(action: {
                             showForm = false
                         }) {
@@ -388,12 +389,10 @@ struct InstagramAndYoutubeLink: View{
         }){
             Image(socialMediaImage)
                 .resizable()
-                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                .frame(width: 40, height: 40)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 30, height: 30)
                 .clipped()
         }
-        .padding(.horizontal, -5)
-        .cornerRadius(10)
     }
 }
 

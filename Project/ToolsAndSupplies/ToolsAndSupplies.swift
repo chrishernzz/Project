@@ -91,13 +91,20 @@ struct ForSewing: View {
     ]
     var body: some View {
         ScrollView {
-            //vertical since sewing goes first then we want the images to be top to bottom
             VStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .frame(height: 200)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, -16)
                 Text("SEWING")
-                    .font(.largeTitle)
+                    .font(.system(size: 30))
                     .fontWeight(.bold)
                     .foregroundColor(.pink)
-                    .padding(.top, 35)
+                    .padding(.top, -100)
                 //loop through the array-> index[0]...index[n]
                 ForEach(sewingItems) { item in
                     //if user clicks the url then the button will have an action
@@ -107,7 +114,7 @@ struct ForSewing: View {
                         Image(item.imageName)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 200, height: 150)
+                            .frame(width: 300, height: 250)
                     }
                 }
                 Text("(affiliate)")
@@ -134,14 +141,15 @@ struct ForSewing: View {
             //lastly just place the information of her company
             Text("© 2012-2024 YESENIA DESIGNS. ALL RIGHTS RESERVED.")
                 .font(.caption)
-                //.regular doesn't make it as bold
+            //.regular doesn't make it as bold
                 .fontWeight(.regular)
                 .foregroundColor(.black)
-                //have to center the text
+            //have to center the text
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 10)
                 .frame(maxWidth: .infinity)
         }
+        .background(Color.white)
     }
 }
 //precondition: call the ItemsOfSupplies struct
@@ -161,11 +169,20 @@ struct ForEmbroidery: View {
         ScrollView {
             //vertical since sewing goes first then we want the images to be top to bottom
             VStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .frame(height: 200)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, -16)
+                
                 Text("EMBROIDERY")
-                    .font(.largeTitle)
+                    .font(.system(size: 30))
                     .fontWeight(.bold)
                     .foregroundColor(.pink)
-                    .padding(.top, 35)
+                    .padding(.top, -100)
                 //loop through the array-> index[0]...index[n]
                 ForEach(embroideryItems) { item in
                     //if user clicks the url then the button will have an action
@@ -175,7 +192,7 @@ struct ForEmbroidery: View {
                         Image(item.imageName)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 200, height: 150)
+                            .frame(width: 300, height: 250)
                     }
                 }
                 Text("(affiliate)")
@@ -202,14 +219,15 @@ struct ForEmbroidery: View {
             //lastly just place the information of her company
             Text("© 2012-2024 YESENIA DESIGNS. ALL RIGHTS RESERVED.")
                 .font(.caption)
-                //.regular doesn't make it as bold
+            //.regular doesn't make it as bold
                 .fontWeight(.regular)
                 .foregroundColor(.black)
-                //have to center the text
+            //have to center the text
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 10)
                 .frame(maxWidth: .infinity)
         }
+        .background(Color.white)
     }
 }
 //precondition:
@@ -230,11 +248,20 @@ struct ForCrafting: View {
         ScrollView {
             //vertical since sewing goes first then we want the images to be top to bottom
             VStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .frame(height: 200)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, -16)
+                
                 Text("CRAFTING")
-                    .font(.largeTitle)
+                    .font(.system(size: 30))
                     .fontWeight(.bold)
                     .foregroundColor(.pink)
-                    .padding(.top, 35)
+                    .padding(.top, -100)
                 //loop through the array-> index[0]...index[n]
                 ForEach(craftingitems) { item in
                     //if user clicks the url then the button will have an action
@@ -244,7 +271,7 @@ struct ForCrafting: View {
                         Image(item.imageName)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 200, height: 150)
+                            .frame(width: 300, height: 250)
                     }
                 }
                 Text("(affiliate)")
@@ -271,14 +298,15 @@ struct ForCrafting: View {
             //lastly just place the information of her company
             Text("© 2012-2024 YESENIA DESIGNS. ALL RIGHTS RESERVED.")
                 .font(.caption)
-                //.regular doesn't make it as bold
+            //.regular doesn't make it as bold
                 .fontWeight(.regular)
                 .foregroundColor(.black)
-                //have to center the text
+            //have to center the text
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 10)
                 .frame(maxWidth: .infinity)
         }
+        .background(Color.white)
     }
 }
 //preview
@@ -287,7 +315,9 @@ struct ToolsAndSupplies_Previews: PreviewProvider {
     @State static var subSidebarOpen = true
     @State static var selectTheOption: String = ""
     static var previews: some View {
-        ToolsAndSupplies(isSubSidebarOpen: $isSubSidebarOpen, subSidebarOpen: $subSidebarOpen,selectTheOption: $selectTheOption)
+        ForSewing()
+        //ToolsAndSupplies(isSubSidebarOpen: $isSubSidebarOpen, subSidebarOpen: $subSidebarOpen,selectTheOption: $selectTheOption)
     }
+    
 }
 
