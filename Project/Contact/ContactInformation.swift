@@ -27,14 +27,22 @@ struct ContactInformation: View {
             Color.white.edgesIgnoringSafeArea(.all)
             //allows user to scroll the view
             ScrollView {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .frame(height: 200)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, -16)
                 //information is vertical-> text, then the name, email, subject, and message but in they are horizontal so you create HStack inside, will have a leading space of 20 from the far left
                 VStack(alignment: .leading, spacing: 20) {
                     Text("Get in Touch With Us")
-                        .font(.title)
+                        .font(.system(size: 20))
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.black)
                         .frame(maxWidth: .infinity, alignment: .center)
-                        .padding(.top, 60)
+                        .padding(.top, -100)
                         .padding(.bottom, 30)
                     //if user does send the message then it is true
                     if (submittedMessage){
