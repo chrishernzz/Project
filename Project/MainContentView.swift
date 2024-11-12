@@ -171,7 +171,6 @@ struct MainContentView: View {
                     .frame(width: UIScreen.main.bounds.width * 0.6)
                     .background(Color.white)
                     .transition(.move(edge: .leading))
-                    
                     Spacer()
                 }
                 .background(Color.black.opacity(0.1))
@@ -230,7 +229,6 @@ struct SocialMediaIcon: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 30, height: 30)
                 .clipped()
-            //.background(Color.pink.opacity(0.2))
         }
         .padding(5) // Adjust padding as needed
         .background(
