@@ -234,9 +234,9 @@ struct SocialMediaIcon: View {
         .background(
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.pink.opacity(0.2))
-                .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 3) // Shadow effect
+                .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 3)
         )
-        .cornerRadius(8) // Apply corner radius to the entire view
+        .cornerRadius(8)
     }
 }
 //precondition: NONE

@@ -84,7 +84,6 @@ struct NewsLetterInformation: View {
                     .padding(.top,-50)
                 Text("Don't Miss a\nStitch!\nJoin the List")
                     .font(.system(size: 50))
-                //.fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     .padding()
                     .foregroundColor(.black)
@@ -94,7 +93,7 @@ struct NewsLetterInformation: View {
                     .foregroundColor(.black)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 10)
-                //create a vertical-> this is for the input user information
+                //create a vertical-> this is for the input user information, will have a spacing in between (5 space)
                 VStack(spacing: 5) {
                     //need a layer on top of the input->if there is no input the first layer will be the 'First Name' but once user enters information it will go away which is the TextField
                     ZStack(alignment: .leading) {

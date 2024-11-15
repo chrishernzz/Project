@@ -43,7 +43,6 @@ struct ContactInformation: View {
                         .foregroundColor(.black)
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.top, -100)
-                        .padding(.bottom, 30)
                     //if user does send the message then it is true
                     if (submittedMessage){
                         Text("Thank you. Your information has been submitted.")
@@ -54,6 +53,7 @@ struct ContactInformation: View {
                     else{
                         //now call the name struct information-> user input
                         CustomerName(firstName: $firstName, lastName: $lastName, isFirstNameEmpty: $isFirstNameEmpty, isLastNameEmpty: $isLastNameEmpty)
+                            .padding(.top, -50)
                         //now call the email struct information-> user input
                         CustomerEmail(email: $email, isEmailEmpty: $isEmailEmpty)
                         //now call the subject struct-> user input
@@ -84,6 +84,7 @@ struct ContactInformation: View {
                     }
                 }
                 .padding(.horizontal)
+                .padding(.top , 20)
                 //THIS GOES OUT THE VSTACK SINCE IT IS ONLY THE FORMAT OF THE DIVIDER AND VSTACK IS ALIGNMENTING THE FORMATION, THIS INFORMATION BELOW SHOULD NOT BE ALIGNMENT
                 //another divider for the second line
                 Divider()
@@ -238,19 +239,19 @@ struct CustomerMessage: View {
             Text("Message *")
                 .font(.subheadline)
                 .foregroundColor(.black)
-            
             ZStack(alignment: .topLeading) {
                 //if the text is empty then run this first-> show the messages to let user know what they have to do
                 if (message.isEmpty) {
                     Text("Enter your message here...")
                         .foregroundColor(.gray)
+                        .background(Color.gray)
                         .padding(.top, 8)
                         .padding(.leading, 1)
+                        .colorScheme(.dark)
+                    
                 }
-                
-                TextField("", text: $message)
-                    .padding(.vertical, -95)
-                    .padding(.horizontal, 1)
+                TextEditor(text: $message)
+                    .padding(.horizontal, -3)
                     .frame(height: 200)
                     //ternary operator if it is empty then red color pops, else gray color
                     .background(isMessageEmpty ? Color.red.opacity(0.2) : Color.gray.opacity(0.1))
@@ -260,6 +261,7 @@ struct CustomerMessage: View {
                         RoundedRectangle(cornerRadius: 4)
                             .stroke(isMessageEmpty ? Color.red : Color.clear, lineWidth: 1)
                     )
+                    .colorScheme(.light)
             }
             
         }
