@@ -247,8 +247,6 @@ struct CustomerMessage: View {
                         .background(Color.gray)
                         .padding(.top, 8)
                         .padding(.leading, 1)
-                        .colorScheme(.dark)
-                    
                 }
                 TextEditor(text: $message)
                     .padding(.horizontal, -3)
