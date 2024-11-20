@@ -427,14 +427,14 @@ struct InformationAfterImages: View {
     }
 }
 //preview
-struct ToolsAndSupplies_Previews: PreviewProvider {
-    @State static var isSubSidebarOpen = true
-    @State static var subSidebarOpen = true
-    @State static var selectTheOption: String = ""
-    static var previews: some View {
-        ForPhotography()
-        //ToolsAndSupplies(isSubSidebarOpen: $isSubSidebarOpen, subSidebarOpen: $subSidebarOpen,selectTheOption: $selectTheOption)
-    }
-    
-}
+//struct ToolsAndSupplies_Previews: PreviewProvider {
+//    @State static var isSubSidebarOpen = true
+//    @State static var subSidebarOpen = true
+//    @State static var selectTheOption: String = ""
+//    static var previews: some View {
+//        ForPhotography()
+//        //ToolsAndSupplies(isSubSidebarOpen: $isSubSidebarOpen, subSidebarOpen: $subSidebarOpen,selectTheOption: $selectTheOption)
+//    }
+//    
+//}
 

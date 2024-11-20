@@ -46,6 +46,7 @@ struct HomeView: View {
                                     )
                                     .foregroundColor(.black)
                             }
+                            .padding(.top,8)
                             .padding(.horizontal)
                             .frame(maxWidth: .infinity)
                         }

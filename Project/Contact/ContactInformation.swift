@@ -78,7 +78,7 @@ struct ContactInformation: View {
                             //print an error
                             Text("Please correct the highlighted fields")
                                 .padding(.top, -30)
-                                .foregroundColor(.red)
+                                .foregroundColor(.black)
                                 .font(.footnote)
                         }
                     }
@@ -156,13 +156,13 @@ struct CustomTextFieldColor: View {
             if (text.isEmpty) {
                 Text(nameHolder)
                     .foregroundColor(.gray)
-                    .padding(.top, -18)
-                    .padding(.leading, 0)
+                    .padding(.top, -10)
+                    .padding(.leading, 6)
             }
             //text input for user
             TextField("", text: $text)
-                .padding(.top, -18)
-                .padding(.leading, 0)
+                .padding(.top, -10)
+                .padding(.leading, 6)
                 .frame(height: 50)
                 //ternary operator if it is empty then red color pops, else gray color
                 .background(emptyCheck ? Color.red.opacity(0.2) : Color.gray.opacity(0.1))
@@ -207,7 +207,7 @@ struct CustomerEmail: View {
                 .font(.subheadline)
                 .foregroundColor(.black)
             //call the function here
-            CustomTextFieldColor(nameHolder: "Email", text: $email, emptyCheck: $isEmailEmpty)
+            CustomTextFieldColor(nameHolder: "", text: $email, emptyCheck: $isEmailEmpty)
         }
     }
 }
@@ -221,7 +221,7 @@ struct CustomerSubjectEmail: View {
             Text("Subject *")
                 .font(.subheadline)
                 .foregroundColor(.black)
-            CustomTextFieldColor(nameHolder: "Subject", text: $subject, emptyCheck: $isSubjectEmpty)
+            CustomTextFieldColor(nameHolder: "", text: $subject, emptyCheck: $isSubjectEmpty)
         }
     }
 }
@@ -240,26 +240,27 @@ struct CustomerMessage: View {
                 .font(.subheadline)
                 .foregroundColor(.black)
             ZStack(alignment: .topLeading) {
-                //if the text is empty then run this first-> show the messages to let user know what they have to do
-                if (message.isEmpty) {
-                    Text("Enter your message here...")
-                        .foregroundColor(.gray)
-                        .background(Color.gray)
-                        .padding(.top, 8)
-                        .padding(.leading, 1)
-                }
-                TextEditor(text: $message)
-                    .padding(.horizontal, -3)
-                    .frame(height: 200)
-                    //ternary operator if it is empty then red color pops, else gray color
+//                if (message.isEmpty) {
+//                    Text("Enter your message...")
+//                        .foregroundColor(.gray)
+//                        .padding(.leading, 8)
+//                        .padding(.top, 10)
+//                }
+                //going to make sure it allows multilines since it is a message
+                TextField("", text: $message, axis: .vertical)
+                    .padding(.leading, 8)
+                    .padding(.top, -65)
+                    .frame(height: 150)
                     .background(isMessageEmpty ? Color.red.opacity(0.2) : Color.gray.opacity(0.1))
-                    .cornerRadius(8)
-                    .foregroundColor(.black)
+                    .cornerRadius(4)
                     .overlay(
                         RoundedRectangle(cornerRadius: 4)
                             .stroke(isMessageEmpty ? Color.red : Color.clear, lineWidth: 1)
                     )
-                    .colorScheme(.light)
+                    .onChange(of: message) {
+                        isMessageEmpty = message.isEmpty
+                    }
+                    .foregroundColor(Color.black)
             }
             
         }
