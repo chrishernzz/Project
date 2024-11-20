@@ -137,7 +137,7 @@ struct HomeView: View {
                 }
                 .padding(.top, 70)
             }
-            /* API Request */
+            /*api request */
         }.onAppear{ClientServer.shared.testLoad(url: "/", method: "GET")}
     }
 }
@@ -155,9 +155,13 @@ struct CategorySectionView: View {
                     .foregroundColor(textColor)
                     .padding(.leading)
                 Spacer()
-                Image(systemName: "plus")
-                    .foregroundColor(plusColor)
-                    .padding(.trailing)
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "plus")
+                        .foregroundColor(plusColor)
+                        .padding(.trailing)
+                }
             }
             .frame(height: 50)
             .background(Color.pink.opacity(0.2))

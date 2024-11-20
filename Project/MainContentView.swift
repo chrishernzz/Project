@@ -56,7 +56,16 @@ struct MainContentView: View {
             else if(currentView == "FOR CRAFTING") {
                 ForCrafting()
             }
-            else if(currentView == "NEWSLETTER"){
+            else if (currentView == "FOR OFFICE/SHIPPING") {
+                ForOfficeAndShipping()
+            }
+            else if (currentView == "FOR ORGANIZATION") {
+                ForOrganization()
+            }
+            else if (currentView == "FOR PHOTOGRAPHY") {
+                ForPhotography()
+            }
+            else if (currentView == "NEWSLETTER") {
                 NewsLetter()
             }
             else if (currentView == "CONTACT") {
@@ -152,7 +161,15 @@ struct MainContentView: View {
                                             .foregroundColor(.black)
                                             .padding(.top, 10)
                                             .padding(.leading,15)
-                                        //since tools & supplies is a sub sidebar-> has a '>' to tell it that there is an option
+                                        //since 'watch videos' and 'tools & supplies' is a sub sidebar-> has a '>' to tell it that there is an option
+                                        if (item.name == "WATCH VIDEOS") {
+                                            Spacer()
+                                            Image(systemName: "chevron.right")
+                                                .foregroundColor(.black)
+                                                .font(.headline)
+                                                .padding(.top, 10)
+                                                .padding(.trailing, 10)
+                                        }
                                         if (item.name == "TOOLS & SUPPLIES") {
                                             Spacer()
                                             Image(systemName: "chevron.right")
@@ -161,6 +178,7 @@ struct MainContentView: View {
                                                 .padding(.top, 10)
                                                 .padding(.trailing, 10)
                                         }
+
                                     }
                                 }
                             }
