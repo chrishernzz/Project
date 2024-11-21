@@ -138,7 +138,6 @@
 				CC102B322CAFC09400FE690C /* LoginOrRegister */,
 				CC102B312CAFC08E00FE690C /* Contact */,
 				CC102B302CAFC05F00FE690C /* ToolsAndSupplies */,
-				CC102B2F2CAFC05400FE690C /* Portfolio */,
 				CC102B2E2CAFC03100FE690C /* Shop */,
 				CC102B2D2CAFC02800FE690C /* WatchVideos */,
 				CC102B2C2CAFC01F00FE690C /* Blogs */,
@@ -196,13 +195,6 @@
 				CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */,
 			);
 			path = Shop;
-			sourceTree = "<group>";
-		};
-		CC102B2F2CAFC05400FE690C /* Portfolio */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Portfolio;
 			sourceTree = "<group>";
 		};
 		CC102B302CAFC05F00FE690C /* ToolsAndSupplies */ = {

@@ -9,7 +9,7 @@ import AVKit
 
 struct MainContentView: View {
     @State private var videoShowScreen = true
-    //state variable to control the sidebar-> State lets it update/change
+    //state variable to control the sidebar-> state lets it update/change and only within the this view
     @State private var isSidebarOpen = false
     @State private var subSidebarOpen = false
     //state variable to show the contact form
