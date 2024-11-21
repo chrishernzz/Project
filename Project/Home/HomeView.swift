@@ -32,7 +32,6 @@ struct HomeView: View {
                                     .padding(.vertical, 10)
                                     .padding(.trailing, 35)
                                     .background(Color.pink.opacity(0.2))
-                                    //.frame(maxWidth: 300)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 5)
                                             .stroke(Color.gray, lineWidth: 1)
@@ -128,10 +127,10 @@ struct HomeView: View {
                     //lastly just place the information of her company
                     Text("© 2012-2024 YESENIA DESIGNS. ALL RIGHTS RESERVED.")
                         .font(.caption)
-                        //.regular doesn't make it as bold
+                    //.regular doesn't make it as bold
                         .fontWeight(.regular)
                         .foregroundColor(.black)
-                        //have to center the text
+                    //have to center the text
                         .multilineTextAlignment(.center)
                         .padding(.vertical, 10)
                         .frame(maxWidth: .infinity)
@@ -168,7 +167,7 @@ struct CategorySectionView: View {
             .background(Color.pink.opacity(0.2))
             .cornerRadius(10)
             .padding(.horizontal)
-
+            
         }
     }
 }
@@ -191,7 +190,7 @@ struct KofiSocialMediaIcon: View {
                         .resizable()
                         .frame(width: 24, height: 24)
                         .foregroundColor(.pink)
-
+                    
                     Image(systemName: "heart.fill")
                         .resizable()
                         .frame(width: 12, height: 12)
@@ -216,7 +215,7 @@ struct Reviews: Identifiable {
     //the id-> makes sure each user had its own id, name,rating,descriptin,image->id
     var id: Int
     var name: String
-    var rating: String
+    var rating: Int
     var description: String
     var image: String
 }
@@ -225,15 +224,15 @@ struct Reviews: Identifiable {
 struct SlideShowReviews: View {
     // Array of customer reviews
     let reviewsInformation: [Reviews] = [
-        Reviews(id: 1, name: "Kristin", rating: "5 star", description: "easy to down load. easy to use", image: "dogimage1"),
-        Reviews(id: 2, name: "Mallory", rating: "5 star", description: "Easy to follow instructions for this newbie sewer. Loved that it included svg files as well!", image: "ghostimage2"),
-        Reviews(id: 3, name: "Kyli", rating: "5 star", description: "First sewing pattern ever and such a great experience!! So easy to follow with wonderful directions🩷 my baby loved it! Our family Mario theme was complete!", image: "princeimage3"),
-        Reviews(id: 4, name: "Barbara", rating: "5 star", description: "This pattern is very simple, and the finished project is great!", image: "dogimage4"),
-        Reviews(id: 5, name: "Jamie", rating: "5 star", description: "So easy to put together! My daughter loves her King Boo costume", image: "princeimage3"),
-        Reviews(id: 6, name: "Marisa", rating: "5 star", description: "So cute! Thank you! !", image: "appleimage5"),
-        Reviews(id: 7, name: "Charmaine", rating: "5 star", description: "Great pattern easy to use - the video is super helpful!", image: "dogimage4"),
-        Reviews(id: 8, name: "Annette", rating: "5 star", description: "A+ Services A+ A+ A+", image: "grinchimage6"),
-        Reviews(id: 9, name: "Lisa", rating: "5 star", description: "This file was easy to open and easy to read. You get a lot for the price. The pattern worked out perfectly for my King Boo costume.", image: "princeimage3")
+        Reviews(id: 1, name: "Kristin", rating: 5, description: "easy to down load. easy to use", image: "dogimage1"),
+        Reviews(id: 2, name: "Mallory", rating: 5, description: "Easy to follow instructions for this newbie sewer. Loved that it included svg files as well!", image: "ghostimage2"),
+        Reviews(id: 3, name: "Kyli", rating: 5, description: "First sewing pattern ever and such a great experience!! So easy to follow with wonderful directions🩷 my baby loved it! Our family Mario theme was complete!", image: "princeimage3"),
+        Reviews(id: 4, name: "Barbara", rating: 5, description: "This pattern is very simple, and the finished project is great!", image: "dogimage4"),
+        Reviews(id: 5, name: "Jamie", rating: 5, description: "So easy to put together! My daughter loves her King Boo costume", image: "princeimage3"),
+        Reviews(id: 6, name: "Marisa", rating: 5, description: "So cute! Thank you! !", image: "appleimage5"),
+        Reviews(id: 7, name: "Charmaine", rating: 5, description: "Great pattern easy to use - the video is super helpful!", image: "dogimage4"),
+        Reviews(id: 8, name: "Annette", rating: 5, description: "A+ Services A+ A+ A+", image: "grinchimage6"),
+        Reviews(id: 9, name: "Lisa", rating: 5, description: "This file was easy to open and easy to read. You get a lot for the price. The pattern worked out perfectly for my King Boo costume.", image: "princeimage3")
     ]
     //using index to track the current slide
     @State private var currentIndex = 0
@@ -257,9 +256,18 @@ struct SlideShowReviews: View {
                             Text(reviewsInformation[index].name)
                                 .font(.headline)
                                 .foregroundColor(.black)
-                            Text(reviewsInformation[index].rating)
-                                .font(.subheadline)
-                                .foregroundColor(.pink)
+                            //side to side for the stars so using HStack
+                            HStack(spacing: 2) {
+                                //have to loop from 1-5 since there can only be those ratings
+                                ForEach(1...5, id: \.self) { star in
+                                    //terinay operator if true then go to the first one else just star
+                                    Image(systemName: star <= reviewsInformation[index].rating ? "star.fill" : "star")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 14, height: 14)
+                                        .foregroundColor(.pink)
+                                }
+                            }
                             Text(reviewsInformation[index].description)
                                 .font(.body)
                                 .foregroundColor(.gray)

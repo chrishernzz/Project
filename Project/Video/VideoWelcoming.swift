@@ -13,13 +13,13 @@ struct VideoWelcoming: View {
 
     var body: some View {
         ZStack {
-            // Fallback background matching the video
-            Color(red: 1.0, green: 0.8, blue: 0.9) // Replace with the exact RGB of the video
+            //this is the RGB for background
+            Color(red: 1.0, green: 0.8, blue: 0.9)
                 .edgesIgnoringSafeArea(.all)
 
-            if let videoURL = Bundle.main.url(forResource: "videointroforapp", withExtension: "mp4") {
+            if let videoURL = Bundle.main.url(forResource: "Untitled design", withExtension: "mp4") {
                 FullScreenVideoPlayer(videoURL: videoURL, onVideoEnd: onVideoEnd)
-                    .edgesIgnoringSafeArea(.all) // Ensure the video fills the screen
+                    .edgesIgnoringSafeArea(.all)
             } else {
                 Text("Video not found")
                     .foregroundColor(.red)
@@ -36,13 +36,12 @@ struct FullScreenVideoPlayer: UIViewControllerRepresentable {
         let viewController = UIViewController()
         let player = AVPlayer(url: videoURL)
 
-        // Create the AVPlayerLayer
+        //creates the AVPPlayer
         let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.videoGravity = .resizeAspectFill // Ensures video fills the screen
+        playerLayer.videoGravity = .resizeAspectFill
         playerLayer.frame = UIScreen.main.bounds
         viewController.view.layer.addSublayer(playerLayer)
 
-        // Observer for video end
         NotificationCenter.default.addObserver(
             forName: .AVPlayerItemDidPlayToEndTime,
             object: player.currentItem,
@@ -51,12 +50,10 @@ struct FullScreenVideoPlayer: UIViewControllerRepresentable {
             onVideoEnd()
         }
 
-        // Start playback
         player.play()
 
         return viewController
     }
-
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
 

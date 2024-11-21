@@ -10,7 +10,6 @@
 		114352FE2CDC42AD00194565 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114352FD2CDC42A900194565 /* ViewController.swift */; };
 		CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */; };
 		CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D632CDABF3A00B444AC /* NewsLetter.swift */; };
-		CC076ED82CED7DA100C796DD /* videointroforapp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CC076ED72CED7DA100C796DD /* videointroforapp.mp4 */; };
 		CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC076EDA2CED814100C796DD /* VideoWelcoming.swift */; };
 		CC102B002CAFBF7300FE690C /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102AFF2CAFBF7300FE690C /* ProjectApp.swift */; };
 		CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B012CAFBF7300FE690C /* MainContentView.swift */; };
@@ -21,6 +20,9 @@
 		CC102B1D2CAFBF7600FE690C /* ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B1C2CAFBF7600FE690C /* ProjectUITestsLaunchTests.swift */; };
 		CC102B352CAFC48300FE690C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B342CAFC48300FE690C /* HomeView.swift */; };
 		CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */; };
+		CC7A56952CEEBF7E00D2A1F8 /* Untitled design.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CC7A56942CEEBF7E00D2A1F8 /* Untitled design.mp4 */; };
+		CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A56962CEECA6100D2A1F8 /* ContactInformationForm.swift */; };
+		CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */; };
 		CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +47,6 @@
 		114352FD2CDC42A900194565 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsAndSupplies.swift; sourceTree = "<group>"; };
 		CC050D632CDABF3A00B444AC /* NewsLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLetter.swift; sourceTree = "<group>"; };
-		CC076ED72CED7DA100C796DD /* videointroforapp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videointroforapp.mp4; sourceTree = "<group>"; };
 		CC076EDA2CED814100C796DD /* VideoWelcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWelcoming.swift; sourceTree = "<group>"; };
 		CC102AFC2CAFBF7300FE690C /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC102AFF2CAFBF7300FE690C /* ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectApp.swift; sourceTree = "<group>"; };
@@ -59,6 +60,9 @@
 		CC102B1C2CAFBF7600FE690C /* ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CC102B342CAFC48300FE690C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtsyShopView.swift; sourceTree = "<group>"; };
+		CC7A56942CEEBF7E00D2A1F8 /* Untitled design.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Untitled design.mp4"; sourceTree = "<group>"; };
+		CC7A56962CEECA6100D2A1F8 /* ContactInformationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformationForm.swift; sourceTree = "<group>"; };
+		CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +110,7 @@
 		CC102AF32CAFBF7300FE690C = {
 			isa = PBXGroup;
 			children = (
-				CC076ED72CED7DA100C796DD /* videointroforapp.mp4 */,
+				CC7A56942CEEBF7E00D2A1F8 /* Untitled design.mp4 */,
 				CC102AFE2CAFBF7300FE690C /* Project */,
 				CC102B0F2CAFBF7600FE690C /* ProjectTests */,
 				CC102B192CAFBF7600FE690C /* ProjectUITests */,
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */,
+				CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */,
+				CC7A56962CEECA6100D2A1F8 /* ContactInformationForm.swift */,
 			);
 			path = Contact;
 			sourceTree = "<group>";
@@ -336,7 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC102B072CAFBF7600FE690C /* Preview Assets.xcassets in Resources */,
-				CC076ED82CED7DA100C796DD /* videointroforapp.mp4 in Resources */,
+				CC7A56952CEEBF7E00D2A1F8 /* Untitled design.mp4 in Resources */,
 				CC102B042CAFBF7600FE690C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,9 +369,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC102B352CAFC48300FE690C /* HomeView.swift in Sources */,
+				CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */,
 				CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */,
 				CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */,
 				CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */,
+				CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */,
 				CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */,
 				CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */,
 				CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */,
