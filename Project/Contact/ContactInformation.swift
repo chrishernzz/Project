@@ -164,8 +164,7 @@ struct CustomTextFieldColor: View {
                 .padding(.top, -10)
                 .padding(.leading, 6)
                 .frame(height: 50)
-                //ternary operator if it is empty then red color pops, else gray color
-                .background(emptyCheck ? Color.red.opacity(0.2) : Color.gray.opacity(0.1))
+                .background(Color.gray.opacity(0.1))
                 .cornerRadius(4)
                 .foregroundColor(.black)
                 .overlay(
@@ -251,7 +250,7 @@ struct CustomerMessage: View {
                     .padding(.leading, 8)
                     .padding(.top, -65)
                     .frame(height: 150)
-                    .background(isMessageEmpty ? Color.red.opacity(0.2) : Color.gray.opacity(0.1))
+                    .background(Color.gray.opacity(0.1))
                     .cornerRadius(4)
                     .overlay(
                         RoundedRectangle(cornerRadius: 4)

@@ -80,7 +80,7 @@ struct ContactInformationForm: View {
                                     .padding(.leading, 8)
                                     .padding(.top, -40)
                                     .frame(height: 100)
-                                    .background(isMessageEmpty ? Color.red.opacity(0.2) : Color.gray.opacity(0.1))
+                                    .background(Color.gray.opacity(0.1))
                                     .cornerRadius(5)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 5)
