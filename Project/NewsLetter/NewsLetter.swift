@@ -37,9 +37,11 @@ struct NewsLetter: View {
         //flag the variables to empty
         isFirstNameInfoEmpty = firstNameInfo.isEmpty
         isEmailAddressInfoEmpty = emailAddressInfo.isEmpty
+        //call the function and have to make sure it is valid-> this becomes false
+        let isEmailValid = !isValidEmail(emailAddressInfo)
         
         //if all variables are not empty (fill in) run this and call the clearValidFields()
-        if (!isFirstNameInfoEmpty && !isEmailAddressInfoEmpty) {
+        if (!isFirstNameInfoEmpty && !isEmailAddressInfoEmpty && !isEmailValid) {
             //flag it to true so now it will show the message
             submittedMessage = true
             //clear the input after-> by doing this you set everything to empty strings(call the function)
@@ -54,10 +56,12 @@ struct NewsLetter: View {
     
 }
 struct NewsLetterInformation: View {
+    //binding allows two way connection-> this is the child
     @Binding var firstNameInfo: String
     @Binding var emailAddressInfo: String
     @Binding var isFirstNameInfoEmpty: Bool
     @Binding var isEmailAddressInfoEmpty: Bool
+    @State private var isEmailValid: Bool = false
     //going to create a closure function to passed in and we need this for the trigger validation (this is a parameter)
     var submitSubscribe: () -> Void
     
@@ -66,7 +70,7 @@ struct NewsLetterInformation: View {
             //vertical-> top to bottom
             VStack(spacing: 10) {
                 //header goes first then the image, information, then button
-                Text("WWW.YESENIADESIGNS.COM")
+                Text("")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .frame(height: 100)
@@ -82,47 +86,36 @@ struct NewsLetterInformation: View {
                     .cornerRadius(12)
                     .padding(.horizontal, -10)
                     .padding(.top,-50)
-                Text("Don't Miss a\nStitch!\nJoin the List")
-                    .font(.system(size: 50))
+                Text("Don't Miss a\nStitch!\nJoin the List.")
+                    .font(.system(size: 52))
                     .multilineTextAlignment(.center)
                     .padding()
                     .foregroundColor(.black)
                     .padding(.top, -90)
                 Text("Sign up to receive email updates on our blog and shop! Get exclusive coupon codes, deals and so much\nmore!")
-                    .font(.system(size: 24))
+                    .font(.system(size: 22))
                     .foregroundColor(.black)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 10)
                 //create a vertical-> this is for the input user information, will have a spacing in between (5 space)
                 VStack(spacing: 5) {
-                    //need a layer on top of the input->if there is no input the first layer will be the 'First Name' but once user enters information it will go away which is the TextField
-                    ZStack(alignment: .leading) {
-                        //if the name is empty then it will preview the text hold name with the color
-                        if (firstNameInfo.isEmpty) {
-                            Text("First Name")
-                                .foregroundColor(.black)
-                                .padding(.leading, 16)
+                    //call the struct-> will let me reuse the information
+                    CustomTextFieldColor(nameHolder: "First Name", text: $firstNameInfo, emptyCheck: $isFirstNameInfoEmpty)
+                        .overlay(RoundedRectangle(cornerRadius: 5)
+                            .stroke(isFirstNameInfoEmpty ? Color.red : Color.black, lineWidth: 1))
+                    CustomTextFieldColor(nameHolder: "Email Address", text: $emailAddressInfo, emptyCheck: $isEmailAddressInfoEmpty)
+                        .overlay(RoundedRectangle(cornerRadius: 5)
+                            .stroke(isEmailAddressInfoEmpty ? Color.red : Color.black, lineWidth: 1))
+                    //the .onChange will be trigger everytime the specifed value changes
+                        .onChange(of: emailAddressInfo) {
+                            //now validate the email
+                            isEmailValid = isValidEmail(emailAddressInfo)
                         }
-                        //allows user to input-> single line
-                        TextField("", text: $firstNameInfo)
-                            .padding()
-                            .cornerRadius(5)
-                            .overlay(RoundedRectangle(cornerRadius: 5)
-                                .stroke(isFirstNameInfoEmpty ? Color.red : Color.black, lineWidth: 1))
-                            .foregroundColor(.black)
-                    }
-                    ZStack(alignment: .leading) {
-                        if (emailAddressInfo.isEmpty) {
-                            Text("Email Address")
-                                .foregroundColor(.black)
-                                .padding(.leading, 16)
-                        }
-                        TextField("",text: $emailAddressInfo)
-                            .padding()
-                            .cornerRadius(5)
-                            .overlay(RoundedRectangle(cornerRadius: 5)
-                                .stroke(isEmailAddressInfoEmpty ? Color.red : Color.black, lineWidth: 1))
-                            .foregroundColor(.black)
+                    //this error will only display if the email is not valid and also if the email is not empty
+                    if (!isEmailValid && !emailAddressInfo.isEmpty) {
+                        Text("Please enter a valid email address.")
+                            .font(.footnote)
+                            .foregroundColor(.red)
                     }
                     //create the button now
                     Button(action: {

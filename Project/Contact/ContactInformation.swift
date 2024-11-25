@@ -4,7 +4,7 @@
 //
 //  Created by Christian Hernandez on 10/19/24.
 //
-
+import Foundation
 import SwiftUI
 
 struct ContactInformation: View {
@@ -124,9 +124,11 @@ struct ContactInformation: View {
         isEmailEmpty = email.isEmpty
         isSubjectEmpty = subject.isEmpty
         isMessageEmpty = message.isEmpty
+        //create a constant to make sure the email is valid and you call the function
+        let isEmailValid = !isValidEmail(email)
         
         //if all variables are not empty (fill in) run this and call the clearValidFields()
-        if (!isFirstNameEmpty && !isLastNameEmpty && !isEmailEmpty && !isSubjectEmpty && !isMessageEmpty) {
+        if (!isFirstNameEmpty && !isLastNameEmpty && !isEmailEmpty && !isEmailValid && !isSubjectEmpty && !isMessageEmpty) {
             //flag it to true so now it will show the message
             submittedMessage = true
             //clear the input after-> by doing this you set everything to empty strings(call the function)
@@ -195,11 +197,23 @@ struct CustomerName: View {
         }
     }
 }
+
+//precondition: going to pass in a parameter that will indicate the email
+//postcondition: going to return true if the email contains '@' else false
+func isValidEmail(_ email: String) -> Bool {
+    // Regular expression to validate email
+    let emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{3,}$"
+    //predicate will filter the results-> will filter the fetcching
+    let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+    return emailTest.evaluate(with: email)
+}
 //precondition: NONE
 //postcondition: this struct gets the customer email-> must be vstack with email first then the text box
 struct CustomerEmail: View {
     @Binding var email: String
     @Binding var isEmailEmpty: Bool
+    @State private var isEmailValid: Bool = false
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Email *")
@@ -207,9 +221,21 @@ struct CustomerEmail: View {
                 .foregroundColor(.black)
             //call the function here
             CustomTextFieldColor(nameHolder: "", text: $email, emptyCheck: $isEmailEmpty)
+            //the .onChange will be trigger everytime the specifed value changes
+                .onChange(of: email) {
+                    //call the function to check if the email is valid
+                    isEmailValid = isValidEmail(email)
+                }
+            //this error will only display if the email is not valid and also if the email is not empty
+            if (!isEmailValid && !email.isEmpty) {
+                Text("Please enter a valid email address.")
+                    .font(.footnote)
+                    .foregroundColor(.black)
+            }
         }
     }
 }
+
 //precondition: NONE
 //postcondition: this struct lets customer enter the subject of the email
 struct CustomerSubjectEmail: View {

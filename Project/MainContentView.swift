@@ -53,11 +53,11 @@ struct MainContentView: View {
                 case "BLOG":
                     // Call the blog view here
                     //BlogView()
-                    Text("error")
+                    Text("BLOG")
                 case "WATCH VIDEOS":
                     // Call the watch videos view here
                     //WatchVideosView()
-                    Text("error")
+                    Text("WATCH VIDEOS")
                 case "SHOP":
                     EtsyShopView()
                 case "FOR SEWING":
@@ -80,7 +80,7 @@ struct MainContentView: View {
                 case "LOG IN | REGISTER":
                     // Call login/register view here
                     //LoginRegisterView()
-                    Text("error")
+                    Text("LOG IN | REGISTER")
                 default:
                     // Handle unexpected or undefined `currentView` values
                     Text("View not found")
@@ -227,7 +227,7 @@ struct SidebarItem: Identifiable {
     //passing two parameters
     var id: String { name }
     var name: String
-    //this variable willh old the viewname->changes everytime user clicks on what view they want
+    //this variable will hold the viewname->changes everytime user clicks on what view they want
     var viewName: String
 }
 //postcondition: NONE
