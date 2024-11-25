@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ContactInformation: View {
     //@state is the parent view where the actual data is stored and managed
-    @State private var message: String = ""
     @State private var submittedMessage = false
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var email = ""
     @State private var subject = ""
+    @State private var message: String = ""
     @State private var isFirstNameEmpty = false
     @State private var isLastNameEmpty = false
     @State private var isEmailEmpty = false
@@ -265,12 +265,6 @@ struct CustomerMessage: View {
                 .font(.subheadline)
                 .foregroundColor(.black)
             ZStack(alignment: .topLeading) {
-//                if (message.isEmpty) {
-//                    Text("Enter your message...")
-//                        .foregroundColor(.gray)
-//                        .padding(.leading, 8)
-//                        .padding(.top, 10)
-//                }
                 //going to make sure it allows multilines since it is a message
                 TextField("", text: $message, axis: .vertical)
                     .padding(.leading, 8)

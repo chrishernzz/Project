@@ -22,6 +22,7 @@ struct ContactInformationForm: View {
     @State private var isEmailEmpty = false
     @State private var isSubjectEmpty = false
     @State private var isMessageEmpty = false
+    @State private var isEmailValid: Bool = false
     
     var body: some View {
         //need a layered on top of another because it has to be transparent
@@ -67,6 +68,17 @@ struct ContactInformationForm: View {
                             //call the customTextFieldColor (reusing) function
                             CustomTextFieldColor(nameHolder: "Your name", text: $name, emptyCheck: $isNameEmpty)
                             CustomTextFieldColor(nameHolder: "Your email address", text: $email, emptyCheck: $isEmailEmpty)
+                            //the .onChange will be trigger everytime the specifed value changes
+                                .onChange(of: email) {
+                                    //call the function to check if the email is valid
+                                    isEmailValid = isValidEmail(email)
+                                }
+                            //this error will only display if the email is not valid and also if the email is not empty
+                            if (!isEmailValid && !email.isEmpty) {
+                                Text("Please enter a valid email address.")
+                                    .font(.footnote)
+                                    .foregroundColor(.black)
+                            }
                             CustomTextFieldColor(nameHolder: "Subject", text: $subject, emptyCheck: $isSubjectEmpty)
                             ZStack(alignment: .topLeading) {
                                 if (message.isEmpty) {
@@ -146,9 +158,11 @@ struct ContactInformationForm: View {
         isEmailEmpty = email.isEmpty
         isSubjectEmpty = subject.isEmpty
         isMessageEmpty = message.isEmpty
+        //create a constant to make sure the email is valid and you call the function
+        let isEmailValid = !isValidEmail(email)
         
         //if all variables are not empty (fill in) run this and call the clearValidFields()
-        if (!isNameEmpty && !isEmailEmpty && !isSubjectEmpty && !isMessageEmpty) {
+        if (!isNameEmpty && !isEmailEmpty && !isEmailValid && !isSubjectEmpty && !isMessageEmpty) {
             //flag it to true so now it will show the message
             showConfirmationMessage = true
             //clear the input after-> by doing this you set everything to empty strings(call the function)

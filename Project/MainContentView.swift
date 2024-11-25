@@ -181,7 +181,7 @@ struct MainContentView: View {
                                                 .padding(.top, 10)
                                                 .padding(.leading,15)
                                             //since 'watch videos' and 'tools & supplies' is a sub sidebar-> has a '>' to tell it that there is an option
-                                            if (item.name == "WATCH VIDEOS" || item.name == "TOOLS & SUPPLIES") {
+                                            if (item.name == "WATCH VIDEOS" || item.name == "TOOLS & SUPPLIES" || item.name == "SHOP") {
                                                 Spacer()
                                                 Image(systemName: "chevron.right")
                                                     .foregroundColor(.black)
