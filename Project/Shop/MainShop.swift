@@ -26,7 +26,7 @@ struct MainShop: View{
             //even if dark mode we want background to be white
             Color.white.edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading, spacing: 5) {
-                //if it goes to the sub sub view then go here
+                //if it goes to the sub sub view then go here since it is true
                 if(subSidebarOpen1){
                     SubSidebarSubMenu(isSubSidebarOpen: $isSubSidebarOpen, subSidebarOpen: $subSidebarOpen ,selectTheOption: $selectTheOption, subSidebarOpen1: $subSidebarOpen1)
                 }
@@ -47,9 +47,8 @@ struct MainShop: View{
                     //now loop throught the options starting at index[0]...index[n]
                     ForEach(mainShopItems) { item in
                         Button(action: {
-                            //creat an if maybe to check if the user click on cut & sew fabric prints if so then that creates a new sidebar????
                             if(item.name == "CUT & SEW FABRIC PRINTS"){
-                                //IN HERE YOU NOW HAVE TO CALL THE OTHER, MAYBE FLAG IT TO TRUE
+                                //flag it to true so the sub sub view can be shown
                                 subSidebarOpen1 = true
                             }
                             else{
@@ -87,7 +86,9 @@ struct SubSidebarSubMenu: View {
     @Binding var isSubSidebarOpen: Bool
     @Binding var subSidebarOpen: Bool
     @Binding var selectTheOption: String
+    //this has to be binding so it can update the parent but in the parent it is a state since we only want two way connection here and there
     @Binding var subSidebarOpen1: Bool
+    //create an array
     let mainShopSubItems: [MainShopSidebarItems] = [
         MainShopSidebarItems(name: "SHOP FABRIC PRINTS"),
         MainShopSidebarItems(name: "SIZE CHART")
