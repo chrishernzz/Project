@@ -11,7 +11,9 @@ struct MainContentView: View {
     @State private var videoShowScreen = true
     //state variable to control the sidebar-> state lets it update/change and only within the this view
     @State private var isSidebarOpen = false
-    @State private var subSidebarOpen = false
+    @State private var subSidebarOpen1 = false
+    @State private var subSidebarOpen2 = false
+    
     //state variable to show the contact form
     @State private var showContactForm = false
     @State private var shoppingCartAvailable = false
@@ -58,7 +60,7 @@ struct MainContentView: View {
                     // Call the watch videos view here
                     //WatchVideosView()
                     Text("WATCH VIDEOS")
-                case "SHOP":
+                case "ETSY SHOP":
                     EtsyShopView()
                 case "FOR SEWING":
                     // Call the struct for tools and supplies
@@ -134,7 +136,7 @@ struct MainContentView: View {
                         SocialMediaIcon(imageName: "youtubeimage", url: "https://www.youtube.com/@yeseniadesigns")
                         //set the currentView a
                         SocialMediaIcon(imageName: "shoppingcartimage", action: {
-                            currentView = "SHOP"
+                            currentView = "ETSY SHOP"
                         })
                         SocialMediaIcon(imageName: "tiktokimage",url: "https://www.tiktok.com/@yeseniadesigns")
                         SocialMediaIcon(imageName: "mailimage", action: {
@@ -151,18 +153,26 @@ struct MainContentView: View {
                 if (isSidebarOpen) {
                     HStack {
                         VStack(alignment: .leading, spacing: 10) {
-                            if (subSidebarOpen){
+                            if (subSidebarOpen1) {
                                 //call the struct tools and supplies here
-                                ToolsAndSupplies(isSubSidebarOpen: $isSidebarOpen,subSidebarOpen: $subSidebarOpen,selectTheOption: $currentView)
+                                ToolsAndSupplies(isSubSidebarOpen: $isSidebarOpen,subSidebarOpen: $subSidebarOpen1,selectTheOption: $currentView)
+                                    
+                            }
+                            else if (subSidebarOpen2) {
+                                MainShop(isSubSidebarOpen: $isSidebarOpen, subSidebarOpen: $subSidebarOpen2, selectTheOption: $currentView)
                             }
                             else{
                                 //loop through the array (index[0]..etc)
                                 ForEach(sidebarItems) { item in
                                     Button(action: {
                                         //if user clicks the tools and supplies then go in here since it is a sub sidebar
-                                        if (item.viewName == "TOOLS & SUPPLIES"){
+                                        if (item.viewName == "TOOLS & SUPPLIES") {
                                             //flag it to true->this will now go back to the subSidebaropen and open it and in there the struct will be passed but won't close the first sidebar view still is open
-                                            subSidebarOpen = true
+                                            subSidebarOpen1 = true
+                                        }
+                                        //else the second subsidebar which is 'SHOP' will open up
+                                        else if (item.viewName == "SHOP") {
+                                            subSidebarOpen2 = true
                                         }
                                         //else if not that then go here and then close the side bar since it is not a sub sidebar
                                         else{

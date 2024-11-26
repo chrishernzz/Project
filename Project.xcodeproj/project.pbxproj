@@ -23,6 +23,7 @@
 		CC7A56952CEEBF7E00D2A1F8 /* Untitled design.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CC7A56942CEEBF7E00D2A1F8 /* Untitled design.mp4 */; };
 		CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A56962CEECA6100D2A1F8 /* ContactInformationForm.swift */; };
 		CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */; };
+		CCB184312CF545FD00409685 /* MainShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB184302CF545FD00409685 /* MainShop.swift */; };
 		CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		CC7A56942CEEBF7E00D2A1F8 /* Untitled design.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Untitled design.mp4"; sourceTree = "<group>"; };
 		CC7A56962CEECA6100D2A1F8 /* ContactInformationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformationForm.swift; sourceTree = "<group>"; };
 		CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
+		CCB184302CF545FD00409685 /* MainShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShop.swift; sourceTree = "<group>"; };
 		CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +195,7 @@
 			children = (
 				CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */,
 				CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */,
+				CCB184302CF545FD00409685 /* MainShop.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCB184312CF545FD00409685 /* MainShop.swift in Sources */,
 				CC102B352CAFC48300FE690C /* HomeView.swift in Sources */,
 				CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */,
 				CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */,

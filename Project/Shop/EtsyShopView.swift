@@ -20,11 +20,12 @@ struct EtsyShopView: View {
         ZStack {
             //even if dark mode we want background to be white
             Color.white.edgesIgnoringSafeArea(.all)
-            
-            //call the function here for the preview
-            ProductFirstCarousel(products: productsInformation)
-            //offset will allow me to move the items up without cropping any photos
-                .offset(y: -120)
+            VStack {
+                //call the function here for the preview
+                ProductFirstCarousel(products: productsInformation)
+                //offset will allow me to move the items up without cropping any photos
+                    .offset(y: -120)
+            }
         }
         
         /* API Request */
@@ -86,7 +87,7 @@ struct ProductFirstCarousel: View {
                                             Text("$\(products[index].price, specifier: "%.2f")")
                                                 .font(.subheadline)
                                                 .foregroundColor(.black)
-
+                                            
                                             //creating a button if user clicks on shop now
                                             Button(action: {
                                                 //this takes you to the image you are currently in
@@ -117,7 +118,7 @@ struct ProductFirstCarousel: View {
                         currentIndex = index
                     }) {
                         Circle()
-                            //using ternary operator meaning if it is equal then true else the color will be gray
+                        //using ternary operator meaning if it is equal then true else the color will be gray
                             .fill(currentIndex == index ? Color.pink.opacity(0.5) : Color.gray)
                             .frame(width: 10, height: 10)
                             .padding(4)
