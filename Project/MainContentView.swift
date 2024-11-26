@@ -62,6 +62,8 @@ struct MainContentView: View {
                     Text("WATCH VIDEOS")
                 case "ETSY SHOP":
                     EtsyShopView()
+                case "FAQS":
+                    FAQSShop()
                 case "FOR SEWING":
                     // Call the struct for tools and supplies
                     ForSewing()

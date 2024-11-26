@@ -36,6 +36,7 @@ struct MainShop: View{
                     .font(.headline)
                     .foregroundColor(.black)
                     .padding(.top, 10)
+                    .padding(.leading, -16)
                     
                 }
                 //now loop throught the options starting at index[0]...index[n]
@@ -51,6 +52,7 @@ struct MainShop: View{
                             .font(.headline)
                             .foregroundColor(.black)
                             .padding(.top, 10)
+                            .padding(.leading, -16)
                     }
                 }
                 Spacer()

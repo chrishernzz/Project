@@ -42,93 +42,104 @@ struct Product: Identifiable {
     var price: Double
     var image: String
 }
-//precondition:
-//postcondition:
+//precondition: call the Product struct so an array can be created
+//postcondition: going to show the items, this will be the first part of the shop
 struct ProductFirstCarousel: View {
+    //an array of the products
     let products: [Product]
     @State private var currentIndex = 0
     var body: some View {
-        VStack {
-            //have to keep track of the index for the tabview update
-            TabView(selection: $currentIndex) {
-                //loop through the array , index[0] -> etc
-                ForEach(products.indices, id: \.self) { index in
-                    VStack(spacing: 5) {
-                        Button(action: {
-                            //here should take you to the option of the sale if they click on image
-                        }) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.white)
-                                .frame(height: 350)
-                                .overlay(
-                                    //top to bottom with a 5 space in between vertically
-                                    VStack(spacing: 5) {
-                                        //now you have to pass in the index and pass in the product you are passing using the '.' gives you access to the struct
-                                        Image(products[index].image)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 220, height: 220)
-                                            .cornerRadius(12)
-                                        Text("FEATURED ITEM")
-                                            .font(.subheadline)
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.gray)
-                                            .padding(.bottom, 5)
-                                        //product and name are centered so pass in another VStack
-                                        VStack(alignment: .center) {
-                                            Text(products[index].name)
-                                                .font(.headline)
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.black)
-                                                .multilineTextAlignment(.center)
-                                                .lineLimit(2)
-                                                .fixedSize(horizontal: false, vertical: true)
-                                                .padding(.horizontal, 5)
-                                            Text("$\(products[index].price, specifier: "%.2f")")
+        //will allow me to scroll up and down
+        ScrollView{
+            VStack {
+                //this will display first since we are doing VStack-> topt to bottom
+                Image("shopfrontcover")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 10)
+                    .padding(.bottom, -10)
+                //have to keep track of the index for the tabview update
+                TabView(selection: $currentIndex) {
+                    //loop through the array , index[0] -> etc
+                    ForEach(products.indices, id: \.self) { index in
+                        VStack(spacing: 5) {
+                            Button(action: {
+                                //here should take you to the option of the sale if they click on image
+                            }) {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.white)
+                                    .frame(height: 350)
+                                    .overlay(
+                                        //top to bottom with a 5 space in between vertically
+                                        VStack(spacing: 5) {
+                                            //now you have to pass in the index and pass in the product you are passing using the '.' gives you access to the struct
+                                            Image(products[index].image)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 220, height: 220)
+                                                .cornerRadius(12)
+                                            Text("FEATURED ITEM")
                                                 .font(.subheadline)
-                                                .foregroundColor(.black)
-                                            
-                                            //creating a button if user clicks on shop now
-                                            Button(action: {
-                                                //this takes you to the image you are currently in
-                                            }) {
-                                                Text("SHOP NOW")
-                                                    .padding(.vertical, 10)
-                                                    .padding(.horizontal, 10)
-                                                    .background(Color.pink.opacity(0.2))
-                                                    .foregroundColor(Color.black)
-                                                    .cornerRadius(3)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.gray)
+                                                .padding(.bottom, 5)
+                                            //product and name are centered so pass in another VStack
+                                            VStack(alignment: .center) {
+                                                Text(products[index].name)
+                                                    .font(.headline)
+                                                    .fontWeight(.bold)
+                                                    .foregroundColor(.black)
+                                                    .multilineTextAlignment(.center)
+                                                    .lineLimit(2)
+                                                    .fixedSize(horizontal: false, vertical: true)
+                                                    .padding(.horizontal, 5)
+                                                Text("$\(products[index].price, specifier: "%.2f")")
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.black)
+                                                
+                                                //creating a button if user clicks on shop now
+                                                Button(action: {
+                                                    //this takes you to the image you are currently in
+                                                }) {
+                                                    Text("SHOP NOW")
+                                                        .padding(.vertical, 10)
+                                                        .padding(.horizontal, 10)
+                                                        .background(Color.pink.opacity(0.2))
+                                                        .foregroundColor(Color.black)
+                                                        .cornerRadius(3)
+                                                }
+                                                .padding(.top, 10)
                                             }
-                                            .padding(.top, 10)
                                         }
-                                    }
-                                )
+                                    )
+                            }
                         }
+                        .tag(index)
                     }
-                    .tag(index)
                 }
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .frame(height: 400)
-            //the dots are going to be side to side-> horizontal
-            HStack {
-                ForEach(products.indices, id: \.self) { index in
-                    Button(action: {
-                        //now need to flag it back to the index
-                        currentIndex = index
-                    }) {
-                        Circle()
-                        //using ternary operator meaning if it is equal then true else the color will be gray
-                            .fill(currentIndex == index ? Color.pink.opacity(0.5) : Color.gray)
-                            .frame(width: 10, height: 10)
-                            .padding(4)
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .frame(height: 400)
+                //the dots are going to be side to side-> horizontal
+                HStack {
+                    ForEach(products.indices, id: \.self) { index in
+                        Button(action: {
+                            //now need to flag it back to the index
+                            currentIndex = index
+                        }) {
+                            Circle()
+                            //using ternary operator meaning if it is equal then true else the color will be gray
+                                .fill(currentIndex == index ? Color.pink.opacity(0.5) : Color.gray)
+                                .frame(width: 10, height: 10)
+                                .padding(4)
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
-                    .buttonStyle(PlainButtonStyle())
                 }
+                .padding(.bottom, 10)
             }
-            .padding(.bottom, 10)
+            .padding(.top, 200)
         }
-        .padding(.top, 10)
     }
 }
 

@@ -85,33 +85,8 @@ struct ContactInformation: View {
                 }
                 .padding(.horizontal)
                 .padding(.top , 20)
-                //THIS GOES OUT THE VSTACK SINCE IT IS ONLY THE FORMAT OF THE DIVIDER AND VSTACK IS ALIGNMENTING THE FORMATION, THIS INFORMATION BELOW SHOULD NOT BE ALIGNMENT
-                //another divider for the second line
-                Divider()
-                    .frame(height: 6)
-                    .background(Color.gray.opacity(0.3))
-                    .padding(.top, 5)
-                
-                //add the instagram link and youtube link-> has to be side to side so use HStack-> horizontal
-                HStack{
-                    //call the struct-> pass in the two parameters which are image and url
-                    InstagramAndYoutubeLink(socialMediaImage: "instagramimage", url: URL(string:"https://www.instagram.com/yeseniadesigns/")!)
-                        .padding(.top, 100)
-                        .padding(.bottom, 20)
-                    InstagramAndYoutubeLink(socialMediaImage: "youtubeimage", url: URL(string: "https://www.youtube.com/@yeseniadesigns")!)
-                        .padding(.top, 100)
-                        .padding(.bottom, 20)
-                }
-                //lastly just place the information of her company
-                Text("© 2012-2024 YESENIA DESIGNS. ALL RIGHTS RESERVED.")
-                    .font(.caption)
-                //.regular doesn't make it as bold
-                    .fontWeight(.regular)
-                    .foregroundColor(.black)
-                //have to center the text
-                    .multilineTextAlignment(.center)
-                    .padding(.vertical, 10)
-                    .frame(maxWidth: .infinity)
+                //going to reuse the function that goes after all the information
+                InformationAfterImages()
             }
         }
     }
