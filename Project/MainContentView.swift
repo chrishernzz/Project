@@ -64,8 +64,9 @@ struct MainContentView: View {
                     EtsyShopView()
                 case "FAQS":
                     FAQSShop()
+                case "SHOP FABRIC PRINTS":
+                    ShopFabricPrints()
                 case "FOR SEWING":
-                    // Call the struct for tools and supplies
                     ForSewing()
                 case "FOR EMBROIDERY":
                     ForEmbroidery()
@@ -86,7 +87,7 @@ struct MainContentView: View {
                     //LoginRegisterView()
                     Text("LOG IN | REGISTER")
                 default:
-                    // Handle unexpected or undefined `currentView` values
+                    //if there are no views then error, this is the default
                     Text("View not found")
                         .font(.headline)
                         .foregroundColor(.gray)
@@ -195,7 +196,6 @@ struct MainContentView: View {
                                                 .padding(.leading,15)
                                             //since 'watch videos' and 'tools & supplies' is a sub sidebar-> has a '>' to tell it that there is an option
                                             if (item.name == "WATCH VIDEOS" || item.name == "TOOLS & SUPPLIES" || item.name == "SHOP") {
-                                                Spacer()
                                                 Image(systemName: "chevron.right")
                                                     .foregroundColor(.black)
                                                     .font(.headline)
