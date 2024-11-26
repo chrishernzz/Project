@@ -2,7 +2,7 @@
 //  ShoppingCart.swift
 //  Project
 //
-//  Created by Daniel Hernandez on 11/20/24.
+//  Created by Christian Hernandez on 11/20/24.
 //
 
 import Foundation
