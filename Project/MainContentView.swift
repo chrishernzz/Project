@@ -147,7 +147,8 @@ struct MainContentView: View {
                         })
                         Spacer()
                     }
-                    .padding(.horizontal, 10) // Adjust horizontal padding to fit bar width
+                    //adjusting the horizontal padding so it can fit bar width
+                    .padding(.horizontal, 10)
                     .frame(maxWidth: .infinity, alignment: .center)
                 }
                 
@@ -155,8 +156,8 @@ struct MainContentView: View {
                 if (isSidebarOpen) {
                     HStack {
                         VStack(alignment: .leading, spacing: 10) {
+                            //this if,else if,and else will check if any sub side bars are open if not then it will go the other views
                             if (subSidebarOpen1) {
-                                //call the struct tools and supplies here
                                 ToolsAndSupplies(isSubSidebarOpen: $isSidebarOpen,subSidebarOpen: $subSidebarOpen1,selectTheOption: $currentView)
                                     
                             }
@@ -206,6 +207,7 @@ struct MainContentView: View {
                                     }
                                 }
                             }
+                            //going to take up all space as much as it can-> vertical here
                             Spacer()
                         }
                         .padding()
@@ -213,6 +215,7 @@ struct MainContentView: View {
                         .background(Color.white)
                         .offset(x: isSidebarOpen ? 0 : -UIScreen.main.bounds.width * 0.6) 
                         .animation(.easeInOut(duration: 0.3), value: isSidebarOpen)
+                        //same thing here but now horizontal
                         Spacer()
                     }
                     .background(Color.black.opacity(0.1))
