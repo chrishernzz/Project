@@ -37,7 +37,7 @@ struct NewsLetter: View {
         //flag the variables to empty
         isFirstNameInfoEmpty = firstNameInfo.isEmpty
         isEmailAddressInfoEmpty = emailAddressInfo.isEmpty
-        //call the function and have to make sure it is valid-> this becomes false
+        //call the function that was created in contactinformation and have to make sure it is valid-> this becomes false
         let isEmailValid = !isValidEmail(emailAddressInfo)
         
         //if all variables are not empty (fill in) run this and call the clearValidFields()

@@ -178,8 +178,9 @@ struct CustomerName: View {
 func isValidEmail(_ email: String) -> Bool {
     // Regular expression to validate email
     let emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{3,}$"
-    //predicate will filter the results-> will filter the fetcching
+    //predicate will filter the results-> will filter the fetching
     let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+    //return true if email is valid
     return emailTest.evaluate(with: email)
 }
 //precondition: NONE
@@ -229,8 +230,8 @@ struct CustomerSubjectEmail: View {
 //postcondition: this struct is going to let customer enter the message
 struct CustomerMessage: View {
     //prevents us from using a parameter and keeps it within the view
-   // @State private var message: String = ""
-   // @State private var isMessageEmpty = false
+    // @State private var message: String = ""
+    // @State private var isMessageEmpty = false
     
     @Binding var message: String
     @Binding var isMessageEmpty: Bool
@@ -239,24 +240,21 @@ struct CustomerMessage: View {
             Text("Message *")
                 .font(.subheadline)
                 .foregroundColor(.black)
-            ZStack(alignment: .topLeading) {
-                //going to make sure it allows multilines since it is a message
-                TextField("", text: $message, axis: .vertical)
-                    .padding(.leading, 8)
-                    .padding(.top, -65)
-                    .frame(height: 150)
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(4)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 4)
-                            .stroke(isMessageEmpty ? Color.red : Color.clear, lineWidth: 1)
-                    )
-                    .onChange(of: message) {
-                        isMessageEmpty = message.isEmpty
-                    }
-                    .foregroundColor(Color.black)
-            }
-            
+            //going to make sure it allows multilines since it is a message
+            TextField("", text: $message, axis: .vertical)
+                .padding(.leading, 8)
+                .padding(.top, -65)
+                .frame(height: 150)
+                .background(Color.gray.opacity(0.1))
+                .cornerRadius(4)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(isMessageEmpty ? Color.red : Color.clear, lineWidth: 1)
+                )
+                .onChange(of: message) {
+                    isMessageEmpty = message.isEmpty
+                }
+                .foregroundColor(Color.black)
         }
     }
 }
