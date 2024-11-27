@@ -5,7 +5,6 @@
 //  Created by Christian Hernandez on 10/3/24.
 //
 import SwiftUI
-import AVKit
 
 struct MainContentView: View {
     @State private var videoShowScreen = true
