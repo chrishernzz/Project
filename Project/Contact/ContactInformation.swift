@@ -14,7 +14,7 @@ struct ContactInformation: View {
     @State private var lastName = ""
     @State private var email = ""
     @State private var subject = ""
-    @State private var message: String = ""
+    @State private var message = ""
     @State private var isFirstNameEmpty = false
     @State private var isLastNameEmpty = false
     @State private var isEmailEmpty = false
@@ -27,6 +27,7 @@ struct ContactInformation: View {
             Color.white.edgesIgnoringSafeArea(.all)
             //allows user to scroll the view
             ScrollView {
+                //this will start off white and then
                 LinearGradient(
                     gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
                     startPoint: .top,

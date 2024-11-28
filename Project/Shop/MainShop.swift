@@ -88,6 +88,8 @@ struct SubSidebarSubMenu: View {
     @Binding var selectTheOption: String
     //this has to be binding so it can update the parent but in the parent it is a state since we only want two way connection here and there
     @Binding var subSidebarOpen1: Bool
+    @Environment(\.openURL) var openURL
+    
     //create an array
     let mainShopSubItems: [MainShopSidebarItems] = [
         MainShopSidebarItems(name: "SHOP FABRIC PRINTS"),
@@ -111,11 +113,24 @@ struct SubSidebarSubMenu: View {
             //now loop throught the options starting at index[0]...index[n]
             ForEach(mainShopSubItems) { item in
                 Button(action: {
-                    //set the paramter to the name the user picked
-                    selectTheOption = item.name
-                    subSidebarOpen1 = false
-                    subSidebarOpen = false
-                    isSubSidebarOpen = false
+                    //since this just requires a link to be open, we do an if and check it-> open the link then close the side bars
+                    if(item.name == "SHOP FABRIC PRINTS") {
+                        //going to unwrapped the link
+                        if let url = URL(string: "https://www.spoonflower.com/profiles/yeseniadesigns") {
+                            //will open the url
+                            openURL(url)
+                            subSidebarOpen1 = false
+                            subSidebarOpen = false
+                            isSubSidebarOpen = false
+                        }
+                    }
+                    else{
+                        //set the paramter to the name the user picked
+                        selectTheOption = item.name
+                        subSidebarOpen1 = false
+                        subSidebarOpen = false
+                        isSubSidebarOpen = false
+                    }
                 }) {
                     Text(item.name)
                         .font(.headline)

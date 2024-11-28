@@ -119,8 +119,9 @@ struct HomeView: View {
                 }
                 .padding(.top, 70)
             }
-            /*api request */
-        }.onAppear{ClientServer.shared.testLoad(url: "/", method: "GET")}
+        }
+        /*API Request testing */
+        .onAppear{ClientServer.shared.testLoad(url: "/shop", method: "GET")}
     }
 }
 //precondition: NONE
@@ -136,6 +137,7 @@ struct CategorySectionView: View {
                     .font(.headline)
                     .foregroundColor(textColor)
                     .padding(.leading)
+                //using spacer to cover all the space side to side
                 Spacer()
                 Button(action: {
                     

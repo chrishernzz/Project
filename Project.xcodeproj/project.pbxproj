@@ -25,7 +25,6 @@
 		CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */; };
 		CCB184312CF545FD00409685 /* MainShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB184302CF545FD00409685 /* MainShop.swift */; };
 		CCB184332CF5658400409685 /* FAQSShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB184322CF5658400409685 /* FAQSShop.swift */; };
-		CCB184352CF68E5200409685 /* ShopFabricPrints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB184342CF68E5200409685 /* ShopFabricPrints.swift */; };
 		CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +67,6 @@
 		CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		CCB184302CF545FD00409685 /* MainShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShop.swift; sourceTree = "<group>"; };
 		CCB184322CF5658400409685 /* FAQSShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQSShop.swift; sourceTree = "<group>"; };
-		CCB184342CF68E5200409685 /* ShopFabricPrints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopFabricPrints.swift; sourceTree = "<group>"; };
 		CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,7 +199,6 @@
 				CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */,
 				CCB184302CF545FD00409685 /* MainShop.swift */,
 				CCB184322CF5658400409685 /* FAQSShop.swift */,
-				CCB184342CF68E5200409685 /* ShopFabricPrints.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -373,7 +370,6 @@
 				CC102B352CAFC48300FE690C /* HomeView.swift in Sources */,
 				CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */,
 				CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */,
-				CCB184352CF68E5200409685 /* ShopFabricPrints.swift in Sources */,
 				CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */,
 				CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */,
 				CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */,

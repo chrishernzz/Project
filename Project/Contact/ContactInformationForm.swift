@@ -22,7 +22,7 @@ struct ContactInformationForm: View {
     @State private var isEmailEmpty = false
     @State private var isSubjectEmpty = false
     @State private var isMessageEmpty = false
-    @State private var isEmailValid: Bool = false
+    @State private var isEmailValid = false
     
     var body: some View {
         //need a layered on top of another because it has to be transparent

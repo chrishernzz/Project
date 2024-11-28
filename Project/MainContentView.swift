@@ -63,8 +63,6 @@ struct MainContentView: View {
                     EtsyShopView()
                 case "FAQS":
                     FAQSShop()
-                case "SHOP FABRIC PRINTS":
-                    ShopFabricPrints()
                 case "FOR SEWING":
                     ForSewing()
                 case "FOR EMBROIDERY":
@@ -293,7 +291,7 @@ struct InstagramAndYoutubeLink: View{
     var socialMediaImage: String
     var url: URL
     //can pass this-> won't be refer as a parameter
-    @Environment (\.openURL) var openurl
+    @Environment(\.openURL) var openurl
     var body: some View{
         Button(action: {
             openurl(url)
@@ -306,6 +304,14 @@ struct InstagramAndYoutubeLink: View{
         }
     }
 }
+func handleShopFabricPrints() {
+    if let url = URL(string: "https://www.spoonflower.com/profiles/yeseniadesigns") {
+        UIApplication.shared.open(url)
+    } else {
+        print("Invalid URL")
+    }
+}
+
 
 //shows the final preview of all the structs combined
 struct MainContentView_Previews: PreviewProvider {

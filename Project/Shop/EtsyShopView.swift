@@ -30,10 +30,8 @@ struct EtsyShopView: View {
                 }
             }
         }
-        
-        /* API Request */
-        .onAppear{ClientServer.shared.testLoad(url: "/hello", method: "GET")}
-        //.navigationTitle("Shop")
+        /* THIS IS THE API Request FROM BACKEND-> coming from the ViewController */
+        .onAppear{ClientServer.shared.testLoad(url: "/shop", method: "GET")}
     }
 }
 //precondition: requires a unique identifier for each instance, which allows to distinguish one item from another-> using Identifiable
