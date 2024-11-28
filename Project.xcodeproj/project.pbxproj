@@ -20,6 +20,7 @@
 		CC102B1D2CAFBF7600FE690C /* ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B1C2CAFBF7600FE690C /* ProjectUITestsLaunchTests.swift */; };
 		CC102B352CAFC48300FE690C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B342CAFC48300FE690C /* HomeView.swift */; };
 		CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */; };
+		CC64844B2CF8124900F107E0 /* SizeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC64844A2CF8123A00F107E0 /* SizeChart.swift */; };
 		CC7A56952CEEBF7E00D2A1F8 /* Untitled design.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CC7A56942CEEBF7E00D2A1F8 /* Untitled design.mp4 */; };
 		CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A56962CEECA6100D2A1F8 /* ContactInformationForm.swift */; };
 		CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */; };
@@ -62,6 +63,7 @@
 		CC102B1C2CAFBF7600FE690C /* ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CC102B342CAFC48300FE690C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtsyShopView.swift; sourceTree = "<group>"; };
+		CC64844A2CF8123A00F107E0 /* SizeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeChart.swift; sourceTree = "<group>"; };
 		CC7A56942CEEBF7E00D2A1F8 /* Untitled design.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Untitled design.mp4"; sourceTree = "<group>"; };
 		CC7A56962CEECA6100D2A1F8 /* ContactInformationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformationForm.swift; sourceTree = "<group>"; };
 		CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		CC102B2E2CAFC03100FE690C /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				CC64844A2CF8123A00F107E0 /* SizeChart.swift */,
 				CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */,
 				CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */,
 				CCB184302CF545FD00409685 /* MainShop.swift */,
@@ -375,6 +378,7 @@
 				CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */,
 				CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */,
 				CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */,
+				CC64844B2CF8124900F107E0 /* SizeChart.swift in Sources */,
 				CCB184332CF5658400409685 /* FAQSShop.swift in Sources */,
 				CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */,
 				114352FE2CDC42AD00194565 /* ViewController.swift in Sources */,

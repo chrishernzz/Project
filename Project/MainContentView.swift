@@ -63,6 +63,8 @@ struct MainContentView: View {
                     EtsyShopView()
                 case "FAQS":
                     FAQSShop()
+                case "SIZE CHART":
+                    SizeChart(url: URL(string: "https://www.spoonflower.com/profiles/yeseniadesigns")!)
                 case "FOR SEWING":
                     ForSewing()
                 case "FOR EMBROIDERY":
@@ -304,14 +306,6 @@ struct InstagramAndYoutubeLink: View{
         }
     }
 }
-func handleShopFabricPrints() {
-    if let url = URL(string: "https://www.spoonflower.com/profiles/yeseniadesigns") {
-        UIApplication.shared.open(url)
-    } else {
-        print("Invalid URL")
-    }
-}
-
 
 //shows the final preview of all the structs combined
 struct MainContentView_Previews: PreviewProvider {
