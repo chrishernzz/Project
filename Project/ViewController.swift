@@ -28,35 +28,39 @@ import Foundation /* URLSession */
 
 /* This formats each API Request, sends it to the server, and responds to the call. */
 class ClientServer {
-    
+    /* Creates a singleton instance. */
     static let shared = ClientServer()
     private init() {} // Prevents others from creating another instance
         
     
     /* Request/Response functionality */
-    func testLoad(url: String, method: String = "GET", payload: Any? = nil) {
+    func testLoad(url: String, method: String = "GET", payload: Any? = nil, completion: @escaping (Result<String, Error>) -> Void) {
         /* This is the base url that will be routed to. */
         guard let fullUrl = URL(string: "http://localhost:8080\(url)") else {
                 print("Invalid URL")
+                completion(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
                 return
             }
-        
-        /* Call sendRequest to put together the url, method, and payload */
-        sendRequest(url: fullUrl, method: method, payload: payload) { result in
-            switch result {
-            case .success(let responseString):
-                /* TODO: Change this to not just print */
-                print("JSON Content: \(responseString)")
-            case .failure(let error):
-                self.handleClientError(error)
+            
+            /* Call sendRequest to put together the url, method, and payload */
+            sendRequest(url: fullUrl, method: method, payload: payload) { result in
+                switch result {
+                case .success(let responseString):
+                    /* TODO: Change this to not just print */
+                    //print("JSON Content: \(responseString)")
+                    completion(.success(responseString))
+                case .failure(let error):
+                    self.handleClientError(error)
+                    completion(.failure(error))
+                }
             }
         }
-    }
 
     /* Network Request */
     /* completion is a completion handler or closure that gets called when the async operation completes. @escaping means the function can be called asyncronously and it returns a closure that is either a String(success) or Error(Failure).
      */
     private func sendRequest(url: URL, method: String = "GET", payload: Any? = nil, completion: @escaping (Result<String, Error>) -> Void) {
+        /* Create a request to the server using url. */
         var request = URLRequest(url: url)
         
         /* GET, PUT, POST, DELETE */
@@ -65,12 +69,13 @@ class ClientServer {
         /* TODO: Do I need to check for both? Presumably there is only one payload type/struct. */
         /* Here we aim to populate request with the formData. */
         if let payload = payload {
-            /* payload is formData */
+            /* payload is of type Data */
             if let formData = payload as? Data {
                 request.httpBody = formData
             } else {
                 /* payload is JSON */
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                /* Attempts to serialize payload into JSON data */
                 if let jsonData = try? JSONSerialization.data(withJSONObject: payload) {
                     request.httpBody = jsonData
                 } else {
@@ -80,7 +85,7 @@ class ClientServer {
             }
         }
         
-        /* task is a data task which fetches from the URL */
+        /* initiate a network request using the specified url, req type, and payload. data is the returned object, response is a metadata object for the returned object, error produced upon failure. */
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(error))
