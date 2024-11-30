@@ -119,15 +119,7 @@ struct HomeView: View {
                 }
                 .padding(.top, 70)
             }
-<<<<<<< Updated upstream
         }
-        /*API Request testing */
-        .onAppear{ClientServer.shared.testLoad(url: "/shop", method: "GET")}
-=======
-            /* api request */
-        }
-//        .onAppear{ClientServer.shared.testLoad(url: "/shop/childrenPatterns", method: "GET")}
->>>>>>> Stashed changes
     }
 }
 //precondition: NONE

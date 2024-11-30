@@ -68,20 +68,21 @@ class ClientServer {
 
         /* TODO: Do I need to check for both? Presumably there is only one payload type/struct. */
         /* Here we aim to populate request with the formData. */
+        /* Set the Content-Type header */
         if let payload = payload {
-            /* payload is of type Data */
-            if let formData = payload as? Data {
-                request.httpBody = formData
-            } else {
-                /* payload is JSON */
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                /* Attempts to serialize payload into JSON data */
-                if let jsonData = try? JSONSerialization.data(withJSONObject: payload) {
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+        /* Serialize payload into JSON data */
+        do {
+            if let jsonData = try? JSONSerialization.data(withJSONObject: payload, options: []) {
                     request.httpBody = jsonData
                 } else {
                     completion(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Invalid JSON payload"])))
                     return
                 }
+            } catch {
+                completion(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Error serializing JSON"])))
+                return
             }
         }
         
@@ -92,24 +93,35 @@ class ClientServer {
                 return
             }
             
-            /* Guarantees 200 level request, creates data variable to hold data from request. */
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200...299).contains(httpResponse.statusCode),
-                  let mimeType = httpResponse.mimeType, mimeType == "application/json",
-                  let data = data else {
-                self.handleServerError(response)
-                return
-            }
+        /* Check for valid HTTP response */
+        guard let httpResponse = response as? HTTPURLResponse else {
+            let error = NSError(domain: "", code: 500, userInfo: [NSLocalizedDescriptionKey: "Invalid response from server"])
+            completion(.failure(error))
+            return
+        }
+        /* Guarantees 200 level request, creates data variable to hold data from request. */
+        guard (200...299).contains(httpResponse.statusCode) else {
+            let errorMessage = String(data: data ?? Data(), encoding: .utf8) ?? "Unknown error"
+            let error = NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+            completion(.failure(error))
+            return
+        }
             
-            /* Success string */
-            if let htmlString = String(data: data, encoding: .utf8) {
-                DispatchQueue.main.async {
-                    completion(.success(htmlString))
-                }
-            } else {
-                /* Eroror */
-                let error = NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Failed to parse response as a string"])
-                completion(.failure(error))
+        /* Ensure the response is JSON */
+        guard let mimeType = httpResponse.mimeType, mimeType == "application/json", let data = data else {
+            let error = NSError(domain: "", code: 500, userInfo: [NSLocalizedDescriptionKey: "Invalid response format"])
+            completion(.failure(error))
+            return
+        }
+            
+        /* Success string */
+        if let responseString = String(data: data, encoding: .utf8) {
+            DispatchQueue.main.async {
+                completion(.success(responseString))
+            }
+        } else {
+            let error = NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Failed to parse response as a string"])
+            completion(.failure(error))
             }
         }
         task.resume()

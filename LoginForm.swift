@@ -94,9 +94,9 @@ struct LoginForm: View {
             
             do {
                 // Serialize the dictionary to JSON data
-                let jsonData = try JSONSerialization.data(withJSONObject: userPayload, options: [])
+//                let jsonData = try JSONSerialization.data(withJSONObject: userPayload, options: [])
             /* API call to log in user*/
-            ClientServer.shared.testLoad(url: "/user/login", method: "POST", payload: jsonData) { result in
+            ClientServer.shared.testLoad(url: "/user/login", method: "POST", payload: userPayload) { result in
                 
                 switch result {
                 case .success(let responseString):

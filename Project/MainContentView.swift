@@ -28,7 +28,8 @@ struct MainContentView: View {
         SidebarItem(name: "TOOLS & SUPPLIES", viewName: "TOOLS & SUPPLIES"),
         SidebarItem(name: "NEWSLETTER", viewName: "NEWSLETTER"),
         SidebarItem(name: "CONTACT", viewName: "CONTACT"),
-        SidebarItem(name: "LOG IN | REGISTER", viewName: "LOG IN | REGISTER")
+        SidebarItem(name: "LOG IN | REGISTER", viewName: "LOG IN | REGISTER"),
+        SidebarItem(name: "LOG OUT", viewName: "LOG OUT")
     ]
     //this conforms to the view protocol-> describes what is displayed and the View means you need a body which means you confrom to view protocol
     var body: some View {
@@ -84,7 +85,10 @@ struct MainContentView: View {
                 case "LOG IN | REGISTER":
                     // Call login/register view here
                     //LoginRegisterView()
-                    Text("LOG IN | REGISTER")
+                    //Text("LOG IN | REGISTER")
+                    LoginForm()
+                case "LOG OUT":
+                    
                 default:
                     //if there are no views then error, this is the default
                     Text("View not found")

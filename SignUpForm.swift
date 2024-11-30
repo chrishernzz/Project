@@ -97,18 +97,35 @@ struct UserSignUpForm: View {
             let userPayload: [String: Any] = ["username": username, "password": password]
             
             do {
-                // Serialize the dictionary to JSON data
-                let jsonData = try JSONSerialization.data(withJSONObject: userPayload, options: [])
-                
                 /* API call to create new user*/
-                ClientServer.shared.testLoad(url: "/user/signup", method: "POST", payload: jsonData) { result in
+                ClientServer.shared.testLoad(url: "/user/signup", method: "POST", payload: userPayload) { result in
                     
                     switch result {
                     case .success(let responseString):
+                        // TODO: remove this
                         print("Response: \(responseString)")
-                        /* If returns with status 200 then submittedSignUp to true*/
-                        submittedSignUp = true
-                        clearValidFields()
+                        /* Get and Store token */
+                        // Parse the response to extract the token
+                        if let data = responseString.data(using: .utf8) {
+                            do {
+                                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                                   let token = json["token"] as? String {
+                                    
+                                    // Store token in UserDefaults
+                                    UserDefaults.standard.set(token, forKey: "authToken")
+                                    
+                                    print("Token saved: \(token)")
+                                    
+                                    // If returns with status 200, update submittedSignUp
+                                    submittedSignUp = true
+                                    clearValidFields()
+                                } else {
+                                    print("Token not found in response.")
+                                }
+                            } catch {
+                                print("Failed to parse response: \(error.localizedDescription)")
+                            }
+                        }
                     case .failure(let error):
                         print("Error: \(error.localizedDescription)")
                     }
