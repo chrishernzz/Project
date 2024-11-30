@@ -27,30 +27,33 @@ struct AuthForm: View {
     @State private var logInUsername = ""
     @State private var logInPassword = ""
     
+    //maybe create an frame where it is set to login
+    @State private var currentView: String = "Log In"
+    
     var body: some View {
         ZStack {
             Color.white.edgesIgnoringSafeArea(.all)
             ScrollView {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .frame(height: 200)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, -16)
                 HStack {
                     // Sign Up Form
                     VStack(alignment: .leading, spacing: 20) {
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                        .frame(height: 200)
-                        .frame(maxWidth: .infinity)
-                        .padding(.horizontal, -16)
-
-                        Text("Get in Touch With Us")
+                        Text("Sign Up")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(.black)
                             .frame(maxWidth: .infinity, alignment: .center)
                             .padding(.top, -100)
-
-                        if submittedSignUp {
+                            .padding(.leading, -40)
+                        
+                        if (submittedSignUp) {
                             Text("Thank you. Your account has been created.")
                                 .foregroundColor(.gray)
                                 .font(.subheadline)
@@ -59,18 +62,20 @@ struct AuthForm: View {
                             CustomerUserName(username: $signUpUsername, isUserNameEmpty: $isSignUpUserNameEmpty)
                                 .padding(.top, -50)
                             CustomerPassword(password: $signUpPassword, isPasswordEmpty: $isSignUpPasswordEmpty)
-
-                            Button(action: { validateUserSignUp() }) {
+                            
+                            Button(action: {
+                                validateUserSignUp()
+                            }) {
                                 Text("Sign Up")
                                     .foregroundColor(.white)
                                     .padding()
                                     .background(Color.black)
-                                    .cornerRadius(10)
+                                    .cornerRadius(3)
                             }
                             .padding(.top, 0)
                             .padding(.bottom, 20)
-
-                            if isSignUpUserNameEmpty || isSignUpPasswordEmpty {
+                            
+                            if (isSignUpUserNameEmpty || isSignUpPasswordEmpty) {
                                 Text("Please correct the highlighted fields")
                                     .padding(.top, -30)
                                     .foregroundColor(.black)
@@ -80,26 +85,18 @@ struct AuthForm: View {
                     }
                     .padding(.horizontal)
                     .padding(.top, 20)
-
+                    
                     // Log In Form
                     VStack(alignment: .leading, spacing: 20) {
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                        .frame(height: 200)
-                        .frame(maxWidth: .infinity)
-                        .padding(.horizontal, -16)
-
                         Text("Log In")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(.black)
                             .frame(maxWidth: .infinity, alignment: .center)
                             .padding(.top, -100)
-
-                        if validLogIn {
+                            .padding(.leading, -40)
+                        
+                        if (validLogIn) {
                             Text("You are now logged in.")
                                 .foregroundColor(.gray)
                                 .font(.subheadline)
@@ -108,18 +105,20 @@ struct AuthForm: View {
                             LoginUserName(username: $logInUsername, isUserNameEmpty: $isLogInUserNameEmpty)
                                 .padding(.top, -50)
                             LoginPassword(password: $logInPassword, isPasswordEmpty: $isLogInPasswordEmpty)
-
-                            Button(action: { validateUserLogin() }) {
+                            
+                            Button(action: {
+                                validateUserLogin()
+                            }) {
                                 Text("Log in")
                                     .foregroundColor(.white)
                                     .padding()
                                     .background(Color.black)
-                                    .cornerRadius(10)
+                                    .cornerRadius(3)
                             }
                             .padding(.top, 0)
                             .padding(.bottom, 20)
-
-                            if isLogInUserNameEmpty || isLogInPasswordEmpty {
+                            
+                            if (isLogInUserNameEmpty || isLogInPasswordEmpty) {
                                 Text("Please correct the highlighted fields")
                                     .padding(.top, -30)
                                     .foregroundColor(.black)
@@ -147,7 +146,6 @@ struct AuthForm: View {
             
             /* hash the password from plaintext */
             let hashedpassword = hashPassword(signUpPassword)
-            
             signUpPassword = hashedpassword
             
             /* Prepare user and password as json string */
@@ -253,8 +251,11 @@ struct AuthForm: View {
         signUpPassword = ""
     }
 }
-struct CustomTextFColor: View {
+//precondition: NONE
+//postcondition: this struct will allow security when user inputs password
+struct CustomSecureTextField: View {
     var nameHolder: String
+    //@binding allows two way connection between the parent view and child view, any changes made in the child will update the parents data
     @Binding var text: String
     @Binding var emptyCheck: Bool
     
@@ -268,7 +269,9 @@ struct CustomTextFColor: View {
                     .padding(.leading, 6)
             }
             //text input for user
-            TextField("", text: $text)
+            SecureField("", text: $text)
+                .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                .disableAutocorrection(true)
                 .padding(.top, -10)
                 .padding(.leading, 6)
                 .frame(height: 50)
@@ -294,7 +297,7 @@ struct CustomerUserName: View {
             //need the first and last name side to side->horizontal
             HStack {
                 //call the funtion here
-                CustomTextFColor(nameHolder: "user", text: $username, emptyCheck: $isUserNameEmpty)
+                CustomTextFieldColor(nameHolder: "user", text: $username, emptyCheck: $isUserNameEmpty)
             }
         }
     }
@@ -311,7 +314,7 @@ struct CustomerPassword: View {
                 .font(.subheadline)
                 .foregroundColor(.black)
             //call the function here
-            CustomTextFColor(nameHolder: "", text: $password, emptyCheck: $isPasswordEmpty)
+            CustomSecureTextField(nameHolder: "", text: $password, emptyCheck: $isPasswordEmpty)
             //the .onChange will be trigger everytime the specifed value changes
                 .onChange(of: password) {
                     //call the function to check if the email is valid
@@ -338,7 +341,7 @@ struct LoginUserName: View {
             //need the first and last name side to side->horizontal
             HStack {
                 // CustomTextFColor is defined in the sister file SignUpForm.swift
-                CustomTextFColor(nameHolder: "user", text: $username, emptyCheck: $isUserNameEmpty)
+                CustomTextFieldColor(nameHolder: "user", text: $username, emptyCheck: $isUserNameEmpty)
             }
         }
     }
@@ -347,19 +350,20 @@ struct LoginUserName: View {
 struct LoginPassword: View {
     @Binding var password: String
     @Binding var isPasswordEmpty: Bool
-    
+    @State private var isPasswordLengthValid = false
     var body: some View {
         VStack(alignment: .leading) {
             Text("Password *")
                 .font(.subheadline)
                 .foregroundColor(.black)
             // CustomTextFColor is defined in the sister file SignUpForm.swift
-            CustomTextFColor(nameHolder: "", text: $password, emptyCheck: $isPasswordEmpty)
+            CustomSecureTextField(nameHolder: "", text: $password, emptyCheck: $isPasswordEmpty)
             //the .onChange will be trigger everytime the specifed value changes
                 .onChange(of: password) {
+                    isPasswordLengthValid = isPasswordValid(password)
                 }
             //this error will only display if the email is not valid and also if the email is not empty
-            if ( !password.isEmpty) {
+            if (!isPasswordLengthValid && !password.isEmpty) {
                 Text("Please enter a valid password.")
                     .font(.footnote)
                     .foregroundColor(.black)
@@ -368,31 +372,40 @@ struct LoginPassword: View {
     }
 }
 
-    // ensures password is long enough
-    func isPasswordValid(_ password: String) -> Bool {
-        let passwordLength = password.count
-        if (passwordLength < 7) {
-            return false
-        } else {
-            return true
-        }
+// ensures password is long enough
+func isPasswordValid(_ password: String) -> Bool {
+    let passwordLength = password.count
+    if (passwordLength < 7) {
+        return false
+    } else {
+        return true
+    }
+}
+
+// converts password to hash
+func hashPassword(_ password: String) -> String {
+    // Convert the password string to Data
+    guard let data = password.data(using: .utf8) else {
+        return ""
     }
     
-    // converts password to hash
-    func hashPassword(_ password: String) -> String {
-        // Convert the password string to Data
-        guard let data = password.data(using: .utf8) else {
-            return ""
-        }
-        
-        // Create a buffer for the hash
-        var hash = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
-        
-        // Perform the hashing
-        data.withUnsafeBytes {
-            _ = CC_SHA256($0.baseAddress, CC_LONG(data.count), &hash)
-        }
-        
-        // Convert the hash to a hexadecimal string
-        return hash.map { String(format: "%02hhx", $0) }.joined()
+    // Create a buffer for the hash
+    var hash = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
+    
+    // Perform the hashing
+    data.withUnsafeBytes {
+        _ = CC_SHA256($0.baseAddress, CC_LONG(data.count), &hash)
     }
+    
+    // Convert the hash to a hexadecimal string
+    return hash.map { String(format: "%02hhx", $0) }.joined()
+}
+
+
+
+//shows the final preview of all the structs combined
+struct AuthForm_Previews: PreviewProvider {
+    static var previews: some View {
+        AuthForm()
+    }
+}

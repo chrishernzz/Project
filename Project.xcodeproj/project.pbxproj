@@ -26,6 +26,8 @@
 		CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */; };
 		CCB184312CF545FD00409685 /* MainShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB184302CF545FD00409685 /* MainShop.swift */; };
 		CCB184332CF5658400409685 /* FAQSShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB184322CF5658400409685 /* FAQSShop.swift */; };
+		CCD24BE82CFBA48E005EEEB3 /* SewingVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BE72CFBA489005EEEB3 /* SewingVideos.swift */; };
+		CCD24BEB2CFBB77D005EEEB3 /* EmbroideryVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BEA2CFBB774005EEEB3 /* EmbroideryVideos.swift */; };
 		CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		CCB184302CF545FD00409685 /* MainShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShop.swift; sourceTree = "<group>"; };
 		CCB184322CF5658400409685 /* FAQSShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQSShop.swift; sourceTree = "<group>"; };
+		CCD24BE72CFBA489005EEEB3 /* SewingVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SewingVideos.swift; sourceTree = "<group>"; };
+		CCD24BEA2CFBB774005EEEB3 /* EmbroideryVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbroideryVideos.swift; sourceTree = "<group>"; };
 		CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +234,8 @@
 		CC102B332CAFC2FC00FE690C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CCD24BEA2CFBB774005EEEB3 /* EmbroideryVideos.swift */,
+				CCD24BE72CFBA489005EEEB3 /* SewingVideos.swift */,
 				CC102B342CAFC48300FE690C /* HomeView.swift */,
 			);
 			path = Home;
@@ -370,9 +376,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB184312CF545FD00409685 /* MainShop.swift in Sources */,
+				CCD24BEB2CFBB77D005EEEB3 /* EmbroideryVideos.swift in Sources */,
 				CC102B352CAFC48300FE690C /* HomeView.swift in Sources */,
 				CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */,
 				CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */,
+				CCD24BE82CFBA48E005EEEB3 /* SewingVideos.swift in Sources */,
 				CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */,
 				CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */,
 				CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */,

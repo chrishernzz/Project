@@ -128,6 +128,8 @@ struct CategorySectionView: View {
     var title: String
     var textColor: Color
     var plusColor: Color
+    //this will control the switching between '+' and '-' buttons
+    @State private var expanded: Bool = false
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -138,9 +140,12 @@ struct CategorySectionView: View {
                 //using spacer to cover all the space side to side
                 Spacer()
                 Button(action: {
-                    
+                    withAnimation {
+                        expanded.toggle()
+                    }
                 }) {
-                    Image(systemName: "plus")
+                    //this is a ternary if true then run minus false run plus
+                    Image(systemName: expanded ? "minus" : "plus")
                         .foregroundColor(plusColor)
                         .padding(.trailing)
                 }
@@ -150,7 +155,32 @@ struct CategorySectionView: View {
             .cornerRadius(10)
             .padding(.horizontal)
             
+            if(expanded) {
+                switch (title) {
+                case "SEWING PATTERN TUTORIAL VIDEOS":
+                    SewingVideos()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                case "EMBROIDERY FILE VIDEOS":
+                    EmbroideryVideos()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                case "TOOLS & SUPPLIES VIDEOS":
+                    Text("HI")
+                case "CUT & SEW FABRIC PANEL SEWALONG VIDEOS":
+                    Text("HI")
+                case "FAQS":
+                    Text("HI")
+                default:
+                    Text("Not Found ")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                }
+            }
         }
+        .padding(.vertical , 5)
     }
 }
 //precondition: NONE

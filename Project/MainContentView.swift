@@ -316,14 +316,6 @@ struct InstagramAndYoutubeLink: View{
         }
     }
 }
-
-//shows the final preview of all the structs combined
-struct MainContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainContentView()
-    }
-}
-
 // handle log out
 func handleLogout() {
     if let token = UserDefaults.standard.string(forKey: "authToken") {
@@ -341,3 +333,12 @@ func handleLogout() {
         print("No token found. User already logged out.")
     }
 }
+
+
+//shows the final preview of all the structs combined
+struct MainContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainContentView()
+    }
+}
+
