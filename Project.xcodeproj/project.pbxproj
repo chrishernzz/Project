@@ -3,13 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		114352FE2CDC42AD00194565 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114352FD2CDC42A900194565 /* ViewController.swift */; };
-		11ACAE912CF7EEA300319594 /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ACAE902CF7EEA300319594 /* SignUpForm.swift */; };
-		11ACAE932CF7FEB900319594 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ACAE922CF7FEB900319594 /* LoginForm.swift */; };
 		CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */; };
 		CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D632CDABF3A00B444AC /* NewsLetter.swift */; };
 		CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC076EDA2CED814100C796DD /* VideoWelcoming.swift */; };
@@ -50,8 +48,6 @@
 
 /* Begin PBXFileReference section */
 		114352FD2CDC42A900194565 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		11ACAE902CF7EEA300319594 /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = SOURCE_ROOT; };
-		11ACAE922CF7FEB900319594 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = SOURCE_ROOT; };
 		CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsAndSupplies.swift; sourceTree = "<group>"; };
 		CC050D632CDABF3A00B444AC /* NewsLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLetter.swift; sourceTree = "<group>"; };
 		CC076EDA2CED814100C796DD /* VideoWelcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWelcoming.swift; sourceTree = "<group>"; };
@@ -75,6 +71,10 @@
 		CCB184322CF5658400409685 /* FAQSShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQSShop.swift; sourceTree = "<group>"; };
 		CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		11ACAEB12CFACB8A00319594 /* LoginRegister */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LoginRegister; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CC102AF92CAFBF7300FE690C /* Frameworks */ = {
@@ -141,6 +141,7 @@
 		CC102AFE2CAFBF7300FE690C /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				11ACAEB12CFACB8A00319594 /* LoginRegister */,
 				CC076ED92CED810400C796DD /* Video */,
 				114352FD2CDC42A900194565 /* ViewController.swift */,
 				CC050D622CDABF0300B444AC /* NewsLetter */,
@@ -230,8 +231,6 @@
 		CC102B322CAFC09400FE690C /* LoginOrRegister */ = {
 			isa = PBXGroup;
 			children = (
-				11ACAE902CF7EEA300319594 /* SignUpForm.swift */,
-				11ACAE922CF7FEB900319594 /* LoginForm.swift */,
 			);
 			path = LoginOrRegister;
 			sourceTree = "<group>";
@@ -258,6 +257,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				11ACAEB12CFACB8A00319594 /* LoginRegister */,
 			);
 			name = Project;
 			productName = Project;
@@ -375,13 +377,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11ACAE912CF7EEA300319594 /* SignUpForm.swift in Sources */,
 				CCB184312CF545FD00409685 /* MainShop.swift in Sources */,
 				CC102B352CAFC48300FE690C /* HomeView.swift in Sources */,
 				CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */,
 				CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */,
 				CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */,
-				11ACAE932CF7FEB900319594 /* LoginForm.swift in Sources */,
 				CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */,
 				CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */,
 				CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */,
