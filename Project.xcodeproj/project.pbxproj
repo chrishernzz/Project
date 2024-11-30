@@ -146,7 +146,6 @@
 				114352FD2CDC42A900194565 /* ViewController.swift */,
 				CC050D622CDABF0300B444AC /* NewsLetter */,
 				CC102B332CAFC2FC00FE690C /* Home */,
-				CC102B322CAFC09400FE690C /* LoginOrRegister */,
 				CC102B312CAFC08E00FE690C /* Contact */,
 				CC102B302CAFC05F00FE690C /* ToolsAndSupplies */,
 				CC102B2E2CAFC03100FE690C /* Shop */,
@@ -226,13 +225,6 @@
 				CC7A56962CEECA6100D2A1F8 /* ContactInformationForm.swift */,
 			);
 			path = Contact;
-			sourceTree = "<group>";
-		};
-		CC102B322CAFC09400FE690C /* LoginOrRegister */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LoginOrRegister;
 			sourceTree = "<group>";
 		};
 		CC102B332CAFC2FC00FE690C /* Home */ = {
