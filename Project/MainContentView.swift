@@ -84,11 +84,17 @@ struct MainContentView: View {
                     ContactInformation()
                 case "LOG IN | REGISTER":
                     // Call login/register view here
-                    //LoginRegisterView()
-                    //Text("LOG IN | REGISTER")
-                    LoginForm()
+                    AuthForm()
                 case "LOG OUT":
-                    
+                    // Show a placeholder or redirection
+                    Text("Logging out...")
+                        .onAppear {
+                            handleLogout()
+                            // Redirect to the login/register view after a slight delay
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                currentView = "LOG IN | REGISTER"
+                            }
+                        }
                 default:
                     //if there are no views then error, this is the default
                     Text("View not found")
@@ -315,5 +321,23 @@ struct InstagramAndYoutubeLink: View{
 struct MainContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainContentView()
+    }
+}
+
+// handle log out
+func handleLogout() {
+    if let token = UserDefaults.standard.string(forKey: "authToken") {
+        print("Logging out user with token: \(token)")
+        
+        // Clear the token
+        UserDefaults.standard.removeObject(forKey: "authToken")
+        
+        if UserDefaults.standard.string(forKey: "authToken") == nil {
+            print("User logged out successfully. Token cleared.")
+        } else {
+            print("Failed to clear token.")
+        }
+    } else {
+        print("No token found. User already logged out.")
     }
 }
