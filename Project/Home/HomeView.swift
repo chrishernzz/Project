@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var userSearchText: String = ""
+    //this will allow to change and the string is currently empty-> there is no value (nil)
     @State private var currentlyExpanded: String? = nil
     var body: some View {
         //top of another layered so the background is white then on top we have our view
