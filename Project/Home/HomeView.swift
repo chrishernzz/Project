@@ -129,8 +129,6 @@ struct CategorySectionView: View {
     var title: String
     var textColor: Color
     var plusColor: Color
-    //this will control the switching between '+' and '-' buttons
-    @State private var expanded: Bool = false
     //allows two way connection with the parent-> won't know if it has a value yet
     @Binding var currentlyExpanded: String?
     var body: some View {
@@ -153,7 +151,7 @@ struct CategorySectionView: View {
                     }
                 }) {
                     //this is a ternary if true then run minus false run plus
-                    Image(systemName: expanded ? "minus" : "plus")
+                    Image(systemName: currentlyExpanded == title ? "minus" : "plus")
                         .foregroundColor(plusColor)
                         .padding(.trailing)
                 }
