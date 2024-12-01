@@ -22,7 +22,7 @@ struct EmbroideryVideos: View {
                     ForEach(videoArray, id: \.self) {item in
                         WebView(url: item)
                             .frame(height: 150)
-                        //.padding(.horizontal, 22)
+                            .padding(.horizontal, 5)
                             .padding(.bottom, 50)
                     }
                 }
@@ -40,7 +40,7 @@ struct EmbroideryVideos: View {
                         .background(Color.black)
                         .cornerRadius(4)
                 }
-                .padding(.leading, 190)
+                .padding(.leading, 180)
             }
         }
     }

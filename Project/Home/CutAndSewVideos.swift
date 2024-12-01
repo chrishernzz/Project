@@ -21,7 +21,7 @@ struct CutAndSewVideos: View {
                     ForEach(videoArray, id: \.self) {item in
                         WebView(url: item)
                             .frame(height: 200)
-                        //.padding(.horizontal, 22)
+                            .padding(.horizontal, 5)
                             .padding(.bottom, 50)
                     }
                 }
