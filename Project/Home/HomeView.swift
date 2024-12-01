@@ -131,7 +131,7 @@ struct CategorySectionView: View {
     var plusColor: Color
     //this will control the switching between '+' and '-' buttons
     @State private var expanded: Bool = false
-    //allows two way connection with the parent-> it will be at nil
+    //allows two way connection with the parent-> won't know if it has a value yet
     @Binding var currentlyExpanded: String?
     var body: some View {
         VStack(alignment: .leading) {
