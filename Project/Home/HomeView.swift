@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var userSearchText: String = ""
-    
+    @State private var currentlyExpanded: String? = nil
     var body: some View {
         //top of another layered so the background is white then on top we have our view
         ZStack {
@@ -52,11 +52,11 @@ struct HomeView: View {
                         
                         //this has to have a small space and it is vertical display (top to bottom)
                         VStack(spacing: 2) {
-                            CategorySectionView(title: "SEWING PATTERN TUTORIAL VIDEOS", textColor: .black, plusColor: .gray)
-                            CategorySectionView(title: "EMBROIDERY FILE VIDEOS", textColor: .black, plusColor: .gray)
-                            CategorySectionView(title: "TOOLS & SUPPLIES VIDEOS", textColor: .black, plusColor: .gray)
-                            CategorySectionView(title: "CUT & SEW FABRIC PANEL SEWALONG VIDEOS", textColor: .black, plusColor: .gray)
-                            CategorySectionView(title: "FAQS", textColor: .gray, plusColor: .gray)
+                            CategorySectionView(title: "SEWING PATTERN TUTORIAL VIDEOS", textColor: .black, plusColor: .gray,currentlyExpanded: $currentlyExpanded)
+                            CategorySectionView(title: "EMBROIDERY FILE VIDEOS", textColor: .black, plusColor: .gray,currentlyExpanded: $currentlyExpanded)
+                            CategorySectionView(title: "TOOLS & SUPPLIES VIDEOS", textColor: .black, plusColor: .gray,currentlyExpanded: $currentlyExpanded)
+                            CategorySectionView(title: "CUT & SEW FABRIC PANEL SEWALONG VIDEOS", textColor: .black, plusColor: .gray,currentlyExpanded: $currentlyExpanded)
+                            CategorySectionView(title: "FAQS", textColor: .gray, plusColor: .gray,currentlyExpanded: $currentlyExpanded)
                         }
                     }
                     .padding(.bottom, 15)
@@ -130,6 +130,8 @@ struct CategorySectionView: View {
     var plusColor: Color
     //this will control the switching between '+' and '-' buttons
     @State private var expanded: Bool = false
+    //allows two way connection with the parent-> it will be at nil
+    @Binding var currentlyExpanded: String?
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -140,8 +142,13 @@ struct CategorySectionView: View {
                 //using spacer to cover all the space side to side
                 Spacer()
                 Button(action: {
-                    withAnimation {
-                        expanded.toggle()
+                    if (currentlyExpanded == title) {
+                        currentlyExpanded = nil
+                    }
+                    //this will run first since the currentlyExpanded is nil
+                    else {
+                        //set it to the title
+                        currentlyExpanded = title
                     }
                 }) {
                     //this is a ternary if true then run minus false run plus
@@ -155,7 +162,8 @@ struct CategorySectionView: View {
             .cornerRadius(10)
             .padding(.horizontal)
             
-            if(expanded) {
+            //this runs since it will be equal and go in the switch to get the information
+            if(currentlyExpanded == title) {
                 switch (title) {
                 case "SEWING PATTERN TUTORIAL VIDEOS":
                     SewingVideos()
@@ -168,9 +176,15 @@ struct CategorySectionView: View {
                         .cornerRadius(10)
                         .padding(.horizontal)
                 case "TOOLS & SUPPLIES VIDEOS":
-                    Text("HI")
+                    ToolVideos()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
                 case "CUT & SEW FABRIC PANEL SEWALONG VIDEOS":
-                    Text("HI")
+                    CutAndSewVideos()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
                 case "FAQS":
                     Text("HI")
                 default:
