@@ -31,6 +31,8 @@
 		CCD24BEF2CFC18DE005EEEB3 /* ToolVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BEE2CFC18D5005EEEB3 /* ToolVideos.swift */; };
 		CCD24BF42CFC1A7D005EEEB3 /* CutAndSewVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BF32CFC1A78005EEEB3 /* CutAndSewVideos.swift */; };
 		CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */; };
+		CCF673212CFE73BD005E8A1A /* MainWatchVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */; };
+		CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		CCD24BEE2CFC18D5005EEEB3 /* ToolVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolVideos.swift; sourceTree = "<group>"; };
 		CCD24BF32CFC1A78005EEEB3 /* CutAndSewVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutAndSewVideos.swift; sourceTree = "<group>"; };
 		CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformation.swift; sourceTree = "<group>"; };
+		CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWatchVideos.swift; sourceTree = "<group>"; };
+		CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SewingPlaylistVideosLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -202,6 +206,8 @@
 		CC102B2D2CAFC02800FE690C /* WatchVideos */ = {
 			isa = PBXGroup;
 			children = (
+				CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */,
+				CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */,
 			);
 			path = WatchVideos;
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 				CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */,
 				CCD24BF42CFC1A7D005EEEB3 /* CutAndSewVideos.swift in Sources */,
 				CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */,
+				CCF673212CFE73BD005E8A1A /* MainWatchVideos.swift in Sources */,
 				CCD24BE82CFBA48E005EEEB3 /* SewingVideos.swift in Sources */,
 				CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */,
 				CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */,
@@ -397,6 +404,7 @@
 				CC64844B2CF8124900F107E0 /* SizeChart.swift in Sources */,
 				CCB184332CF5658400409685 /* FAQSShop.swift in Sources */,
 				CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */,
+				CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */,
 				114352FE2CDC42AD00194565 /* ViewController.swift in Sources */,
 				CC102B002CAFBF7300FE690C /* ProjectApp.swift in Sources */,
 			);

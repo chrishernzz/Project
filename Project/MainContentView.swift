@@ -12,6 +12,7 @@ struct MainContentView: View {
     @State private var isSidebarOpen = false
     @State private var subSidebarOpen1 = false
     @State private var subSidebarOpen2 = false
+    @State private var subSidebarOpne3 = false
     
     //state variable to show the contact form
     @State private var showContactForm = false
@@ -37,10 +38,12 @@ struct MainContentView: View {
             //even if dark mode we want background to be white
             Color.white
                 .edgesIgnoringSafeArea(.all)
+            //this is the intro-> when app opens it will give an animation
             if (videoShowScreen){
                 VideoWelcoming{
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         withAnimation(.easeInOut(duration: 0.5)) {
+                            //flag it to false so then it can go to the homepage
                             videoShowScreen = false
                         }
                     }
@@ -56,10 +59,8 @@ struct MainContentView: View {
                     // Call the blog view here
                     //BlogView()
                     Text("BLOG")
-                case "WATCH VIDEOS":
-                    // Call the watch videos view here
-                    //WatchVideosView()
-                    Text("WATCH VIDEOS")
+                case "SEWING PATTERN TUTORIAL VIDEOS":
+                    SewingPlaylistVideosLink()
                 case "ETSY SHOP":
                     EtsyShopView()
                 case "FAQS":
@@ -165,7 +166,7 @@ struct MainContentView: View {
                 //once the sidebar is clicked-> becomes true
                 if (isSidebarOpen) {
                     HStack {
-                        VStack(alignment: .leading, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 8) {
                             //this if,else if,and else will check if any sub side bars are open if not then it will go the other views
                             if (subSidebarOpen1) {
                                 ToolsAndSupplies(isSubSidebarOpen: $isSidebarOpen,subSidebarOpen: $subSidebarOpen1,selectTheOption: $currentView)
@@ -174,18 +175,25 @@ struct MainContentView: View {
                             else if (subSidebarOpen2) {
                                 MainShop(isSubSidebarOpen: $isSidebarOpen, subSidebarOpen: $subSidebarOpen2, selectTheOption: $currentView)
                             }
+                            else if (subSidebarOpne3) {
+                                MainWatchVideos(isSubSidebarOpen: $isSidebarOpen, subSidebarOpen: $subSidebarOpne3, selectTheOption:  $currentView)
+                            }
                             else{
                                 //loop through the array (index[0]..etc)
                                 ForEach(sidebarItems) { item in
                                     Button(action: {
-                                        //if user clicks the tools and supplies then go in here since it is a sub sidebar
-                                        if (item.viewName == "TOOLS & SUPPLIES") {
+                                        //have three options where it has to check if they are a sub sidebar
+                                        if (item.viewName == "WATCH VIDEOS") {
                                             //flag it to true->this will now go back to the subSidebaropen and open it and in there the struct will be passed but won't close the first sidebar view still is open
-                                            subSidebarOpen1 = true
+                                            subSidebarOpne3 = true
                                         }
                                         //else the second subsidebar which is 'SHOP' will open up
                                         else if (item.viewName == "SHOP") {
                                             subSidebarOpen2 = true
+                                        }
+                                        //else the third subsidebar which is 'TOOLS & SUPPLIES' will open up
+                                        else if (item.viewName == "TOOLS & SUPPLIES") {
+                                            subSidebarOpen1 = true
                                         }
                                         //else if not that then go here and then close the side bar since it is not a sub sidebar
                                         else{
