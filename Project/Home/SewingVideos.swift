@@ -49,6 +49,7 @@ struct SewingVideos: View {
                 HStack{
                     //loop through only two of the videos since this is the preview-> prefix will allow the max lenth you want to loop through
                     ForEach(videoArray.prefix(2), id: \.self) {item in
+                        //reuse the struct created from FAQS
                         WebView(url: item)
                             .frame(height: 150)
                             .padding(.horizontal, 5)
