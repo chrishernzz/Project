@@ -40,7 +40,7 @@ struct HomeView: View {
                                     .overlay(
                                         //print the search bar image
                                         Image(systemName: "magnifyingglass")
-                                            .foregroundColor(.gray)  // Gray search icon
+                                            .foregroundColor(.gray)
                                             .padding(.trailing, 10),
                                         alignment: .trailing
                                     )
@@ -52,7 +52,7 @@ struct HomeView: View {
                         }
                         
                         //this has to have a small space and it is vertical display (top to bottom)
-                        VStack(spacing: 2) {
+                        VStack(spacing: -5) {
                             CategorySectionView(title: "SEWING PATTERN TUTORIAL VIDEOS", textColor: .black, plusColor: .gray,currentlyExpanded: $currentlyExpanded)
                             CategorySectionView(title: "EMBROIDERY FILE VIDEOS", textColor: .black, plusColor: .gray,currentlyExpanded: $currentlyExpanded)
                             CategorySectionView(title: "TOOLS & SUPPLIES VIDEOS", textColor: .black, plusColor: .gray,currentlyExpanded: $currentlyExpanded)
@@ -72,13 +72,11 @@ struct HomeView: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(.black)
-                        
                         Text("DESIGNER, MAKER\nSharing my sewing, crafting & embroidery adventures!")
                             .font(.subheadline)
                             .multilineTextAlignment(.center)
                             .foregroundColor(.gray)
                             .padding(.horizontal)
-                        
                         Button(action: {
                             // Blog button action here
                         }) {
@@ -94,7 +92,7 @@ struct HomeView: View {
                     //make the box taller
                     .padding(.vertical, 30)
                     //how thin you want it to be
-                    .padding(.horizontal, -5)
+                    //.padding(.horizontal, 100)
                     .background(Color.white)
                     .cornerRadius(15)
                     .shadow(radius: 2)
@@ -215,7 +213,6 @@ struct KofiSocialMediaIcon: View {
                         .resizable()
                         .frame(width: 24, height: 24)
                         .foregroundColor(.pink)
-                    
                     Image(systemName: "heart.fill")
                         .resizable()
                         .frame(width: 12, height: 12)
@@ -373,7 +370,7 @@ struct CustomersImagesUpload: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 15)
         }
     }
 }

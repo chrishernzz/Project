@@ -13,6 +13,7 @@ struct MainShop: View{
     @Binding var selectTheOption: String
     //this allows the variable to change and update but only within this view
     @State private var subSidebarOpen1 = false
+    @Environment(\.openURL) var openurl
     
     //creating an array of names to loop from
     let mainShopItems: [MainShopSidebarItems] = [
@@ -47,9 +48,20 @@ struct MainShop: View{
                     //now loop throught the options starting at index[0]...index[n]
                     ForEach(mainShopItems) { item in
                         Button(action: {
-                            if(item.name == "CUT & SEW FABRIC PRINTS"){
+                            if(item.name == "CUT & SEW FABRIC PRINTS") {
                                 //flag it to true so the sub sub view can be shown
                                 subSidebarOpen1 = true
+                            }
+                            //since this is only a link we have to make sure that if user clicks this then we open the link
+                            else if(item.name == "FREE FILES") {
+                                //going to unwrapped the link
+                                if let url = URL(string: "https://ko-fi.com/yeseniadesigns/shop") {
+                                    //will open the url
+                                    openurl(url)
+                                    //close them now
+                                    isSubSidebarOpen = false
+                                    subSidebarOpen = false
+                                }
                             }
                             else{
                                 //set the paramter to the name the user picked
@@ -88,7 +100,7 @@ struct SubSidebarSubMenu: View {
     @Binding var selectTheOption: String
     //this has to be binding so it can update the parent but in the parent it is a state since we only want two way connection here and there
     @Binding var subSidebarOpen1: Bool
-    @Environment(\.openURL) var openURL
+    @Environment(\.openURL) var openurl
     
     //create an array
     let mainShopSubItems: [MainShopSidebarItems] = [
@@ -118,7 +130,7 @@ struct SubSidebarSubMenu: View {
                         //going to unwrapped the link
                         if let url = URL(string: "https://www.spoonflower.com/profiles/yeseniadesigns") {
                             //will open the url
-                            openURL(url)
+                            openurl(url)
                             subSidebarOpen1 = false
                             subSidebarOpen = false
                             isSubSidebarOpen = false
