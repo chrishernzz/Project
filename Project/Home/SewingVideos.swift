@@ -96,8 +96,8 @@ struct SewingPlaylistVideos: View {
                         .foregroundColor(.black)
                         .padding()
                 }
-                .padding(.leading, -120)
-                Text("Sewing Playlist")
+                .padding(.leading, -60)
+                Text("Sewing Pattern Tutorial Playlist")
                     .foregroundColor(.black)
                     .font(.headline)
                     .padding()
