@@ -11,7 +11,19 @@ struct EmbroideryVideos: View {
     //create an array of URLs
     @State private var videoArray: [URL] = [
         URL(string: "https://www.youtube.com/embed/1pIonlHF_Eo")!,
-        URL(string: "https://www.youtube.com/embed/WriDC_46K5M")!
+        URL(string: "https://www.youtube.com/embed/WriDC_46K5M")!,
+        URL(string: "https://www.youtube.com/embed/-Rx6KJLaadI")!,
+        URL(string: "https://www.youtube.com/embed/SAlcp7pnOSM")!,
+        URL(string: "https://www.youtube.com/embed/kJ3O_1UdWRc")!,
+        URL(string: "https://www.youtube.com/embed/S8Bj6T7XCbs")!,
+        URL(string: "https://www.youtube.com/embed/xE5RFjGHIDk")!,
+        URL(string: "https://www.youtube.com/embed/6HGeL2i2BP0")!,
+        URL(string: "https://www.youtube.com/embed/Ex2_3gfchUw")!,
+        URL(string: "https://www.youtube.com/embed/JTYo2nk5LNY")!,
+        URL(string: "https://www.youtube.com/embed/v8B7Js1r1Yk")!,
+        URL(string: "https://www.youtube.com/embed/L0R60m7kV2I")!,
+        URL(string: "https://www.youtube.com/embed/XSFLSUrnbmw")!,
+        URL(string: "https://www.youtube.com/embed/KzTBPFUhzuM")!
     ]
     @State private var playlistView = false
     
@@ -21,7 +33,7 @@ struct EmbroideryVideos: View {
             Color.white.edgesIgnoringSafeArea(.all)
             VStack{
                 HStack{
-                    //only neec two-> prefix will allow this
+                    //only need two-> prefix will allow this
                     ForEach(videoArray.prefix(2), id: \.self) {item in
                         WebView(url: item)
                             .frame(height: 150)
