@@ -16,9 +16,14 @@ struct MainContentView: View {
     
     //state variable to show the contact form
     @State private var showContactForm = false
+    
+    //will show the shopping cart if user clicks on that option
     @State private var shoppingCartAvailable = false
+    
     //initialize it to Home Page right away
     @State private var currentView: String = "HOME"
+    //initialize it to home meaning it will be shaded gray since the app takes you to the homepage right away-> this controls what sidebar option user is in
+    @State private var selectedOption: String = "HOME"
     
     //set it into an array of the information (the sidebar view)
     let sidebarItems: [SidebarItem] = [
@@ -56,9 +61,7 @@ struct MainContentView: View {
                 case "HOME":
                     HomeView()
                 case "BLOG":
-                    // Call the blog view here
-                    //BlogView()
-                    Text("BLOG")
+                    BlogView()
                 case "SEWING PATTERN TUTORIAL VIDEOS":
                     SewingPlaylistVideosLink()
                 case "EMBROIDERY FILE VIDEOS":
@@ -184,6 +187,9 @@ struct MainContentView: View {
                                 //loop through the array (index[0]..etc)
                                 ForEach(sidebarItems) { item in
                                     Button(action: {
+                                        //now initilaize it to the view name
+                                        selectedOption = item.viewName
+                                        
                                         //have three options where it has to check if they are a sub sidebar
                                         if (item.viewName == "WATCH VIDEOS") {
                                             //flag it to true->this will now go back to the subSidebaropen and open it and in there the struct will be passed but won't close the first sidebar view still is open
@@ -210,18 +216,17 @@ struct MainContentView: View {
                                             //text.name is the name we gave it from the array
                                             Text(item.name)
                                                 .font(.headline)
-                                                .foregroundColor(.black)
+                                                .foregroundColor(selectedOption == item.name ? .gray : .black)
                                                 .padding(.top, 10)
                                                 .padding(.leading,15)
                                             //since 'watch videos' and 'tools & supplies' is a sub sidebar-> has a '>' to tell it that there is an option
                                             if (item.name == "WATCH VIDEOS" || item.name == "TOOLS & SUPPLIES" || item.name == "SHOP") {
                                                 Image(systemName: "chevron.right")
-                                                    .foregroundColor(.black)
+                                                    .foregroundColor(selectedOption == item.name ? .gray : .black)
                                                     .font(.headline)
                                                     .padding(.top, 10)
                                                     .padding(.trailing, 10)
                                             }
-                                            
                                         }
                                     }
                                 }

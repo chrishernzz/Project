@@ -31,6 +31,7 @@
 		CCD24BEF2CFC18DE005EEEB3 /* ToolVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BEE2CFC18D5005EEEB3 /* ToolVideos.swift */; };
 		CCD24BF42CFC1A7D005EEEB3 /* CutAndSewVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BF32CFC1A78005EEEB3 /* CutAndSewVideos.swift */; };
 		CCEA0F882CFFA79F00180604 /* Lora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCEA0F872CFFA79F00180604 /* Lora-Bold.ttf */; };
+		CCEA0F8C2CFFB36500180604 /* BlogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA0F8B2CFFB35400180604 /* BlogView.swift */; };
 		CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */; };
 		CCF673212CFE73BD005E8A1A /* MainWatchVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */; };
 		CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */; };
@@ -83,6 +84,7 @@
 		CCD24BF32CFC1A78005EEEB3 /* CutAndSewVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutAndSewVideos.swift; sourceTree = "<group>"; };
 		CCEA0F872CFFA79F00180604 /* Lora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Bold.ttf"; sourceTree = "<group>"; };
 		CCEA0F892CFFAA3C00180604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCEA0F8B2CFFB35400180604 /* BlogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogView.swift; sourceTree = "<group>"; };
 		CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformation.swift; sourceTree = "<group>"; };
 		CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWatchVideos.swift; sourceTree = "<group>"; };
 		CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SewingPlaylistVideosLink.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		CC102B2C2CAFC01F00FE690C /* Blogs */ = {
 			isa = PBXGroup;
 			children = (
+				CCEA0F8B2CFFB35400180604 /* BlogView.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB184312CF545FD00409685 /* MainShop.swift in Sources */,
+				CCEA0F8C2CFFB36500180604 /* BlogView.swift in Sources */,
 				CCF673252CFE84AB005E8A1A /* EmbroideryPlaylistVideos.swift in Sources */,
 				CCD24BEB2CFBB77D005EEEB3 /* EmbroideryVideos.swift in Sources */,
 				CC102B352CAFC48300FE690C /* HomeView.swift in Sources */,
