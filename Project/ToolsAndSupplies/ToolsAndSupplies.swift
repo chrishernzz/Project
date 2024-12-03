@@ -93,7 +93,7 @@ struct ForSewing: View {
         ScrollView {
             VStack {
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    gradient: Gradient(colors: [Color(red: 1.0, green: 0.94, blue: 0.96), Color.white]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
@@ -101,9 +101,9 @@ struct ForSewing: View {
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, -16)
                 Text("SEWING")
-                    .font(.system(size: 30))
-                    .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .font(.custom("Lora-Bold", size: 35))
+                    //RGB color
+                    .foregroundColor(Color(red: 0.9, green: 0.39, blue: 0.64))
                     .padding(.top, -100)
                 //loop through the array-> index[0]...index[n]
                 ForEach(sewingItems) { item in
@@ -144,7 +144,7 @@ struct ForEmbroidery: View {
             //vertical since sewing goes first then we want the images to be top to bottom
             VStack {
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    gradient: Gradient(colors: [Color(red: 1.0, green: 0.94, blue: 0.96), Color.white]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
@@ -153,9 +153,9 @@ struct ForEmbroidery: View {
                 .padding(.horizontal, -16)
                 
                 Text("EMBROIDERY")
-                    .font(.system(size: 30))
-                    .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .font(.custom("Lora-Bold", size: 35))
+                    //RGB color
+                    .foregroundColor(Color(red: 0.9, green: 0.39, blue: 0.64))
                     .padding(.top, -100)
                 //loop through the array-> index[0]...index[n]
                 ForEach(embroideryItems) { item in
@@ -207,7 +207,7 @@ struct ForCrafting: View {
             //vertical since sewing goes first then we want the images to be top to bottom
             VStack {
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    gradient: Gradient(colors: [Color(red: 1.0, green: 0.94, blue: 0.96), Color.white]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
@@ -216,9 +216,9 @@ struct ForCrafting: View {
                 .padding(.horizontal, -16)
                 
                 Text("CRAFTING")
-                    .font(.system(size: 30))
-                    .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .font(.custom("Lora-Bold", size: 35))
+                    //RGB color
+                    .foregroundColor(Color(red: 0.9, green: 0.39, blue: 0.64))
                     .padding(.top, -100)
                 //loop through the array-> index[0]...index[n]
                 ForEach(craftingitems) { item in
@@ -261,7 +261,7 @@ struct ForOfficeAndShipping: View {
             //vertical since sewing goes first then we want the images to be top to bottom
             VStack {
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    gradient: Gradient(colors: [Color(red: 1.0, green: 0.94, blue: 0.96), Color.white]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
@@ -270,9 +270,9 @@ struct ForOfficeAndShipping: View {
                 .padding(.horizontal, -16)
                 
                 Text("OFFICE/SHIPPING")
-                    .font(.system(size: 30))
-                    .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .font(.custom("Lora-Bold", size: 35))
+                    //RGB color
+                    .foregroundColor(Color(red: 0.9, green: 0.39, blue: 0.64))
                     .padding(.top, -100)
                 //loop through the array-> index[0]...index[n]
                 ForEach(craftingitems) { item in
@@ -313,7 +313,7 @@ struct ForOrganization: View {
             //vertical since sewing goes first then we want the images to be top to bottom
             VStack {
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    gradient: Gradient(colors: [Color(red: 1.0, green: 0.94, blue: 0.96), Color.white]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
@@ -322,9 +322,9 @@ struct ForOrganization: View {
                 .padding(.horizontal, -16)
                 
                 Text("ORGANIZATION")
-                    .font(.system(size: 30))
-                    .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .font(.custom("Lora-Bold", size: 35))
+                    //RGB color
+                    .foregroundColor(Color(red: 0.9, green: 0.39, blue: 0.64))
                     .padding(.top, -100)
                 //loop through the array-> index[0]...index[n]
                 ForEach(craftingitems) { item in
@@ -361,7 +361,7 @@ struct ForPhotography: View {
             //vertical since sewing goes first then we want the images to be top to bottom
             VStack {
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    gradient: Gradient(colors: [Color(red: 1.0, green: 0.94, blue: 0.96), Color.white]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
@@ -370,9 +370,9 @@ struct ForPhotography: View {
                 .padding(.horizontal, -16)
                 
                 Text("PHOTOGRAPHY")
-                    .font(.system(size: 30))
-                    .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .font(.custom("Lora-Bold", size: 35))
+                    //RGB color
+                    .foregroundColor(Color(red: 0.9, green: 0.39, blue: 0.64))
                     .padding(.top, -100)
                 //loop through the array-> index[0]...index[n]
                 ForEach(craftingitems) { item in

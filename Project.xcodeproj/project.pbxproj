@@ -30,11 +30,11 @@
 		CCD24BEB2CFBB77D005EEEB3 /* EmbroideryVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BEA2CFBB774005EEEB3 /* EmbroideryVideos.swift */; };
 		CCD24BEF2CFC18DE005EEEB3 /* ToolVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BEE2CFC18D5005EEEB3 /* ToolVideos.swift */; };
 		CCD24BF42CFC1A7D005EEEB3 /* CutAndSewVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BF32CFC1A78005EEEB3 /* CutAndSewVideos.swift */; };
+		CCEA0F882CFFA79F00180604 /* Lora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCEA0F872CFFA79F00180604 /* Lora-Bold.ttf */; };
 		CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */; };
 		CCF673212CFE73BD005E8A1A /* MainWatchVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */; };
 		CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */; };
 		CCF673252CFE84AB005E8A1A /* EmbroideryPlaylistVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673242CFE848E005E8A1A /* EmbroideryPlaylistVideos.swift */; };
-		CCFE5A342CFEAF560018CFB9 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE5A332CFEAF530018CFB9 /* Testing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,11 +81,12 @@
 		CCD24BEA2CFBB774005EEEB3 /* EmbroideryVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbroideryVideos.swift; sourceTree = "<group>"; };
 		CCD24BEE2CFC18D5005EEEB3 /* ToolVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolVideos.swift; sourceTree = "<group>"; };
 		CCD24BF32CFC1A78005EEEB3 /* CutAndSewVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutAndSewVideos.swift; sourceTree = "<group>"; };
+		CCEA0F872CFFA79F00180604 /* Lora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Bold.ttf"; sourceTree = "<group>"; };
+		CCEA0F892CFFAA3C00180604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformation.swift; sourceTree = "<group>"; };
 		CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWatchVideos.swift; sourceTree = "<group>"; };
 		CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SewingPlaylistVideosLink.swift; sourceTree = "<group>"; };
 		CCF673242CFE848E005E8A1A /* EmbroideryPlaylistVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbroideryPlaylistVideos.swift; sourceTree = "<group>"; };
-		CCFE5A332CFEAF530018CFB9 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -157,7 +158,8 @@
 		CC102AFE2CAFBF7300FE690C /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				CCFE5A332CFEAF530018CFB9 /* Testing.swift */,
+				CCEA0F892CFFAA3C00180604 /* Info.plist */,
+				CCEA0F872CFFA79F00180604 /* Lora-Bold.ttf */,
 				11ACAEB12CFACB8A00319594 /* LoginRegister */,
 				CC076ED92CED810400C796DD /* Video */,
 				114352FD2CDC42A900194565 /* ViewController.swift */,
@@ -367,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC102B072CAFBF7600FE690C /* Preview Assets.xcassets in Resources */,
+				CCEA0F882CFFA79F00180604 /* Lora-Bold.ttf in Resources */,
 				CC7A56952CEEBF7E00D2A1F8 /* Untitled design.mp4 in Resources */,
 				CC102B042CAFBF7600FE690C /* Assets.xcassets in Resources */,
 			);
@@ -412,7 +415,6 @@
 				CCB184332CF5658400409685 /* FAQSShop.swift in Sources */,
 				CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */,
 				CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */,
-				CCFE5A342CFEAF560018CFB9 /* Testing.swift in Sources */,
 				114352FE2CDC42AD00194565 /* ViewController.swift in Sources */,
 				CC102B002CAFBF7300FE690C /* ProjectApp.swift in Sources */,
 			);
@@ -581,6 +583,7 @@
 				DEVELOPMENT_TEAM = Y995HR6W6U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Project/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = YeseniaDesigns;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -611,6 +614,7 @@
 				DEVELOPMENT_TEAM = Y995HR6W6U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Project/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = YeseniaDesigns;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

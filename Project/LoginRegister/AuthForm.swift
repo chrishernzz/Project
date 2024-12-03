@@ -35,7 +35,7 @@ struct AuthForm: View {
             Color.white.edgesIgnoringSafeArea(.all)
             ScrollView {
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    gradient: Gradient(colors: [Color(red: 1.0, green: 0.94, blue: 0.96), Color.white]),
                     startPoint: .top,
                     endPoint: .bottom
                 )

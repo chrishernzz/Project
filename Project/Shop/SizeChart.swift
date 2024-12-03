@@ -18,7 +18,7 @@ struct SizeChart: View {
             ScrollView {
                 //this will start off white and then
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    gradient: Gradient(colors: [Color(red: 1.0, green: 0.94, blue: 0.96), Color.white]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
@@ -28,9 +28,9 @@ struct SizeChart: View {
                 //top to bottom-> vertical that gets the images then the link
                 VStack {
                     Text("SIZE CHART INFO")
-                        .font(.system(size: 30))
-                        .fontWeight(.bold)
-                        .foregroundColor(.pink)
+                        .font(.custom("Lora-Bold", size: 35))
+                        //RGB color
+                        .foregroundColor(Color(red: 0.9, green: 0.39, blue: 0.64))
                         .padding(.top, -100)
                         .padding(.bottom, 25)
                     //now the images go here

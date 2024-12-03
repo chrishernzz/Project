@@ -29,11 +29,11 @@ struct ContactInformation: View {
             ScrollView {
                 //this will start off white and then
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                    gradient: Gradient(colors: [Color(red: 1.0, green: 0.94, blue: 0.96), Color.white]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
-                .frame(height: 200)
+                .frame(height: 400)
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, -16)
                 //information is vertical-> text, then the name, email, subject, and message but in they are horizontal so you create HStack inside, will have a leading space of 20 from the far left
@@ -85,7 +85,7 @@ struct ContactInformation: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.top , 20)
+                .padding(.top , -200)
                 //going to reuse the function that goes after all the information
                 InformationAfterImages()
             }

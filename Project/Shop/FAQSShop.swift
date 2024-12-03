@@ -16,7 +16,7 @@ struct FAQSShop: View {
             ScrollView{
                 VStack {
                     LinearGradient(
-                        gradient: Gradient(colors: [Color.pink.opacity(0.2), Color.white]),
+                        gradient: Gradient(colors: [Color(red: 1.0, green: 0.94, blue: 0.96), Color.white]),
                         startPoint: .top,
                         endPoint: .bottom
                     )
@@ -24,9 +24,9 @@ struct FAQSShop: View {
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal, -16)
                     Text("FAQS")
-                        .font(.system(size: 30))
-                        .fontWeight(.bold)
-                        .foregroundColor(.pink)
+                        .font(.custom("Lora-Bold", size: 35))
+                        //RGB color
+                        .foregroundColor(Color(red: 0.9, green: 0.39, blue: 0.64))
                         .padding(.top, -100)
                     //this will display first since we are doing VStack-> topt to bottom
                     Image("shopfrontcover")
