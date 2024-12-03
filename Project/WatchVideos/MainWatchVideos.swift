@@ -11,6 +11,7 @@ struct MainWatchVideos: View{
     @Binding var isSubSidebarOpen: Bool
     @Binding var subSidebarOpen: Bool
     @Binding var selectTheOption: String
+    @Environment(\.openURL) var openurl
     
     //creating an array of names to loop from
     let watchVideos: [MainWatchVideosItems] = [
@@ -41,11 +42,43 @@ struct MainWatchVideos: View{
                 //now loop throught the options starting at index[0]...index[n]
                 ForEach(watchVideos) { item in
                     Button(action: {
-                        //set the paramter to the name the user picked
-                        selectTheOption = item.name
-                        //now flag the isSubSidebarOpen-> we don't want it open
-                        isSubSidebarOpen = false
-                        subSidebarOpen = false
+                        if (item.name == "YOUTUBE"){
+                            //going to unwrapped the link
+                            if let url = URL(string: "https://www.youtube.com/yeseniahernandezdesigns") {
+                                //will open the url
+                                openurl(url)
+                                //close them now
+                                isSubSidebarOpen = false
+                                subSidebarOpen = false
+                            }
+                        }
+                        else if (item.name == "REELS") {
+                            //going to unwrapped the link
+                            if let url = URL(string: "https://www.instagram.com/yeseniadesigns/reels/") {
+                                //will open the url
+                                openurl(url)
+                                //close them now
+                                isSubSidebarOpen = false
+                                subSidebarOpen = false
+                            }
+                        }
+                        else if (item.name == "TIKTOK") {
+                            //going to unwrapped the link
+                            if let url = URL(string: "https://www.tiktok.com/@yeseniadesigns?is_copy_url=1&is_from_webapp=v1") {
+                                //will open the url
+                                openurl(url)
+                                //close them now
+                                isSubSidebarOpen = false
+                                subSidebarOpen = false
+                            }
+                        }
+                        else {
+                            //set the paramter to the name the user picked
+                            selectTheOption = item.name
+                            //now flag the isSubSidebarOpen-> we don't want it open
+                            isSubSidebarOpen = false
+                            subSidebarOpen = false
+                        }
                     }) {
                         Text(item.name)
                             .font(.headline)

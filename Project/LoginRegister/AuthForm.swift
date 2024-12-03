@@ -27,8 +27,8 @@ struct AuthForm: View {
     @State private var logInUsername = ""
     @State private var logInPassword = ""
     
-    //maybe create an frame where it is set to login
-    @State private var currentView: String = "Log In"
+    //will control the switch between the login and the sign up
+    @State private var submittedButton = false
     
     var body: some View {
         ZStack {
@@ -42,92 +42,122 @@ struct AuthForm: View {
                 .frame(height: 200)
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, -16)
-                HStack {
-                    // Sign Up Form
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("Sign Up")
-                            .font(.system(size: 20))
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .padding(.top, -100)
-                            .padding(.leading, -40)
-                        
-                        if (submittedSignUp) {
-                            Text("Thank you. Your account has been created.")
-                                .foregroundColor(.gray)
-                                .font(.subheadline)
-                                .padding(.bottom)
-                        } else {
-                            CustomerUserName(username: $signUpUsername, isUserNameEmpty: $isSignUpUserNameEmpty)
-                                .padding(.top, -50)
-                            CustomerPassword(password: $signUpPassword, isPasswordEmpty: $isSignUpPasswordEmpty)
-                            
-                            Button(action: {
-                                validateUserSignUp()
-                            }) {
-                                Text("Sign Up")
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.black)
-                                    .cornerRadius(3)
-                            }
-                            .padding(.top, 0)
-                            .padding(.bottom, 20)
-                            
-                            if (isSignUpUserNameEmpty || isSignUpPasswordEmpty) {
-                                Text("Please correct the highlighted fields")
-                                    .padding(.top, -30)
+                VStack {
+                    if (submittedButton) {
+                        // Sign Up Form
+                        VStack(alignment: .leading, spacing: 20) {
+                            HStack {
+                                //once user signs up they are able to login-> this button will activate the login screen
+                                Button(action: {
+                                    //flag it to false,now it will go to the log up
+                                    submittedButton = false
+                                }) {
+                                    Text("Log In     |")
+                                        .font(.system(size: 30))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.black)
+                                        .padding(.leading, 70)
+                                }
+                                Text("  Sign Up")
+                                    .font(.system(size: 30))
+                                    .fontWeight(.bold)
                                     .foregroundColor(.black)
-                                    .font(.footnote)
+                                    .padding(.trailing, 60)
+                            }
+                            .padding(.horizontal, -25)
+                            .padding(.top, -100)
+                            if (submittedSignUp) {
+                                Text("Thank you. Your account has been created.")
+                                    .foregroundColor(.gray)
+                                    .font(.subheadline)
+                                    .padding(.bottom)
+                            }
+                            else {
+                                CustomerUserName(username: $signUpUsername, isUserNameEmpty: $isSignUpUserNameEmpty)
+                                    .padding(.top, -50)
+                                CustomerPassword(password: $signUpPassword, isPasswordEmpty: $isSignUpPasswordEmpty)
+                                
+                                Button(action: {
+                                    validateUserSignUp()
+                                }) {
+                                    Text("Sign Up")
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .background(Color.black)
+                                        .cornerRadius(3)
+                                }
+                                .padding(.top, 0)
+                                .padding(.bottom, 20)
+                                
+                                if (isSignUpUserNameEmpty || isSignUpPasswordEmpty) {
+                                    Text("Please correct the highlighted fields")
+                                        .padding(.top, -30)
+                                        .foregroundColor(.black)
+                                        .font(.footnote)
+                                }
                             }
                         }
+                        .padding(.horizontal)
+                        .padding(.top, 20)
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 20)
-                    
-                    // Log In Form
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("Log In")
-                            .font(.system(size: 20))
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .padding(.top, -100)
-                            .padding(.leading, -40)
-                        
-                        if (validLogIn) {
-                            Text("You are now logged in.")
-                                .foregroundColor(.gray)
-                                .font(.subheadline)
-                                .padding(.bottom)
-                        } else {
-                            LoginUserName(username: $logInUsername, isUserNameEmpty: $isLogInUserNameEmpty)
-                                .padding(.top, -50)
-                            LoginPassword(password: $logInPassword, isPasswordEmpty: $isLogInPasswordEmpty)
-                            
-                            Button(action: {
-                                validateUserLogin()
-                            }) {
-                                Text("Log in")
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.black)
-                                    .cornerRadius(3)
-                            }
-                            .padding(.top, 0)
-                            .padding(.bottom, 20)
-                            
-                            if (isLogInUserNameEmpty || isLogInPasswordEmpty) {
-                                Text("Please correct the highlighted fields")
-                                    .padding(.top, -30)
+                    else {
+                        // Log In Form
+                        VStack(alignment: .leading, spacing: 20) {
+                            HStack {
+                                Text("Log In     |")
+                                    .font(.system(size: 30))
+                                    .fontWeight(.bold)
                                     .foregroundColor(.black)
-                                    .font(.footnote)
+                                    .padding(.leading, 70)
+                                Spacer()
+                                Button(action: {
+                                    print("Simple Button tapped")
+                                    submittedButton = true
+                                }) {
+                                    Text("Sign Up")
+                                        .font(.system(size: 30))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.black)
+                                        .padding(.trailing, 60)
+                                }
+                            }
+                            .padding(.horizontal, -25)
+                            .padding(.top, -100)
+                            if (validLogIn) {
+                                Text("You are now logged in.")
+                                    .foregroundColor(.gray)
+                                    .font(.subheadline)
+                                    .padding(.bottom)
+                            }
+                            else {
+                                LoginUserName(username: $logInUsername, isUserNameEmpty: $isLogInUserNameEmpty)
+                                    .padding(.top, -50)
+                                LoginPassword(password: $logInPassword, isPasswordEmpty: $isLogInPasswordEmpty)
+                                
+                                Button(action: {
+                                    validateUserLogin()
+                                }) {
+                                    Text("Log in")
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .background(Color.black)
+                                        .cornerRadius(3)
+                                }
+                                .padding(.top, 0)
+                                .padding(.bottom, 20)
+                                
+                                if (isLogInUserNameEmpty || isLogInPasswordEmpty) {
+                                    Text("Please correct the highlighted fields")
+                                        .padding(.top, -30)
+                                        .foregroundColor(.black)
+                                        .font(.footnote)
+                                }
                             }
                         }
+                        .padding(.horizontal)
+                        .padding(.top, 20)
+                        
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 20)
                 }
                 .padding(.horizontal)
                 // Reuse the function that goes after all the information

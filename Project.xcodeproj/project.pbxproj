@@ -34,6 +34,7 @@
 		CCF673212CFE73BD005E8A1A /* MainWatchVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */; };
 		CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */; };
 		CCF673252CFE84AB005E8A1A /* EmbroideryPlaylistVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673242CFE848E005E8A1A /* EmbroideryPlaylistVideos.swift */; };
+		CCFE5A342CFEAF560018CFB9 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE5A332CFEAF530018CFB9 /* Testing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWatchVideos.swift; sourceTree = "<group>"; };
 		CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SewingPlaylistVideosLink.swift; sourceTree = "<group>"; };
 		CCF673242CFE848E005E8A1A /* EmbroideryPlaylistVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbroideryPlaylistVideos.swift; sourceTree = "<group>"; };
+		CCFE5A332CFEAF530018CFB9 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -155,6 +157,7 @@
 		CC102AFE2CAFBF7300FE690C /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				CCFE5A332CFEAF530018CFB9 /* Testing.swift */,
 				11ACAEB12CFACB8A00319594 /* LoginRegister */,
 				CC076ED92CED810400C796DD /* Video */,
 				114352FD2CDC42A900194565 /* ViewController.swift */,
@@ -409,6 +412,7 @@
 				CCB184332CF5658400409685 /* FAQSShop.swift in Sources */,
 				CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */,
 				CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */,
+				CCFE5A342CFEAF560018CFB9 /* Testing.swift in Sources */,
 				114352FE2CDC42AD00194565 /* ViewController.swift in Sources */,
 				CC102B002CAFBF7300FE690C /* ProjectApp.swift in Sources */,
 			);

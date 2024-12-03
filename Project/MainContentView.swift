@@ -12,7 +12,7 @@ struct MainContentView: View {
     @State private var isSidebarOpen = false
     @State private var subSidebarOpen1 = false
     @State private var subSidebarOpen2 = false
-    @State private var subSidebarOpne3 = false
+    @State private var subSidebarOpen3 = false
     
     //state variable to show the contact form
     @State private var showContactForm = false
@@ -177,8 +177,8 @@ struct MainContentView: View {
                             else if (subSidebarOpen2) {
                                 MainShop(isSubSidebarOpen: $isSidebarOpen, subSidebarOpen: $subSidebarOpen2, selectTheOption: $currentView)
                             }
-                            else if (subSidebarOpne3) {
-                                MainWatchVideos(isSubSidebarOpen: $isSidebarOpen, subSidebarOpen: $subSidebarOpne3, selectTheOption:  $currentView)
+                            else if (subSidebarOpen3) {
+                                MainWatchVideos(isSubSidebarOpen: $isSidebarOpen, subSidebarOpen: $subSidebarOpen3, selectTheOption:  $currentView)
                             }
                             else{
                                 //loop through the array (index[0]..etc)
@@ -187,7 +187,7 @@ struct MainContentView: View {
                                         //have three options where it has to check if they are a sub sidebar
                                         if (item.viewName == "WATCH VIDEOS") {
                                             //flag it to true->this will now go back to the subSidebaropen and open it and in there the struct will be passed but won't close the first sidebar view still is open
-                                            subSidebarOpne3 = true
+                                            subSidebarOpen3 = true
                                         }
                                         //else the second subsidebar which is 'SHOP' will open up
                                         else if (item.viewName == "SHOP") {
