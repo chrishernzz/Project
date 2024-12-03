@@ -237,7 +237,8 @@ struct MainContentView: View {
                         .padding(.leading, -20)
                         .padding(.top, 10)
                         .frame(width: UIScreen.main.bounds.width * 0.6)
-                        .background(Color.white)
+                        //RGB COLOR
+                        .background(Color(red: 239/255, green: 237/255, blue: 242/255))
                         .offset(x: isSidebarOpen ? 0 : -UIScreen.main.bounds.width * 0.6) 
                         .animation(.easeInOut(duration: 0.3), value: isSidebarOpen)
                         //same thing here but now horizontal
