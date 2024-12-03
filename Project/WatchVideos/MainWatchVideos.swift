@@ -90,6 +90,8 @@ struct MainWatchVideos: View{
             }
             .padding(.leading, 13)
             .padding(.trailing, -13)
+            .frame(width: UIScreen.main.bounds.width * 0.65)
+            .background(Color(red: 239/255, green: 237/255, blue: 242/255))
             
         }
     }

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct BlogView: View {
     var body: some View {
         //top of another layered so the background is white then on top we have our view
