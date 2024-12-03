@@ -52,7 +52,7 @@ struct HomeView: View {
                         }
                         
                         //this has to have a small space and it is vertical display (top to bottom)
-                        VStack(spacing: -5) {
+                        VStack(spacing: -8) {
                             CategorySectionView(title: "SEWING PATTERN TUTORIAL VIDEOS", textColor: .black, plusColor: .gray,currentlyExpanded: $currentlyExpanded)
                             CategorySectionView(title: "EMBROIDERY FILE VIDEOS", textColor: .black, plusColor: .gray,currentlyExpanded: $currentlyExpanded)
                             CategorySectionView(title: "TOOLS & SUPPLIES VIDEOS", textColor: .black, plusColor: .gray,currentlyExpanded: $currentlyExpanded)

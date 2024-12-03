@@ -33,6 +33,7 @@
 		CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */; };
 		CCF673212CFE73BD005E8A1A /* MainWatchVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */; };
 		CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */; };
+		CCF673252CFE84AB005E8A1A /* EmbroideryPlaylistVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF673242CFE848E005E8A1A /* EmbroideryPlaylistVideos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		CCF29ED42CC4A25E0030EF10 /* ContactInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformation.swift; sourceTree = "<group>"; };
 		CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWatchVideos.swift; sourceTree = "<group>"; };
 		CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SewingPlaylistVideosLink.swift; sourceTree = "<group>"; };
+		CCF673242CFE848E005E8A1A /* EmbroideryPlaylistVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbroideryPlaylistVideos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -206,6 +208,7 @@
 		CC102B2D2CAFC02800FE690C /* WatchVideos */ = {
 			isa = PBXGroup;
 			children = (
+				CCF673242CFE848E005E8A1A /* EmbroideryPlaylistVideos.swift */,
 				CCF673222CFE78C6005E8A1A /* SewingPlaylistVideosLink.swift */,
 				CCF673202CFE73AE005E8A1A /* MainWatchVideos.swift */,
 			);
@@ -388,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB184312CF545FD00409685 /* MainShop.swift in Sources */,
+				CCF673252CFE84AB005E8A1A /* EmbroideryPlaylistVideos.swift in Sources */,
 				CCD24BEB2CFBB77D005EEEB3 /* EmbroideryVideos.swift in Sources */,
 				CC102B352CAFC48300FE690C /* HomeView.swift in Sources */,
 				CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */,

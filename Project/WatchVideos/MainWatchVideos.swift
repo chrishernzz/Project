@@ -55,8 +55,8 @@ struct MainWatchVideos: View{
                 }
                 Spacer()
             }
-            .padding(.leading, -12)
-            .padding(.trailing, 12)
+            .padding(.leading, 13)
+            .padding(.trailing, -13)
             
         }
     }

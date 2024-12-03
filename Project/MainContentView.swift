@@ -61,6 +61,8 @@ struct MainContentView: View {
                     Text("BLOG")
                 case "SEWING PATTERN TUTORIAL VIDEOS":
                     SewingPlaylistVideosLink()
+                case "EMBROIDERY FILE VIDEOS":
+                    EmbroideryPlaylistVideos()
                 case "ETSY SHOP":
                     EtsyShopView()
                 case "FAQS":
@@ -227,7 +229,8 @@ struct MainContentView: View {
                             //going to take up all space as much as it can-> vertical here
                             Spacer()
                         }
-                        .padding()
+                        .padding(.leading, -20)
+                        .padding(.top, 10)
                         .frame(width: UIScreen.main.bounds.width * 0.6)
                         .background(Color.white)
                         .offset(x: isSidebarOpen ? 0 : -UIScreen.main.bounds.width * 0.6) 

@@ -60,10 +60,3 @@ struct SewingPlaylistVideosLink: View {
         .background(Color.white)
     }
 }
-
-//lets me see the updates (just a preview of the code you are doing)
-struct SewingPlaylistVideosLink_Previews: PreviewProvider {
-    static var previews: some View {
-        SewingPlaylistVideosLink()
-    }
-}
