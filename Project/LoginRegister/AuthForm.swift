@@ -180,7 +180,7 @@ struct AuthForm: View {
             
             /* Prepare user and password as json string */
             let userPayload: [String: Any] = ["username": signUpUsername, "password": signUpPassword]
-            
+            clearValidFields()
             do {
                 /* API call to create new user*/
                 ClientServer.shared.testLoad(url: "/user/signup", method: "POST", payload: userPayload) { result in
@@ -203,7 +203,6 @@ struct AuthForm: View {
                                     
                                     // If returns with status 200, update submittedSignUp
                                     submittedSignUp = true
-                                    clearValidFields()
                                 } else {
                                     print("Token not found in response.")
                                 }
@@ -214,6 +213,7 @@ struct AuthForm: View {
                     case .failure(let error):
                         print("Error: \(error.localizedDescription)")
                     }
+                    
                 }
             } catch {
                 print("Error serializing JSON: \(error.localizedDescription)")
@@ -235,6 +235,7 @@ struct AuthForm: View {
             
             /* Prepare user and password as json string */
             let userPayload: [String: Any] = ["username": logInUsername, "password": logInPassword]
+            clearValidFields()
             
             do {
                 // API call to log in user
@@ -257,7 +258,6 @@ struct AuthForm: View {
                                     
                                     // If returns with status 200, update validLogIn
                                     validLogIn = true
-                                    clearValidFields()
                                 } else {
                                     print("Token not found in response.")
                                 }

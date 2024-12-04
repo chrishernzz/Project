@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		114352FE2CDC42AD00194565 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114352FD2CDC42A900194565 /* ViewController.swift */; };
+		11823EC32CFF8C8C004A8034 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 11823EC22CFF8C8C004A8034 /* JWTDecode */; };
 		CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */; };
 		CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D632CDABF3A00B444AC /* NewsLetter.swift */; };
 		CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC076EDA2CED814100C796DD /* VideoWelcoming.swift */; };
@@ -100,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11823EC32CFF8C8C004A8034 /* JWTDecode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +357,9 @@
 				Base,
 			);
 			mainGroup = CC102AF32CAFBF7300FE690C;
+			packageReferences = (
+				11823EC12CFF8C8C004A8034 /* XCRemoteSwiftPackageReference "JWTDecode.swift" */,
+			);
 			productRefGroup = CC102AFD2CAFBF7300FE690C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -746,6 +751,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11823EC12CFF8C8C004A8034 /* XCRemoteSwiftPackageReference "JWTDecode.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11823EC22CFF8C8C004A8034 /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11823EC12CFF8C8C004A8034 /* XCRemoteSwiftPackageReference "JWTDecode.swift" */;
+			productName = JWTDecode;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CC102AF42CAFBF7300FE690C /* Project object */;
 }
