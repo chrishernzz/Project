@@ -22,7 +22,7 @@ struct MainContentView: View {
     
     //initialize it to Home Page right away
     @State private var currentView: String = "HOME"
-    //initialize it to home meaning it will be shaded gray since the app takes you to the homepage right away-> this controls what sidebar option user is in
+    //initialize it to home meaning it will be shaded gray since the app takes you to the homepage right away-> this controls what color sidebar it is depending on user option
     @State private var selectedOption: String = "HOME"
     
     //set it into an array of the information (the sidebar view)
