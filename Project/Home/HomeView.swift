@@ -8,6 +8,9 @@ import SwiftUI
 
 
 struct HomeView: View {
+    //need a two way data connection from the child view(binding) to parent view(state-> MainContentView) that will change the option for the blog
+    @Binding var blogOption: String
+    @Binding var selectedName: String
     @State private var userSearchText: String = ""
     //this will allow to change and the string is currently empty-> there is no value (nil)
     @State private var currentlyExpanded: String? = nil
@@ -79,6 +82,8 @@ struct HomeView: View {
                             .padding(.horizontal)
                         Button(action: {
                             // Blog button action here
+                            blogOption = "BLOG"
+                            selectedName = "BLOG"
                         }) {
                             Text("BLOG")
                                 .font(.headline)
@@ -87,6 +92,7 @@ struct HomeView: View {
                                 .padding(.horizontal, 20)
                                 .background(Color.black)
                                 .cornerRadius(5)
+                                .padding(.top,10)
                         }
                     }
                     //make the box taller
@@ -374,10 +380,10 @@ struct CustomersImagesUpload: View {
         }
     }
 }
-
-//lets me see the updates (just a preview of the code you are doing)
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//
+////lets me see the updates (just a preview of the code you are doing)
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView(currentView: .constant("HOME"))
+//    }
+//}

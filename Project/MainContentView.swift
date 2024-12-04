@@ -59,7 +59,7 @@ struct MainContentView: View {
                 //using switch to determine what view it is at
                 switch (currentView) {
                 case "HOME":
-                    HomeView()
+                    HomeView(blogOption: $currentView, selectedName: $selectedOption)
                 case "BLOG":
                     BlogView()
                 case "SEWING PATTERN TUTORIAL VIDEOS":
