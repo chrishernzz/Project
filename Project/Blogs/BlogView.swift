@@ -31,8 +31,8 @@ struct BlogView: View {
                         .padding(.top, -100)
                         .padding(.bottom, 25)
                     VStack(alignment: .leading, spacing: 20) {
-                        //call the first video blog
-                        FirstBlogVideo()
+                        //call the main page that has all the vlog information
+                        MainBlogPage()
                     }
                     .padding(.leading, -150)
                     .padding(.top, -30)

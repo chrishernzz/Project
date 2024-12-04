@@ -27,7 +27,8 @@
 		CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */; };
 		CCB184312CF545FD00409685 /* MainShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB184302CF545FD00409685 /* MainShop.swift */; };
 		CCB184332CF5658400409685 /* FAQSShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB184322CF5658400409685 /* FAQSShop.swift */; };
-		CCC8192F2D00456300942474 /* FirstBlogVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8192E2D00456000942474 /* FirstBlogVideo.swift */; };
+		CCC819352D01090D00942474 /* MainBlogPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC819342D01090300942474 /* MainBlogPage.swift */; };
+		CCC819372D01097600942474 /* BlogVideoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC819362D01096D00942474 /* BlogVideoInformation.swift */; };
 		CCD24BE82CFBA48E005EEEB3 /* SewingVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BE72CFBA489005EEEB3 /* SewingVideos.swift */; };
 		CCD24BEB2CFBB77D005EEEB3 /* EmbroideryVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BEA2CFBB774005EEEB3 /* EmbroideryVideos.swift */; };
 		CCD24BEF2CFC18DE005EEEB3 /* ToolVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24BEE2CFC18D5005EEEB3 /* ToolVideos.swift */; };
@@ -80,7 +81,8 @@
 		CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		CCB184302CF545FD00409685 /* MainShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShop.swift; sourceTree = "<group>"; };
 		CCB184322CF5658400409685 /* FAQSShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQSShop.swift; sourceTree = "<group>"; };
-		CCC8192E2D00456000942474 /* FirstBlogVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBlogVideo.swift; sourceTree = "<group>"; };
+		CCC819342D01090300942474 /* MainBlogPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBlogPage.swift; sourceTree = "<group>"; };
+		CCC819362D01096D00942474 /* BlogVideoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogVideoInformation.swift; sourceTree = "<group>"; };
 		CCD24BE72CFBA489005EEEB3 /* SewingVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SewingVideos.swift; sourceTree = "<group>"; };
 		CCD24BEA2CFBB774005EEEB3 /* EmbroideryVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbroideryVideos.swift; sourceTree = "<group>"; };
 		CCD24BEE2CFC18D5005EEEB3 /* ToolVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolVideos.swift; sourceTree = "<group>"; };
@@ -212,7 +214,8 @@
 		CC102B2C2CAFC01F00FE690C /* Blogs */ = {
 			isa = PBXGroup;
 			children = (
-				CCC8192E2D00456000942474 /* FirstBlogVideo.swift */,
+				CCC819362D01096D00942474 /* BlogVideoInformation.swift */,
+				CCC819342D01090300942474 /* MainBlogPage.swift */,
 				CCEA0F8B2CFFB35400180604 /* BlogView.swift */,
 			);
 			path = Blogs;
@@ -411,12 +414,13 @@
 				CCEA0F8C2CFFB36500180604 /* BlogView.swift in Sources */,
 				CCF673252CFE84AB005E8A1A /* EmbroideryPlaylistVideos.swift in Sources */,
 				CCD24BEB2CFBB77D005EEEB3 /* EmbroideryVideos.swift in Sources */,
+				CCC819352D01090D00942474 /* MainBlogPage.swift in Sources */,
 				CC102B352CAFC48300FE690C /* HomeView.swift in Sources */,
 				CC7A56972CEECA6100D2A1F8 /* ContactInformationForm.swift in Sources */,
 				CCD24BF42CFC1A7D005EEEB3 /* CutAndSewVideos.swift in Sources */,
+				CCC819372D01097600942474 /* BlogVideoInformation.swift in Sources */,
 				CCF29ED52CC4A25E0030EF10 /* ContactInformation.swift in Sources */,
 				CCF673212CFE73BD005E8A1A /* MainWatchVideos.swift in Sources */,
-				CCC8192F2D00456300942474 /* FirstBlogVideo.swift in Sources */,
 				CCD24BE82CFBA48E005EEEB3 /* SewingVideos.swift in Sources */,
 				CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */,
 				CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */,
