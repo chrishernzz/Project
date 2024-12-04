@@ -47,11 +47,10 @@ struct EtsyShopView: View {
                     .padding()
 
                     // Fetch products based on selected item type
-                    Button("Fetch Products") {
+                    Button("Load Items") {
                         fetchProducts(for: selectedItemType)
                     }
                     .padding()
-                    
                     /* Display each item. */
                     ForEach(products, id: \.id) { product in
                         ProductView(product: product)
