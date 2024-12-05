@@ -12,10 +12,6 @@ struct BlogVideoInformation: View {
     //one parameter that takes in an array of the blog information
     @Binding var blogs: [BlogItems]
     
-    //will change and update both increment like and comment
-    @State private var incrementLike = 0
-    @State private var incrementComment = 0
-
     //this will determine what blog the user wants based on what they click-> it is currently empty (no value)
     @State private var selectedBlogIndex: SelectedBlogIndex? = nil
     
@@ -31,7 +27,7 @@ struct BlogVideoInformation: View {
                         .font(.headline)
                         .fontWeight(.bold)
                         .foregroundColor(.black)
-                        .padding(.leading, 170)
+                        .padding(.leading, 165)
                 }
                 HStack (spacing: 5) {
                     Text(item.date)
@@ -41,7 +37,7 @@ struct BlogVideoInformation: View {
                         //you now have to set the index-> call the struct and passed in the index for the value (Ex if index is 0-> value will have 0)
                         selectedBlogIndex = SelectedBlogIndex(value: index)
                     }) {
-                        Text("\(item.comments) Comments")
+                        Text("\(blogs[index].commentCount) Comments")
                             .foregroundColor(.black)
                             .underline()
                     }
@@ -60,8 +56,8 @@ struct BlogVideoInformation: View {
                 
                 HStack(spacing: 10) {
                     Button(action: {
-                        //if user likes the video then increment it
-                        incrementLike += 1
+                        //this will now keep track of each video with their likes, you have to pass in the index
+                        blogs[index].likeCount += 1
                     }) {
                         //you want to add a frame then on top (ZStack-> layered top of another) lets us then add the information in the frame
                         ZStack {
@@ -71,7 +67,7 @@ struct BlogVideoInformation: View {
                             HStack(spacing: 5) {
                                 Image(systemName: "hand.thumbsup.fill")
                                     .foregroundColor(.white)
-                                Text("Like \(incrementLike)")
+                                Text("Like \(blogs[index].likeCount)")
                                     .foregroundColor(.white)
                                     .font(.subheadline)
                             }
@@ -79,15 +75,37 @@ struct BlogVideoInformation: View {
                         .padding(.leading,190)
                     }
                 }
+                Text("\(blogs[index].commentCount) Comments")
+                    .foregroundColor(.black)
+                    .underline()
+                    .padding(.leading, 170)
             }
         }
         //this will now create another screen and it will go to the screen depending on the selectedBlogIndex which we did above, you have to call the key which is value
         .fullScreenCover(item: $selectedBlogIndex) { item in
             if (item.value == 0) {
-                FirstBlogComments(blogs: $blogs,index: 0)
+                BlogWithComments(blogs: $blogs,index: 0)
             }
             else if (item.value == 1) {
-                SecondBlogComments(blogs: $blogs, index: 1)
+                BlogWithComments(blogs: $blogs,index: 1)
+            }
+            else if (item.value == 2) {
+                BlogWithComments(blogs: $blogs,index: 2)
+            }
+            else if (item.value == 3) {
+                BlogWithComments(blogs: $blogs,index: 3)
+            }
+            else if (item.value == 4) {
+                BlogWithComments(blogs: $blogs,index: 4)
+            }
+            else if (item.value == 5) {
+                BlogWithComments(blogs: $blogs,index: 5)
+            }
+            else if (item.value == 6) {
+                BlogWithComments(blogs: $blogs,index: 6)
+            }
+            else if (item.value == 7) {
+                BlogWithComments(blogs: $blogs,index: 7)
             }
         }
     }
@@ -99,9 +117,9 @@ struct SelectedBlogIndex: Identifiable {
     let id = UUID()
     let value: Int
 }
-//precondition: call the FirstBlogVideoMain(), reusing
+//precondition: call the FirstBlogVideoMain(), reusing and will carry an index to determine what video it opens
 //postcondition: going to allow the user to enter comments with the requirements of having name and comments
-struct FirstBlogComments: View {
+struct BlogWithComments: View {
     @Binding var blogs: [BlogItems]
     let index: Int
     
@@ -134,9 +152,21 @@ struct FirstBlogComments: View {
                 .padding()
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
-                        //have to adjust the padding
+                        //call the function but now you pass in what index you want to get and put some padding
                         BlogVideoInformation(blogs: .constant([blogs[index]]))
                             .padding(.leading, -150)
+                        
+                        //look through the comments
+                        ForEach(blogs[index].userComments, id: \.self) { userComment in
+                            VStack {
+                                Text(userComment)
+                                    .font(.body)
+                                    .foregroundColor(.black)
+                                    .padding(.leading, 20)
+                            }
+                            .padding(.top, -10)
+                        }
+                        
                         Text("Leave a Reply.")
                             .foregroundColor(.black)
                             .font(.title2)
@@ -151,6 +181,7 @@ struct FirstBlogComments: View {
                                 .padding(.bottom)
                                 .padding(.horizontal, 20)
                                 .padding(.top, 20)
+                                .padding(.bottom, 50)
                         }
                         else {
                             //call the information of all the structs you created
@@ -183,10 +214,7 @@ struct FirstBlogComments: View {
                                     .padding(.horizontal, 20)
                                     .padding(.top,-80)
                             }
-                            
-                            
                         }
-                        
                     }
                 }
             }
@@ -199,6 +227,10 @@ struct FirstBlogComments: View {
         isCommentsEmpty = comments.isEmpty
         
         if (!isNameEmpty && !isCommentsEmpty) {
+            //you now have to increment the comment count if it passes through this if statement
+            blogs[index].commentCount += 1
+            //you call the userComments then you append it since it is an array-> you append the comments and it is in a string
+            blogs[index].userComments.append("\(name): \(comments)")
             submittedMessage = true
             clearValidFields()
         }
@@ -211,116 +243,7 @@ struct FirstBlogComments: View {
         comments = ""
     }
 }
-//precondition: call the FirstBlogVideoMain(), reusing
-//postcondition: going to allow the user to enter comments with the requirements of having name and comments
-struct SecondBlogComments: View {
-    @Binding var blogs: [BlogItems]
-    let index: Int
-    
-    @State private var submittedMessage = false
-    @State private var name = ""
-    @State private var email = ""
-    @State private var website = ""
-    @State private var comments = ""
-    @State private var isNameEmpty = false
-    @State private var isCommentsEmpty = false
-    @Environment(\.dismiss) var dismiss
-    
-    var body: some View {
-        ZStack {
-            Color.white.edgesIgnoringSafeArea(.all)
-            VStack(alignment: .leading) {
-                //this button will be a dismiss and go back to the main menu
-                HStack {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.black)
-                            .padding(.leading, 10)
-                        Text("Return to Blog")
-                            .foregroundColor(.black)
-                    }
-                    Spacer()
-                }
-                .padding()
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        //have to adjust the padding
-                        BlogVideoInformation(blogs: .constant([blogs[index]]))
-                            .padding(.leading, -150)
-                        Text("Leave a Reply.")
-                            .foregroundColor(.black)
-                            .font(.title2)
-                            .padding(.horizontal, 20)
-                            .padding(.top, 30)
-                        //if user does send the comment then it is true
-                        if (submittedMessage){
-                            Text("Your comment was successfully posted.")
-                                .foregroundColor(.black)
-                                .font(.subheadline)
-                                .fontWeight(.bold)
-                                .padding(.bottom)
-                                .padding(.horizontal, 20)
-                                .padding(.top, 20)
-                        }
-                        else {
-                            //call the information of all the structs you created
-                            NameComment(name: $name, isNameEmpty: $isNameEmpty)
-                                .padding(.horizontal, 20)
-                            EmailComment(email: $email)
-                                .padding(.horizontal, 20)
-                            WebsiteComment(website: $website)
-                                .padding(.horizontal, 20)
-                            UserComments(comment: $comments, isCommentEmpty: $isCommentsEmpty)
-                                .padding(.horizontal, 20)
-                            
-                            Button(action: {
-                                validateUserInputs()
-                            }) {
-                                Text("Submit")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.black)
-                                    .cornerRadius(8)
-                                    .padding(.leading, 280)
-                            }
-                            if (isNameEmpty || isCommentsEmpty) {
-                                Text("Please correct the highlighted fields")
-                                    .foregroundColor(.red)
-                                    .font(.footnote)
-                                    .padding(.horizontal, 20)
-                                    .padding(.top,-80)
-                            }
-                            
-                            
-                        }
-                        
-                    }
-                }
-            }
-        }
-    }
-    //precondition: NONE
-    //postcondition: going to check if the input is not empty, if that is true then submittedMessage is true->shows the message then we clear the screen
-    private func validateUserInputs() {
-        isNameEmpty = name.isEmpty
-        isCommentsEmpty = comments.isEmpty
-        
-        if (!isNameEmpty && !isCommentsEmpty) {
-            submittedMessage = true
-            clearValidFields()
-        }
-    }
-    //just clears the information once everything is valid
-    private func clearValidFields() {
-        name = ""
-        email = ""
-        website = ""
-        comments = ""
-    }
-}
+
 //precondition: NONE
 //postcondition: going to create a function that controls the light mode and dark mode
 struct CustomTextFieldColorComment: View {
@@ -330,7 +253,7 @@ struct CustomTextFieldColorComment: View {
         VStack {
             //text input for user
             TextField("", text: $text)
-                .padding(.horizontal, 45)
+                .padding(.horizontal, 10)
                 .frame(height: 45)
                 .background(Color.white)
                 .cornerRadius(4)
@@ -416,12 +339,3 @@ struct UserComments: View {
         }
     }
 }
-
-
-////lets me see the updates (just a preview of the code you are doing)
-//struct FirstBlog_Preview: PreviewProvider {
-//    static var previews: some View {
-//        FirstBlogComments()
-//    }
-//}
-
