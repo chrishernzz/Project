@@ -20,12 +20,8 @@ struct OrderView: View {
             VStack {
                 if placedOrders.isEmpty {
                     VStack {
-                        HStack {
-                            Text("0 items ordered.")
-                                .foregroundColor(.black)
-                            Text("close")
-                                .foregroundColor(.gray)
-                        }
+                        Text("0 items ordered.")
+                            .foregroundColor(.black)
                         Text("Keep Shopping!:)")
                             .foregroundColor(.gray)
                     }

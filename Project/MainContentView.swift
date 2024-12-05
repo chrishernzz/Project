@@ -355,9 +355,9 @@ func handleLogout() {
 
 
 //shows the final preview of all the structs combined
-//struct MainContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainContentView()
-//    }
-//}
+struct MainContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainContentView()
+    }
+}
 

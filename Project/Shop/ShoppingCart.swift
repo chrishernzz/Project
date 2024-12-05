@@ -31,12 +31,8 @@ struct ShoppingCart: View {
                     } else if products.isEmpty {
                         // No items in the cart
                         VStack {
-                            HStack {
-                                Text("0 items in your cart")
-                                    .foregroundColor(.black)
-                                Text("close")
-                                    .foregroundColor(.gray)
-                            }
+                            Text("0 items in your cart")
+                                .foregroundColor(.black)
                             Text("Keep Shopping!:)")
                                 .foregroundColor(.gray)
                         }
