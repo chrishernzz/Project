@@ -439,11 +439,8 @@
 				CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */,
 				CCD24BEF2CFC18DE005EEEB3 /* ToolVideos.swift in Sources */,
 				CC64844B2CF8124900F107E0 /* SizeChart.swift in Sources */,
-<<<<<<< Updated upstream
 				CC0A4A1D2D015C8000538E76 /* Faqs.swift in Sources */,
-=======
 				11823ECD2D01B788004A8034 /* OrderView.swift in Sources */,
->>>>>>> Stashed changes
 				CCB184332CF5658400409685 /* FAQSShop.swift in Sources */,
 				CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */,
 				CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */,
