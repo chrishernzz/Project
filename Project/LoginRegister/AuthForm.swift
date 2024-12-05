@@ -434,8 +434,8 @@ func hashPassword(_ password: String) -> String {
 
 
 //shows the final preview of all the structs combined
-struct AuthForm_Previews: PreviewProvider {
-    static var previews: some View {
-        AuthForm()
-    }
-}
+//struct AuthForm_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AuthForm()
+//    }
+//}

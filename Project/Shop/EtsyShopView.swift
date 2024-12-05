@@ -193,10 +193,8 @@ struct ProductView: View {
         let documentPath = "/Users/isaiahvogt/Documents/411/FinalProject/Yesenia-Designs-App/"
         let imagePath = documentPath.appending(imagePath)
         guard let image = UIImage(contentsOfFile: imagePath) else {
-            print("Failed img string: \(imagePath)\n")
             return nil
         }
-        print("Failed img string: \(image)\n")
         return image
     }
     
@@ -324,9 +322,9 @@ struct ProductView: View {
 
 
 //lets me see the updates (just a preview of the code you are doing)
-struct ShopView_Previews: PreviewProvider {
-    static var previews: some View {
-        EtsyShopView()
-    }
-}
+//struct ShopView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EtsyShopView()
+//    }
+//}
 

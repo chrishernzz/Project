@@ -94,21 +94,23 @@ struct ContactInformation: View {
     //precondition: NONE
     //postcondition: going to check if the input is not empty, if that is true then submittedMessage is true->shows the message then we clear the screen
     private func validateUserInputs() {
-        //flag the variables to empty
-        isFirstNameEmpty = firstName.isEmpty
-        isLastNameEmpty = lastName.isEmpty
-        isEmailEmpty = email.isEmpty
-        isSubjectEmpty = subject.isEmpty
-        isMessageEmpty = message.isEmpty
-        //create a constant to make sure the email is valid and you call the function
-        let isEmailValid = !isValidEmail(email)
-        
-        //if all variables are not empty (fill in) run this and call the clearValidFields()
-        if (!isFirstNameEmpty && !isLastNameEmpty && !isEmailEmpty && !isEmailValid && !isSubjectEmpty && !isMessageEmpty) {
-            //flag it to true so now it will show the message
-            submittedMessage = true
-            //clear the input after-> by doing this you set everything to empty strings(call the function)
-            clearValidFields()
+        sendInquiry(name: firstName, email: email, subject: subject, message: message) { inquiry in
+            //flag the variables to empty
+            isFirstNameEmpty = firstName.isEmpty
+            isLastNameEmpty = lastName.isEmpty
+            isEmailEmpty = email.isEmpty
+            isSubjectEmpty = subject.isEmpty
+            isMessageEmpty = message.isEmpty
+            //create a constant to make sure the email is valid and you call the function
+            let isEmailValid = !isValidEmail(email)
+            
+            //if all variables are not empty (fill in) run this and call the clearValidFields()
+            if (!isFirstNameEmpty && !isLastNameEmpty && !isEmailEmpty && !isEmailValid && !isSubjectEmpty && !isMessageEmpty) {
+                //flag it to true so now it will show the message
+                submittedMessage = true
+                //clear the input after-> by doing this you set everything to empty strings(call the function)
+                clearValidFields()
+            }
         }
     }
     //just clears the information once everything is valid
@@ -120,6 +122,43 @@ struct ContactInformation: View {
         message = ""
     }
 }
+
+struct Inquiry: Identifiable, Codable {
+    var id: String
+    var name: String
+    var email: String
+    var subject: String
+    var message: String
+}
+
+/* API Request to create contact inquiry. */
+func sendInquiry(name: String, email: String, subject: String, message: String, completion: @escaping (Inquiry?) -> Void) {
+    
+    ClientServer.shared.testLoad(url: "/contact", method: "POST") {
+        result in
+        
+        switch result {
+        case .success(let responseString):
+            if let data = responseString.data(using: .utf8) {
+                do {
+                    let inquiry = try JSONDecoder().decode(Inquiry.self, from: data)
+                    completion(inquiry)
+                } catch {
+                    print("Error decoding JSON: \(error.localizedDescription)")
+                    completion(nil) // Return nil in case of error
+                }
+            } else {
+                print("Error converting response string to data")
+                completion(nil) // Return nil if conversion fails
+            }
+        case .failure(let error):
+            print("Error: \(error.localizedDescription)")
+            completion(nil) // Call completion with nil on error
+        }
+        
+    }
+}
+
 //precondition: NONE
 //postcondition: going to create a function that controls the light mode and dark mode
 struct CustomTextFieldColor: View {

@@ -153,20 +153,20 @@ struct ContactInformationForm: View {
     //precondition: NONE
     //postcondition: going to check if the input is not empty, if that is true then submittedMessage is true->shows the message then we clear the screen
     private func validateUserInputs() {
-        //flag the variables to empty
-        isNameEmpty = name.isEmpty
-        isEmailEmpty = email.isEmpty
-        isSubjectEmpty = subject.isEmpty
-        isMessageEmpty = message.isEmpty
-        //create a constant to make sure the email is valid and you call the function
-        let isEmailValid = !isValidEmail(email)
-        
-        //if all variables are not empty (fill in) run this and call the clearValidFields()
-        if (!isNameEmpty && !isEmailEmpty && !isEmailValid && !isSubjectEmpty && !isMessageEmpty) {
-            //flag it to true so now it will show the message
-            showConfirmationMessage = true
-            //clear the input after-> by doing this you set everything to empty strings(call the function)
-            clearValidFields()
+            //flag the variables to empty
+            isNameEmpty = name.isEmpty
+            isEmailEmpty = email.isEmpty
+            isSubjectEmpty = subject.isEmpty
+            isMessageEmpty = message.isEmpty
+            //create a constant to make sure the email is valid and you call the function
+            let isEmailValid = !isValidEmail(email)
+            
+            //if all variables are not empty (fill in) run this and call the clearValidFields()
+                if (!isNameEmpty && !isEmailEmpty && !isEmailValid && !isSubjectEmpty && !isMessageEmpty) {
+                    //flag it to true so now it will show the message
+                    showConfirmationMessage = true
+                    //clear the input after-> by doing this you set everything to empty strings(call the function)
+                    clearValidFields()
         }
     }
     //just clears the information once everything is valid

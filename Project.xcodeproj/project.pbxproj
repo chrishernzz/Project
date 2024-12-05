@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		114352FE2CDC42AD00194565 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114352FD2CDC42A900194565 /* ViewController.swift */; };
 		11823EC32CFF8C8C004A8034 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 11823EC22CFF8C8C004A8034 /* JWTDecode */; };
+		11823ECB2D018344004A8034 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11823ECA2D01833E004A8034 /* CheckoutView.swift */; };
+		11823ECD2D01B788004A8034 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11823ECC2D01B785004A8034 /* OrderView.swift */; };
 		CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */; };
 		CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D632CDABF3A00B444AC /* NewsLetter.swift */; };
 		CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC076EDA2CED814100C796DD /* VideoWelcoming.swift */; };
@@ -61,6 +63,8 @@
 
 /* Begin PBXFileReference section */
 		114352FD2CDC42A900194565 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		11823ECA2D01833E004A8034 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		11823ECC2D01B785004A8034 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsAndSupplies.swift; sourceTree = "<group>"; };
 		CC050D632CDABF3A00B444AC /* NewsLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLetter.swift; sourceTree = "<group>"; };
 		CC076EDA2CED814100C796DD /* VideoWelcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWelcoming.swift; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 		CC102B2E2CAFC03100FE690C /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				11823ECC2D01B785004A8034 /* OrderView.swift */,
+				11823ECA2D01833E004A8034 /* CheckoutView.swift */,
 				CC64844A2CF8123A00F107E0 /* SizeChart.swift */,
 				CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */,
 				CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */,
@@ -428,11 +434,16 @@
 				CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */,
 				CC102B372CAFC5AB00FE690C /* EtsyShopView.swift in Sources */,
 				CC7A56992CEECF1D00D2A1F8 /* ShoppingCart.swift in Sources */,
+				11823ECB2D018344004A8034 /* CheckoutView.swift in Sources */,
 				CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */,
 				CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */,
 				CCD24BEF2CFC18DE005EEEB3 /* ToolVideos.swift in Sources */,
 				CC64844B2CF8124900F107E0 /* SizeChart.swift in Sources */,
+<<<<<<< Updated upstream
 				CC0A4A1D2D015C8000538E76 /* Faqs.swift in Sources */,
+=======
+				11823ECD2D01B788004A8034 /* OrderView.swift in Sources */,
+>>>>>>> Stashed changes
 				CCB184332CF5658400409685 /* FAQSShop.swift in Sources */,
 				CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */,
 				CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */,

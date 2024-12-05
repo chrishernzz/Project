@@ -31,6 +31,7 @@ struct MainContentView: View {
         SidebarItem(name: "BLOG", viewName: "BLOG"),
         SidebarItem(name: "WATCH VIDEOS", viewName: "WATCH VIDEOS"),
         SidebarItem(name: "SHOP", viewName: "SHOP"),
+        SidebarItem(name: "ORDERS", viewName: "ORDERS"),
         SidebarItem(name: "TOOLS & SUPPLIES", viewName: "TOOLS & SUPPLIES"),
         SidebarItem(name: "NEWSLETTER", viewName: "NEWSLETTER"),
         SidebarItem(name: "CONTACT", viewName: "CONTACT"),
@@ -68,6 +69,8 @@ struct MainContentView: View {
                     EmbroideryPlaylistVideos()
                 case "ETSY SHOP":
                     EtsyShopView()
+                case "ORDERS":
+                    OrderView()
                 case "FAQS":
                     FAQSShop()
                 case "SIZE CHART":
@@ -352,9 +355,9 @@ func handleLogout() {
 
 
 //shows the final preview of all the structs combined
-struct MainContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainContentView()
-    }
-}
+//struct MainContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainContentView()
+//    }
+//}
 
