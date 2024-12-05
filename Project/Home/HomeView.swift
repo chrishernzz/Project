@@ -189,7 +189,10 @@ struct CategorySectionView: View {
                         .cornerRadius(10)
                         .padding(.horizontal)
                 case "FAQS":
-                    Text("HI")
+                    Faqs()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
                 default:
                     Text("Not Found ")
                         .font(.headline)
@@ -380,10 +383,3 @@ struct CustomersImagesUpload: View {
         }
     }
 }
-//
-////lets me see the updates (just a preview of the code you are doing)
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeView(currentView: .constant("HOME"))
-//    }
-//}

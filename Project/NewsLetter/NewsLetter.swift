@@ -161,10 +161,4 @@ struct NewsLetterInformation: View {
         }
     }
 }
-//lets me see the updates (just a preview of the code you are doing)
-struct NewsLetter_Previews: PreviewProvider {
-    static var previews: some View {
-        NewsLetter()
-    }
-}
 

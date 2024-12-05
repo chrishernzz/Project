@@ -28,18 +28,6 @@ struct CutAndSewVideos: View {
                 .padding(.leading, 5)
                 .padding(.trailing, 5)
                 .padding(.bottom, -50)
-                
-                //create a button if they click on view playlist
-//                Button(action: {
-//                    //if they click view then in here we will call all the playlist
-//                }) {
-//                    Text("VIEW PLAYLIST>>")
-//                        .foregroundColor(.white)
-//                        .padding()
-//                        .background(Color.black)
-//                        .cornerRadius(4)
-//                }
-//                .padding(.leading, 190)
             }
         }
     }

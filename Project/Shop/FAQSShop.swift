@@ -74,11 +74,3 @@ struct WebView: UIViewRepresentable {
         uiView.load(request)
     }
 }
-
-
-//shows the final preview of all the structs combined
-struct FAQSShop_Preview: PreviewProvider {
-    static var previews: some View {
-        FAQSShop()
-    }
-}

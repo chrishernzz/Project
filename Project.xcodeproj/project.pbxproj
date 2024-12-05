@@ -12,6 +12,7 @@
 		CC050D612CD5C1FD00B444AC /* ToolsAndSupplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */; };
 		CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC050D632CDABF3A00B444AC /* NewsLetter.swift */; };
 		CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC076EDA2CED814100C796DD /* VideoWelcoming.swift */; };
+		CC0A4A1D2D015C8000538E76 /* Faqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A4A1C2D015C5A00538E76 /* Faqs.swift */; };
 		CC102B002CAFBF7300FE690C /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102AFF2CAFBF7300FE690C /* ProjectApp.swift */; };
 		CC102B022CAFBF7300FE690C /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC102B012CAFBF7300FE690C /* MainContentView.swift */; };
 		CC102B042CAFBF7600FE690C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC102B032CAFBF7600FE690C /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		CC050D602CD5C1FC00B444AC /* ToolsAndSupplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsAndSupplies.swift; sourceTree = "<group>"; };
 		CC050D632CDABF3A00B444AC /* NewsLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLetter.swift; sourceTree = "<group>"; };
 		CC076EDA2CED814100C796DD /* VideoWelcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWelcoming.swift; sourceTree = "<group>"; };
+		CC0A4A1C2D015C5A00538E76 /* Faqs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faqs.swift; sourceTree = "<group>"; };
 		CC102AFC2CAFBF7300FE690C /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC102AFF2CAFBF7300FE690C /* ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectApp.swift; sourceTree = "<group>"; };
 		CC102B012CAFBF7300FE690C /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 		CC102B332CAFC2FC00FE690C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CC0A4A1C2D015C5A00538E76 /* Faqs.swift */,
 				CCD24BF32CFC1A78005EEEB3 /* CutAndSewVideos.swift */,
 				CCD24BEE2CFC18D5005EEEB3 /* ToolVideos.swift */,
 				CCD24BEA2CFBB774005EEEB3 /* EmbroideryVideos.swift */,
@@ -429,6 +432,7 @@
 				CC050D642CDABF3A00B444AC /* NewsLetter.swift in Sources */,
 				CCD24BEF2CFC18DE005EEEB3 /* ToolVideos.swift in Sources */,
 				CC64844B2CF8124900F107E0 /* SizeChart.swift in Sources */,
+				CC0A4A1D2D015C8000538E76 /* Faqs.swift in Sources */,
 				CCB184332CF5658400409685 /* FAQSShop.swift in Sources */,
 				CC076EDB2CED814100C796DD /* VideoWelcoming.swift in Sources */,
 				CCF673232CFE78CD005E8A1A /* SewingPlaylistVideosLink.swift in Sources */,
