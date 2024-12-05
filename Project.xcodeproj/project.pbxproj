@@ -241,9 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				11823ECC2D01B785004A8034 /* OrderView.swift */,
+				CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */,
 				11823ECA2D01833E004A8034 /* CheckoutView.swift */,
 				CC64844A2CF8123A00F107E0 /* SizeChart.swift */,
-				CC102B362CAFC5AB00FE690C /* EtsyShopView.swift */,
 				CC7A56982CEECF1D00D2A1F8 /* ShoppingCart.swift */,
 				CCB184302CF545FD00409685 /* MainShop.swift */,
 				CCB184322CF5658400409685 /* FAQSShop.swift */,

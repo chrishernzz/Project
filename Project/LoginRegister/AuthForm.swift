@@ -52,17 +52,22 @@ struct AuthForm: View {
                                     //flag it to false,now it will go to the log up
                                     submittedButton = false
                                 }) {
-                                    Text("Log In     |")
+                                    Text("Log In")
                                         .font(.system(size: 30))
                                         .fontWeight(.bold)
                                         .foregroundColor(.black)
                                         .padding(.leading, 70)
+                                    Text("|")
+                                        .font(.system(size: 30))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.black)
+                                        .padding(.leading, 10)
                                 }
-                                Text("  Sign Up")
+                                Text("Sign Up")
                                     .font(.system(size: 30))
                                     .fontWeight(.bold)
                                     .foregroundColor(.black)
-                                    .padding(.trailing, 60)
+                                    .padding(.leading, 10)
                             }
                             .padding(.horizontal, -25)
                             .padding(.top, -100)
@@ -104,12 +109,16 @@ struct AuthForm: View {
                         // Log In Form
                         VStack(alignment: .leading, spacing: 20) {
                             HStack {
-                                Text("Log In     |")
+                                Text("Log In")
                                     .font(.system(size: 30))
                                     .fontWeight(.bold)
                                     .foregroundColor(.black)
                                     .padding(.leading, 70)
-                                Spacer()
+                                    Text("|")
+                                        .font(.system(size: 30))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.black)
+                                        .padding(.leading, 10)
                                 Button(action: {
                                     print("Simple Button tapped")
                                     submittedButton = true
@@ -118,7 +127,7 @@ struct AuthForm: View {
                                         .font(.system(size: 30))
                                         .fontWeight(.bold)
                                         .foregroundColor(.black)
-                                        .padding(.trailing, 60)
+                                        .padding(.leading, 10)
                                 }
                             }
                             .padding(.horizontal, -25)
@@ -327,7 +336,7 @@ struct CustomerUserName: View {
             //need the first and last name side to side->horizontal
             HStack {
                 //call the funtion here
-                CustomTextFieldColor(nameHolder: "user", text: $username, emptyCheck: $isUserNameEmpty)
+                CustomTextFieldColor(nameHolder: "", text: $username, emptyCheck: $isUserNameEmpty)
             }
         }
     }
@@ -371,7 +380,7 @@ struct LoginUserName: View {
             //need the first and last name side to side->horizontal
             HStack {
                 // CustomTextFColor is defined in the sister file SignUpForm.swift
-                CustomTextFieldColor(nameHolder: "user", text: $username, emptyCheck: $isUserNameEmpty)
+                CustomTextFieldColor(nameHolder: "", text: $username, emptyCheck: $isUserNameEmpty)
             }
         }
     }
@@ -434,8 +443,8 @@ func hashPassword(_ password: String) -> String {
 
 
 //shows the final preview of all the structs combined
-//struct AuthForm_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AuthForm()
-//    }
-//}
+struct AuthForm_Previews: PreviewProvider {
+    static var previews: some View {
+        AuthForm()
+    }
+}
