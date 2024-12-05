@@ -175,7 +175,6 @@ struct MainContentView: View {
                             //this if,else if,and else will check if any sub side bars are open if not then it will go the other views
                             if (subSidebarOpen1) {
                                 ToolsAndSupplies(isSubSidebarOpen: $isSidebarOpen,subSidebarOpen: $subSidebarOpen1,selectTheOption: $currentView)
-                                    
                             }
                             else if (subSidebarOpen2) {
                                 MainShop(isSubSidebarOpen: $isSidebarOpen, subSidebarOpen: $subSidebarOpen2, selectTheOption: $currentView)
