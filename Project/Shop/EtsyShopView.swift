@@ -151,6 +151,8 @@ struct ProductView: View {
     var product: Product
     /* manage loading items */
     @State private var isAddingToCart = false
+    @State private var isUserLoggedIn = false // Track if the user is logged in
+    @State private var showLoginAlert = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -172,20 +174,29 @@ struct ProductView: View {
                 .lineLimit(3) // Limit the number of lines
             Divider() // Divider between products
             
-            /* Add to cart */
-            Button(action: {
-                addToCart(product.id)
-            }) {
-                Text("Add to Cart")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+            /* Add to cart button only if user is logged in */
+            if isUserLoggedIn {
+                Button(action: {
+                    addToCart(product.id)
+                }) {
+                    Text("Add to Cart")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                .disabled(isAddingToCart)
+                .opacity(isAddingToCart ? 0.5 : 1.0)
+            } else {
+                Text("Please log in to add items to your cart.")
+                    .foregroundColor(.gray)
+                    .font(.subheadline)
             }
-            .disabled(isAddingToCart)
-            .opacity(isAddingToCart ? 0.5 : 1.0)
         }
         .padding()
+        .onAppear {
+            checkUserLoginStatus() // Check login status when the view appears
+        }
     }
     
     // Function to load an image from a file path
@@ -196,6 +207,15 @@ struct ProductView: View {
             return nil
         }
         return image
+    }
+    
+    /* Check if the user is logged in */
+    private func checkUserLoginStatus() {
+        if UserDefaults.standard.string(forKey: "authToken") != nil {
+            isUserLoggedIn = true
+        } else {
+            isUserLoggedIn = false
+        }
     }
     
     /* If user is logged in, allow them to add to cart. */
@@ -252,79 +272,3 @@ struct ProductView: View {
         }
     }
 }
-    /* Parse the JWT to obtain the user */
-//    private func getUsernameFromToken(_ token: String, completion: @escaping (String?) -> Void) {
-//        /* Decode the base64-encoded, 3 part token. */
-//        do {
-//            let jwt = try decode(jwt: token)
-//            if let userId = jwt["userId"].string {
-//                ClientServer.shared.testLoad(url: "/user/\(userId)", method: "GET") { result in
-//                    switch result {
-//                    case .success(let responseString):
-//                        
-//                        /* Parse the username from the response string. */
-//                        if let data = responseString.data(using: .utf8) {
-//                            do {
-//                                if let json = try JSONSerialization.jsonObject(with: data,
-//                                                                               options: []) as? [String: Any],
-//                                   let username = json["user"] as? String{
-//                                    // Successfully parsed the username
-//                                    completion(username)
-//                                } else {
-//                                    print("Username not found in response.")
-//                                }
-//                            } catch {
-//                                print("Failed to parse response: \(error.localizedDescription)")
-//                            }
-//                        }
-//                    case .failure(let error):
-//                        print("Error: \(error.localizedDescription)")
-//                    }
-//                    completion(nil)
-//                }
-//                // Return nil here because the network call is asynchronous
-//                return
-//            }
-//        } catch {
-//            print("Error parsing JSON: \(error)")
-//        }
-//        completion(nil)
-//    }
-        
-        
-        
-        
-        
-        
-        
-//        let components = token.split(separator: ".")
-//        let payload = components[1]
-//        print("Payload: \(payload)")
-//        guard let decodedPayload = Data(base64Encoded: String(payload), options: .ignoreUnknownCharacters) else {
-//            return nil
-//        }
-//        print("Token1: \(decodedPayload)")
-//        /* Parse the decoded token to retrieve the username. */
-//        guard let jsonString = String(data: decodedPayload, encoding: .utf8) else { return nil}
-//        print("Token2: \(jsonString)")
-//        guard let jsonData = jsonString.data(using: .utf8) else {return nil}
-//    
-//        do {
-//           if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any],
-//              let username = json["username"] as? String {
-//               return username
-//           }
-//       } catch {
-//           print("Error parsing JSON: \(error)")
-//       }
-//       
-//       return nil
-
-
-//lets me see the updates (just a preview of the code you are doing)
-//struct ShopView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EtsyShopView()
-//    }
-//}
-

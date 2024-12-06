@@ -134,7 +134,13 @@ struct Inquiry: Identifiable, Codable {
 /* API Request to create contact inquiry. */
 func sendInquiry(name: String, email: String, subject: String, message: String, completion: @escaping (Inquiry?) -> Void) {
     
-    ClientServer.shared.testLoad(url: "/contact", method: "POST") {
+    // Generate a unique ID
+    let uniqueId = UUID().uuidString
+    
+    /* Prepare bullshit payload. */
+    let pay: [String: Any] = ["id": uniqueId, "name": name, "email": email, "subject": subject, "message": message]
+    
+    ClientServer.shared.testLoad(url: "/contact", method: "POST", payload: pay) {
         result in
         
         switch result {
