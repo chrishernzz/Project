@@ -237,7 +237,7 @@ struct MainContentView: View {
                             Spacer()
                         }
                         .padding(.leading, -20)
-                        .padding(.top, 10)
+                        .padding(.top, 15)
                         .frame(width: UIScreen.main.bounds.width * 0.6)
                         //RGB COLOR
                         .background(Color(red: 239/255, green: 237/255, blue: 242/255))
