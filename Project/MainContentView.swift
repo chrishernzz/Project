@@ -158,6 +158,7 @@ struct MainContentView: View {
                         //set the currentView a
                         SocialMediaIcon(imageName: "shoppingcartimage", action: {
                             currentView = "ETSY SHOP"
+                            selectedOption = "SHOP"
                         })
                         SocialMediaIcon(imageName: "tiktokimage",url: "https://www.tiktok.com/@yeseniadesigns")
                         SocialMediaIcon(imageName: "mailimage", action: {
